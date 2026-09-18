@@ -1,0 +1,101 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"office_title": {
+				"__TYPE__": "FieldContent",
+				"value": "popular",
+				"type": "Text"
+			},
+			"form_title": {
+				"__TYPE__": "FieldContent",
+				"value": "went",
+				"type": "Text"
+			},
+			"form_description": {
+				"__TYPE__": "FieldContent",
+				"value": "duck",
+				"type": "Text"
+			},
+			"submit_label": {
+				"__TYPE__": "FieldContent",
+				"value": "scientific",
+				"type": "Text"
+			},
+			"contact_details": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"key": "64b70121-d780-4a33-82f2-c97cf3c99bc3",
+						"value": [
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "having",
+									"type": "Text"
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "temperature",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Minim pariatur magna incididunt sint Lorem do anim consequat velit dolore ullamco. Irure sit Lorem non tempor sint irure laborum id esse eiusmod in. In adipisicing consequat eu cupidatat excepteur id dolore aute laborum minim."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"name_label": {
+				"__TYPE__": "FieldContent",
+				"value": "shake",
+				"type": "Text"
+			},
+			"email_label": {
+				"__TYPE__": "FieldContent",
+				"value": "across",
+				"type": "Text"
+			},
+			"phone_number_label": {
+				"__TYPE__": "FieldContent",
+				"value": "effort",
+				"type": "Text"
+			},
+			"message_label": {
+				"__TYPE__": "FieldContent",
+				"value": "atmosphere",
+				"type": "Text"
+			},
+			"gender_label": {
+				"__TYPE__": "FieldContent",
+				"value": "quarter",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"key": "afbbfb51-3620-445c-bd3b-414045b7dbb7",
+				"value": []
+			}
+		]
+	}
+]

@@ -1,0 +1,93 @@
+{
+  "id": "initiative_feature",
+  "name": "Initiative Feature",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "anchor_id": {
+          "config": {
+            "label": "anchor id"
+          },
+          "type": "Text"
+        },
+        "pretitle": {
+          "config": {
+            "label": "pretitle"
+          },
+          "type": "Text"
+        },
+        "title": {
+          "config": {
+            "label": "title"
+          },
+          "type": "Text"
+        },
+        "image_badge": {
+          "config": {
+            "label": "image badge"
+          },
+          "type": "Text"
+        },
+        "image_title": {
+          "config": {
+            "label": "image title"
+          },
+          "type": "Text"
+        },
+        "initiatives_heading": {
+          "config": {
+            "label": "initiatives heading"
+          },
+          "type": "Text"
+        },
+        "image": {
+          "config": {
+            "label": "Featured image"
+          },
+          "type": "Image"
+        },
+        "description": {
+          "config": {
+            "label": "Description",
+            "multi": "paragraph,strong,em,hyperlink"
+          },
+          "type": "StructuredText"
+        },
+        "initiatives": {
+          "config": {
+            "fields": {
+              "description": {
+                "config": {
+                  "label": "Initiative description"
+                },
+                "type": "Text"
+              }
+            },
+            "label": "Initiatives"
+          },
+          "type": "Group"
+        },
+        "actions": {
+          "config": {
+            "allowText": true,
+            "label": "Actions",
+            "repeat": true,
+            "variants": [
+              "sponsor",
+              "explore",
+              "volunteer"
+            ]
+          },
+          "type": "Link"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

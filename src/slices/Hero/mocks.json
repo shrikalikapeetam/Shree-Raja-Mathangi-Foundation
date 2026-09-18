@@ -1,0 +1,95 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"pre_title": {
+				"__TYPE__": "FieldContent",
+				"value": "practice",
+				"type": "Text"
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ea mollit eiusmod ipsum nisi sunt. Reprehenderit laboris sit excepteur voluptate veniam."
+						}
+					}
+				]
+			},
+			"pillars": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"key": "2b17b154-32cd-476c-82aa-15052b2bfd85",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "happily",
+									"type": "Text"
+								}
+							],
+							[
+								"link",
+								{
+									"key": "5a341f70-1d62-4bbd-8544-08492c2b5015",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"cta": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"__TYPE__": "LinkContent",
+						"key": "f6983ae1-f8eb-4083-82d2-1f950a1941a2",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "https://prismic.io",
+							"text": "worth",
+							"variant": "Solid White"
+						}
+					}
+				]
+			},
+			"background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "Light",
+				"type": "Select"
+			},
+			"background_type": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"cta_size": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"pre_title_background_color": {
+				"__TYPE__": "FieldContent",
+				"value": "Light",
+				"type": "Select"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"key": "f0ceec51-fbcf-4a6a-954c-eb43c3a68bb2",
+				"value": []
+			}
+		]
+	}
+]

@@ -1,0 +1,74 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "writing",
+				"type": "Text"
+			},
+			"values": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"key": "05dc6df4-9b26-4341-b6a9-ee771f5ec6a5",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "never",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "middle",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Elit est quis ullamco Lorem sit consectetur tempor. Consequat ipsum nostrud occaecat enim eu et tempor. Labore consequat culpa fugiat ad magna adipisicing ut nisi adipisicing."
+						}
+					}
+				]
+			},
+			"actions": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"__TYPE__": "LinkContent",
+						"key": "827330ff-8e85-4af7-90db-07f4bc5815f4",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "https://slicemachine.dev",
+							"text": "paragraph",
+							"variant": "Solid Orange"
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"key": "84e3c891-e3f8-47b9-8479-417423e71b51",
+				"value": []
+			}
+		]
+	}
+]

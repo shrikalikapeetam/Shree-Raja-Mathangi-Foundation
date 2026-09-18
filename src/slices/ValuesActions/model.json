@@ -1,0 +1,68 @@
+{
+  "id": "values_actions",
+  "name": "Values Actions",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "heading": {
+          "config": {
+            "label": "Heading"
+          },
+          "type": "Text"
+        },
+        "values": {
+          "config": {
+            "fields": {
+              "title": {
+                "config": {
+                  "label": "Title"
+                },
+                "type": "Text"
+              },
+              "description": {
+                "config": {
+                  "label": "Description"
+                },
+                "type": "Text"
+              }
+            },
+            "label": "Values"
+          },
+          "type": "Group"
+        },
+        "content": {
+          "config": {
+            "allowTargetBlank": true,
+            "label": "Content",
+            "multi": "paragraph,strong,em,hyperlink"
+          },
+          "type": "StructuredText"
+        },
+        "actions": {
+          "config": {
+            "label": "Actions",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true,
+            "variants": [
+              "Solid Orange",
+              "Solid Blue",
+              "Solid White"
+            ],
+            "select": null
+          },
+          "type": "Link"
+        }
+      },
+      "version": "",
+      "items": {}
+    }
+  ]
+}

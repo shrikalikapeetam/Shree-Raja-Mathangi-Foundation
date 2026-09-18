@@ -1,0 +1,17 @@
+{
+  "repositoryName": "shree-raja-mathangi-foundation",
+  "libraries": [
+    "./src/slices"
+  ],
+  "routes": [
+    {
+      "type": "page",
+      "uid": "homepage",
+      "path": "/"
+    },
+    {
+      "type": "page",
+      "path": "/:uid"
+    }
+  ]
+}

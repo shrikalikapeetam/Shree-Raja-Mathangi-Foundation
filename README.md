@@ -1,56 +1,85 @@
 # Shree Raja Mathangi Foundation
 
-A Next.js App Router project connected to Prismic and configured with shadcn/ui.
+Next.js App Router website connected to the `shree-raja-mathangi-foundation` Prismic repository.
 
-## Getting started
+## Local development
 
-Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME` to your Prismic repository name. Then run:
+```bash
+npm install
+cp .env.example .env.local
+npm run dev
+```
+
+Preserve `.env.local` if it already exists. `npm run dev` (or `pnpm dev`) starts the website at http://localhost:3000 and the Slice Machine editor at http://localhost:9999. Press Ctrl+C to stop both services.
+
+## Prismic connection
+
+`slicemachine.config.json` identifies the repository and configures the Next.js adapter and slice library. `src/prismicio.ts` configures the Content API client, automatic draft previews, and a 60-second revalidation interval for published content queries.
+
+- Content API: `https://shree-raja-mathangi-foundation.cdn.prismic.io/api/v2`
+- Custom Types API: `https://customtypes.prismic.io`
+- Migration API: `https://migration.prismic.io`
+- Management API repository header: `shree-raja-mathangi-foundation`
+
+The Content API is public and currently needs no read token. If made private, set `PRISMIC_ACCESS_TOKEN` to a Content API read token. `PRISMIC_WRITE_TOKEN` is reserved for private management tooling; the website client does not use it. Keep tokens in ignored `.env.local` files or hosting environment settings, never in Git or variables prefixed with `NEXT_PUBLIC_`.
+
+Verify the live connection:
+
+```bash
+npm run prismic:check
+```
+
+## Content models and pages
+
+The repeatable **Page** type (`page`) includes a unique URL slug (`uid`), a page title, a slice area, and SEO title, description, and image fields. Create any number of Page documents, such as `about` or `our-work`; `src/app/[uid]/page.tsx` renders them at `/about` and `/our-work`.
+
+The **Hero** slice (`hero`) includes a Key Text pre-title, rich text content (H1–H6, paragraphs, lists, bold, italic, links, and the `highlight orange` label), and a repeatable Pillars group with Key Text labels and optional links. Apply `highlight orange` to selected text to render it in orange with a wavy underline.
+
+The **Values Actions** slice (`values_actions`) includes a Key Text heading rendered as H2, repeatable Key Text value titles and descriptions, rich text supporting paragraphs, and repeatable action links with display text. Action variants map to the shared shadcn Button: `accent` (orange gradient/heart), `brand` (navy/volunteer), and `neutral` (white/handshake). An action without a destination renders disabled. Use an italic paragraph for the quote and a fully bold paragraph for the closing statement.
+
+Shared foundation colors, font families, font sizes, and shadows live in `src/app/globals.css`. Hero and Values Actions consume these tokens; the shared Button provides the three action variants and the `action` size.
+
+The reusable **Text Section** slice (`text_section`) supports an optional section heading plus rich text paragraphs, subheadings, links, bold/italic text, and lists. Add, repeat, and reorder it within a Page document.
+
+Models and generated TypeScript types are present locally. Sync model changes to Prismic after signing in with repository access, then create and publish Page documents. Missing documents render a 404; API/authentication failures remain errors. The Page with UID `homepage` resolves to `/` and renders only Prismic slices. For an unpublished Homepage, open **Preview the page → Local development** in Prismic; normal visitors see published content only. Avoid slugs reserved by application routes, including `api` and `slice-simulator`.
+
+`prismic.config.json` supports CLI model editing and stores the page route resolver. It shares the repository and slice library settings with `slicemachine.config.json`; keep those settings aligned. Do not run `prismic init` to update this setup, as it migrates away from Slice Machine.
+
+## Slice Machine
+
+Start the website and Slice Machine together:
 
 ```bash
 npm run dev
 ```
 
-The Prismic CLI can complete repository setup after authenticating with `npx prismic login`, followed by `npx prismic init --repo <repository-name>`.
+To run them separately, use `npm run dev:web` and `npm run slicemachine` in separate terminals.
 
-## UI components
+Open http://localhost:9999 for the editor and sign in to a Prismic account with access to this repository. The website runs at http://localhost:3000, with the simulator at http://localhost:3000/slice-simulator. If you change the website port, update `localSliceSimulatorURL` in `slicemachine.config.json`.
 
-shadcn components live in `src/components/ui`. Add more components with:
+Slice Machine stores slice components and models under `src/slices`, page/custom types under `customtypes`, and generates `prismicio-types.d.ts`. Commit these generated source files; the `.slicemachine` cache is ignored. The component registry includes Text Section and is regenerated by the modeling tools.
+
+Create page types and slices in Slice Machine, implement their generated React components, and push the models to Prismic. Then create and publish documents in Prismic. Fetch content in Server Components using `createClient()` from `@/prismicio` and render slice fields using `SliceZone` with `components` from `@/slices`. Add matching route resolvers to `prismic.config.json` as you implement additional Next.js pages.
+
+The write token saved locally does not sign you in to the Slice Machine editor. Model syncing requires a Prismic account with repository access.
+
+## Previews
+
+The app includes `/api/preview` to start previews and `/api/exit-preview` to end them. Once authenticated, register the local preview:
 
 ```bash
-npx shadcn@latest add <component>
+npx prismic preview add http://localhost:3000/api/preview --name Development
 ```
 
-## Getting Started
+For Page Builder live previews, configure `http://localhost:3000/slice-simulator` in the repository’s live preview settings.
 
-First, run the development server:
+For a deployed site, register its HTTPS `/api/preview` URL as another preview. Preview rendering requires a page implementation for the corresponding content type.
+
+## Checks
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+shadcn components live in `src/components/ui`.

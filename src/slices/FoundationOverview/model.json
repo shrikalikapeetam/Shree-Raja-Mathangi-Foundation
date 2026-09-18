@@ -1,0 +1,119 @@
+{
+  "id": "foundation_overview",
+  "name": "Foundation Overview",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "pretitle": {
+          "config": {
+            "label": "pretitle"
+          },
+          "type": "Text"
+        },
+        "title": {
+          "config": {
+            "label": "title"
+          },
+          "type": "Text"
+        },
+        "highlights_title": {
+          "config": {
+            "label": "highlights title"
+          },
+          "type": "Text"
+        },
+        "trust_pretitle": {
+          "config": {
+            "label": "trust pretitle"
+          },
+          "type": "Text"
+        },
+        "trust_title": {
+          "config": {
+            "label": "trust title"
+          },
+          "type": "Text"
+        },
+        "trust_description": {
+          "config": {
+            "label": "trust description"
+          },
+          "type": "Text"
+        },
+        "banner_text": {
+          "config": {
+            "label": "banner text"
+          },
+          "type": "Text"
+        },
+        "content": {
+          "config": {
+            "label": "Mission content",
+            "multi": "paragraph,strong,em,hyperlink"
+          },
+          "type": "StructuredText"
+        },
+        "highlights": {
+          "config": {
+            "label": "Trust highlights",
+            "multi": "list-item,strong,em,hyperlink"
+          },
+          "type": "StructuredText"
+        },
+        "trustees": {
+          "config": {
+            "fields": {
+              "name": {
+                "config": {
+                  "label": "Trustee name"
+                },
+                "type": "Text"
+              },
+              "role": {
+                "config": {
+                  "label": "Trustee role"
+                },
+                "type": "Text"
+              },
+              "responsibility": {
+                "config": {
+                  "label": "Trustee responsibility"
+                },
+                "type": "Text"
+              }
+            },
+            "label": "Trustees"
+          },
+          "type": "Group"
+        },
+        "actions": {
+          "config": {
+            "allowText": true,
+            "label": "Actions",
+            "repeat": true,
+            "variants": [
+              "support",
+              "vision",
+              "csr"
+            ]
+          },
+          "type": "Link"
+        },
+        "volunteer": {
+          "config": {
+            "allowText": true,
+            "label": "Volunteer action"
+          },
+          "type": "Link"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

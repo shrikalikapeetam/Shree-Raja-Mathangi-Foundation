@@ -1,0 +1,101 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"overlay_pretitle": {
+				"__TYPE__": "FieldContent",
+				"value": "second",
+				"type": "Text"
+			},
+			"overlay_title": {
+				"__TYPE__": "FieldContent",
+				"value": "caught",
+				"type": "Text"
+			},
+			"overlay_description": {
+				"__TYPE__": "FieldContent",
+				"value": "ten",
+				"type": "Text"
+			},
+			"featured_image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1589321599763-d66926c29613",
+					"width": 3168,
+					"height": 4752
+				},
+				"width": 3168,
+				"height": 4752,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"url": "https://images.unsplash.com/photo-1589321599763-d66926c29613",
+				"alt": "too",
+				"credits": null,
+				"__TYPE__": "ImageContent"
+			},
+			"overlay_details": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Elit non culpa ullamco ullamco ipsum aute eiusmod nisi aliquip."
+						}
+					}
+				]
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Elit sit fugiat veniam. Voluptate mollit pariatur adipisicing voluptate voluptate culpa ea cupidatat ut non."
+						}
+					}
+				]
+			},
+			"callout_title": {
+				"__TYPE__": "FieldContent",
+				"value": "production",
+				"type": "Text"
+			},
+			"callout_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "In culpa laboris Lorem eu ut esse incididunt."
+						}
+					}
+				]
+			},
+			"quote": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ad irure Lorem cupidatat qui nulla aute velit sint est dolore sit adipisicing non qui."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"key": "0c9164bd-8c48-434f-8fe1-4b1e584cadf3",
+				"value": []
+			}
+		]
+	}
+]

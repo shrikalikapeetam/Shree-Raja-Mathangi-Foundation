@@ -1,0 +1,98 @@
+{
+  "id": "vision_mission",
+  "name": "Vision Mission",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "vision_pretitle": {
+          "config": {
+            "label": "Vision Pretitle"
+          },
+          "type": "Text"
+        },
+        "vision_title": {
+          "config": {
+            "label": "Vision Title"
+          },
+          "type": "Text"
+        },
+        "vision_quote": {
+          "config": {
+            "label": "Vision Quote"
+          },
+          "type": "Text"
+        },
+        "vision_footer": {
+          "config": {
+            "label": "Vision Footer"
+          },
+          "type": "Text"
+        },
+        "mission_pretitle": {
+          "config": {
+            "label": "Mission Pretitle"
+          },
+          "type": "Text"
+        },
+        "mission_title": {
+          "config": {
+            "label": "Mission Title"
+          },
+          "type": "Text"
+        },
+        "mission_description": {
+          "config": {
+            "label": "Mission Description"
+          },
+          "type": "Text"
+        },
+        "directives_label": {
+          "config": {
+            "label": "Directives Label"
+          },
+          "type": "Text"
+        },
+        "pillars": {
+          "config": {
+            "fields": {
+              "icon": {
+                "config": {
+                  "label": "Pillar icon"
+                },
+                "type": "Text"
+              },
+              "title": {
+                "config": {
+                  "label": "Pillar title"
+                },
+                "type": "Text"
+              },
+              "description": {
+                "config": {
+                  "label": "Pillar description"
+                },
+                "type": "Text"
+              }
+            },
+            "label": "Pillars"
+          },
+          "type": "Group"
+        },
+        "directives_link": {
+          "config": {
+            "allowText": true,
+            "label": "Directives link"
+          },
+          "type": "Link"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

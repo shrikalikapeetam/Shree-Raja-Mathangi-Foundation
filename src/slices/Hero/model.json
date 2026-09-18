@@ -1,0 +1,84 @@
+{
+  "id": "hero",
+  "name": "Hero",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "background_color": {
+          "type": "Select",
+          "config": {
+            "label": "Background Color",
+            "placeholder": "",
+            "options": ["Light", "Dark"]
+          }
+        },
+        "background_type": {
+          "type": "Boolean",
+          "config": {
+            "label": "Background Type",
+            "placeholder_false": "Contained",
+            "placeholder_true": "Full Width",
+            "default_value": false
+          }
+        },
+        "pre_title_background_color": {
+          "type": "Select",
+          "config": {
+            "label": "Pre Title Background Color",
+            "placeholder": "",
+            "options": ["Light", "Dark"]
+          }
+        },
+        "pre_title": {
+          "config": {
+            "label": "Pre-title"
+          },
+          "type": "Text"
+        },
+        "content": {
+          "config": {
+            "allowTargetBlank": true,
+            "label": "Content",
+            "labels": ["highlight orange"],
+            "multi": "heading1,heading2,heading3,heading4,heading5,heading6,paragraph,list-item,o-list-item,strong,em,hyperlink"
+          },
+          "type": "StructuredText"
+        },
+        "cta": {
+          "type": "Link",
+          "config": {
+            "label": "CTA",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true,
+            "variants": [
+              "Solid Orange",
+              "Solid Blue",
+              "Solid White",
+              "Solid Cream"
+            ]
+          }
+        },
+        "cta_size": {
+          "type": "Boolean",
+          "config": {
+            "label": "CTA Size",
+            "placeholder_false": "Small",
+            "placeholder_true": "Normal",
+            "default_value": false
+          }
+        }
+      },
+      "version": "",
+      "items": {}
+    }
+  ]
+}

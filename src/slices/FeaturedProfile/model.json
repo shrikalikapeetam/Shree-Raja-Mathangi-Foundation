@@ -1,0 +1,76 @@
+{
+  "id": "featured_profile",
+  "name": "Featured Profile",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "overlay_pretitle": {
+          "config": {
+            "label": "overlay pretitle"
+          },
+          "type": "Text"
+        },
+        "overlay_title": {
+          "config": {
+            "label": "overlay title"
+          },
+          "type": "Text"
+        },
+        "overlay_description": {
+          "config": {
+            "label": "overlay description"
+          },
+          "type": "Text"
+        },
+        "featured_image": {
+          "config": {
+            "label": "Featured image"
+          },
+          "type": "Image"
+        },
+        "overlay_details": {
+          "config": {
+            "label": "Overlay details",
+            "multi": "list-item,strong,em,hyperlink"
+          },
+          "type": "StructuredText"
+        },
+        "content": {
+          "config": {
+            "label": "Content",
+            "multi": "heading3,heading4,paragraph,strong,em,hyperlink,list-item,o-list-item"
+          },
+          "type": "StructuredText"
+        },
+        "callout_title": {
+          "config": {
+            "label": "Callout title"
+          },
+          "type": "Text"
+        },
+        "callout_content": {
+          "config": {
+            "label": "Callout content",
+            "multi": "paragraph,strong,em,hyperlink"
+          },
+          "type": "StructuredText"
+        },
+        "quote": {
+          "config": {
+            "label": "Quote",
+            "multi": "paragraph,strong,em"
+          },
+          "type": "StructuredText"
+        }
+      },
+      "version": "",
+      "items": {}
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "id": "contact_inquiry",
+  "name": "Contact Inquiry",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "office_title": {
+          "config": {
+            "label": "Office Title"
+          },
+          "type": "Text"
+        },
+        "contact_details": {
+          "type": "Group",
+          "config": {
+            "label": "Contact Details",
+            "repeat": true,
+            "fields": {
+              "icon": {
+                "type": "Text",
+                "config": {
+                  "label": "Icon",
+                  "placeholder": ""
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,hyperlink,strong,em"
+                }
+              }
+            }
+          }
+        },
+        "form_title": {
+          "config": {
+            "label": "Form Title"
+          },
+          "type": "Text"
+        },
+        "form_description": {
+          "config": {
+            "label": "Form Description"
+          },
+          "type": "Text"
+        },
+        "name_label": {
+          "type": "Text",
+          "config": {
+            "label": "Name Label",
+            "placeholder": ""
+          }
+        },
+        "gender_label": {
+          "type": "Text",
+          "config": {
+            "label": "Gender Label",
+            "placeholder": ""
+          }
+        },
+        "email_label": {
+          "type": "Text",
+          "config": {
+            "label": "Email Label",
+            "placeholder": ""
+          }
+        },
+        "phone_number_label": {
+          "type": "Text",
+          "config": {
+            "label": "Phone Number Label",
+            "placeholder": ""
+          }
+        },
+        "message_label": {
+          "type": "Text",
+          "config": {
+            "label": "Message Label",
+            "placeholder": ""
+          }
+        },
+        "submit_label": {
+          "config": {
+            "label": "Submit Label"
+          },
+          "type": "Text"
+        }
+      },
+      "version": "",
+      "items": {}
+    }
+  ]
+}

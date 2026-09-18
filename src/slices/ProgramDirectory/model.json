@@ -1,0 +1,103 @@
+{
+  "id": "program_directory",
+  "name": "Program Directory",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "pretitle": {
+          "config": {
+            "label": "pretitle"
+          },
+          "type": "Text"
+        },
+        "title": {
+          "config": {
+            "label": "title"
+          },
+          "type": "Text"
+        },
+        "description": {
+          "config": {
+            "label": "description"
+          },
+          "type": "Text"
+        },
+        "programs": {
+          "config": {
+            "fields": {
+              "category": {
+                "config": {
+                  "default_value": "Education & Scholars",
+                  "label": "Category",
+                  "options": [
+                    "Education & Scholars",
+                    "Sanctuaries & Temples",
+                    "Youth & Community"
+                  ]
+                },
+                "type": "Select"
+              },
+              "icon": {
+                "config": {
+                  "default_value": "book",
+                  "label": "Icon",
+                  "options": [
+                    "book",
+                    "graduation",
+                    "heart",
+                    "temple",
+                    "research",
+                    "sparkles",
+                    "community"
+                  ]
+                },
+                "type": "Select"
+              },
+              "badge": {
+                "config": {
+                  "label": "Program badge"
+                },
+                "type": "Text"
+              },
+              "title": {
+                "config": {
+                  "label": "Program title"
+                },
+                "type": "Text"
+              },
+              "description": {
+                "config": {
+                  "label": "Program description"
+                },
+                "type": "Text"
+              },
+              "focus_areas": {
+                "config": {
+                  "label": "Focus areas",
+                  "multi": "list-item,strong,em"
+                },
+                "type": "StructuredText"
+              },
+              "action": {
+                "config": {
+                  "allowText": true,
+                  "label": "Program action"
+                },
+                "type": "Link"
+              }
+            },
+            "label": "Programs"
+          },
+          "type": "Group"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

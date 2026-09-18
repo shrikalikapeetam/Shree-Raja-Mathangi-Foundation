@@ -1,0 +1,31 @@
+{
+  "id": "text_section",
+  "name": "Text Section",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "heading": {
+          "config": {
+            "label": "Heading",
+            "single": "heading2"
+          },
+          "type": "StructuredText"
+        },
+        "body": {
+          "config": {
+            "label": "Content",
+            "multi": "paragraph,heading3,strong,em,hyperlink,list-item,o-list-item"
+          },
+          "type": "StructuredText"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

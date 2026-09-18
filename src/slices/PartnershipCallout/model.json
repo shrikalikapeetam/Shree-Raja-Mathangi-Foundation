@@ -1,0 +1,49 @@
+{
+  "id": "partnership_callout",
+  "name": "Partnership Callout",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "pretitle": {
+          "config": {
+            "label": "pretitle"
+          },
+          "type": "Text"
+        },
+        "title": {
+          "config": {
+            "label": "title"
+          },
+          "type": "Text"
+        },
+        "content": {
+          "config": {
+            "label": "Content",
+            "multi": "paragraph,strong,em,hyperlink"
+          },
+          "type": "StructuredText"
+        },
+        "actions": {
+          "config": {
+            "allowText": true,
+            "label": "Actions",
+            "repeat": true,
+            "variants": [
+              "donation",
+              "volunteer",
+              "partnership"
+            ]
+          },
+          "type": "Link"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

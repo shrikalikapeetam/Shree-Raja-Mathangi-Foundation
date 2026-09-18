@@ -1,0 +1,83 @@
+{
+  "id": "feature_grid",
+  "name": "Feature Grid",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "pretitle": {
+          "config": {
+            "label": "Pre-title"
+          },
+          "type": "Text"
+        },
+        "title": {
+          "config": {
+            "label": "Title"
+          },
+          "type": "Text"
+        },
+        "introduction": {
+          "config": {
+            "label": "Introduction",
+            "multi": "paragraph,strong,em,hyperlink"
+          },
+          "type": "StructuredText"
+        },
+        "callout": {
+          "config": {
+            "label": "Callout"
+          },
+          "type": "Text"
+        },
+        "cards": {
+          "config": {
+            "fields": {
+              "icon": {
+                "config": {
+                  "default_value": "heart",
+                  "label": "Icon",
+                  "options": [
+                    "heart",
+                    "graduation",
+                    "sprout",
+                    "temple",
+                    "community",
+                    "shield"
+                  ]
+                },
+                "type": "Select"
+              },
+              "title": {
+                "config": {
+                  "label": "Card title"
+                },
+                "type": "Text"
+              },
+              "description": {
+                "config": {
+                  "label": "Card description"
+                },
+                "type": "Text"
+              },
+              "footer": {
+                "config": {
+                  "label": "Card footer"
+                },
+                "type": "Text"
+              }
+            },
+            "label": "Cards"
+          },
+          "type": "Group"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

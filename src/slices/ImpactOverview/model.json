@@ -1,0 +1,106 @@
+{
+  "id": "impact_overview",
+  "name": "Impact Overview",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "pretitle": {
+          "config": {
+            "label": "pretitle"
+          },
+          "type": "Text"
+        },
+        "title": {
+          "config": {
+            "label": "title"
+          },
+          "type": "Text"
+        },
+        "description": {
+          "config": {
+            "label": "description"
+          },
+          "type": "Text"
+        },
+        "commitment_label": {
+          "config": {
+            "label": "commitment label"
+          },
+          "type": "Text"
+        },
+        "banner_pretitle": {
+          "config": {
+            "label": "banner pretitle"
+          },
+          "type": "Text"
+        },
+        "banner_title": {
+          "config": {
+            "label": "banner title"
+          },
+          "type": "Text"
+        },
+        "banner_description": {
+          "config": {
+            "label": "banner description"
+          },
+          "type": "Text"
+        },
+        "outcomes": {
+          "config": {
+            "fields": {
+              "icon": {
+                "config": {
+                  "default_value": "graduation",
+                  "label": "Outcome icon",
+                  "options": [
+                    "graduation",
+                    "heart",
+                    "temple",
+                    "book",
+                    "research",
+                    "community"
+                  ]
+                },
+                "type": "Select"
+              },
+              "title": {
+                "config": {
+                  "label": "Outcome title"
+                },
+                "type": "Text"
+              },
+              "description": {
+                "config": {
+                  "label": "Outcome description"
+                },
+                "type": "Text"
+              }
+            },
+            "label": "Outcomes"
+          },
+          "type": "Group"
+        },
+        "actions": {
+          "config": {
+            "allowText": true,
+            "label": "Banner actions",
+            "repeat": true,
+            "variants": [
+              "support",
+              "volunteer"
+            ]
+          },
+          "type": "Link"
+        }
+      },
+      "version": ""
+    }
+  ]
+}
