@@ -16,17 +16,19 @@ export default function Hero({ slice }: HeroProps) {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={cn(
-        slice.primary.background_color === "Light" && "bg-foundation-white",
-        slice.primary.background_color === "Dark" && "bg-legacy-surface",
+        slice.primary.background_color === "Light" &&
+          "bg-foundation-white section-my",
+        slice.primary.background_color === "Dark" &&
+          "bg-legacy-surface section-py border-y border-orange-100",
       )}
     >
       <div className="container p-4">
         <div
           className={cn(
-            " flex flex-col items-center text-center gap-4",
+            " flex flex-col items-center text-center gap-5",
             !slice.primary.background_type
               ? "bg-legacy-surface section-my p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20 shadow shadow-amber-50 border border-legacy-sand rounded-2xl"
-              : "bg-foundation-white",
+              : "bg-transparent",
           )}
         >
           {isFilled.keyText(slice.primary.pre_title) && (
@@ -65,7 +67,13 @@ export default function Hero({ slice }: HeroProps) {
                 <h6 className={"text-foundation-ink font-bold"}>{children}</h6>
               ),
               paragraph: ({ children }) => (
-                <p className={"text-foundation-body"}>{children}</p>
+                <>
+                  <p className={"text-foundation-body"}>{children}</p>
+                  <div
+                    aria-hidden="true"
+                    className="h-2 w-40 shrink-0 rounded-full bg-linear-to-r from-orange-500 to-yellow-500"
+                  />
+                </>
               ),
               strong: ({ children }) => (
                 <strong className={"text-legacy-accent"}>{children}</strong>
@@ -88,21 +96,21 @@ export default function Hero({ slice }: HeroProps) {
               {slice.primary.cta.map((cta, index) => {
                 const hasLink = Boolean(asLink(cta));
                 const className = cn(
-                    buttonVariants({
-                      variant:
-                        cta.variant === "Solid Orange"
-                          ? "accent"
-                          : cta.variant === "Solid Blue"
-                            ? "brand"
-                            : cta.variant === "Solid White"
-                              ? "neutral"
-                              : cta.variant === "Solid Cream"
-                                ? "cream"
-                                : "brand",
-                      size: slice.primary.cta_size ? "default" : "sm",
-                    }),
-                    hasLink ? "cursor-pointer" : "cursor-default",
-                  );
+                  buttonVariants({
+                    variant:
+                      cta.variant === "Solid Orange"
+                        ? "accent"
+                        : cta.variant === "Solid Blue"
+                          ? "brand"
+                          : cta.variant === "Solid White"
+                            ? "neutral"
+                            : cta.variant === "Solid Cream"
+                              ? "cream"
+                              : "brand",
+                    size: slice.primary.cta_size ? "default" : "sm",
+                  }),
+                  hasLink ? "cursor-pointer" : "cursor-default",
+                );
 
                 return hasLink ? (
                   <PrismicLink

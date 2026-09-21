@@ -14,6 +14,7 @@
     serif;
   --color-foundation-ink: var(--foundation-ink);
   --color-foundation-accent: var(--foundation-accent);
+  --color-foundation-gold: var(--foundation-gold);
   --color-foundation-accent-deep: var(--foundation-accent-deep);
   --color-foundation-white: var(--foundation-white);
   --color-foundation-body: var(--foundation-body);
@@ -206,13 +207,16 @@
     @apply font-heading;
   }
 
-  button, input, select, textarea {
+  button,
+  input,
+  select,
+  textarea {
     @apply font-sans;
   }
 
   h1,
   .header1 {
-    @apply m-0 text-8xl sm:text-10xl md:text-12xl lg:text-14xl xl:text-16xl;
+    @apply m-0 text-7xl sm:text-8xl md:text-9xl lg:text-10xl xl:text-11xl;
   }
 
   h2,

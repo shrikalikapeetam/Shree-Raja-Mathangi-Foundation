@@ -47,7 +47,7 @@ export default async function Page({ params }: PageProps<"/[uid]">) {
   const page = await getPage(uid);
 
   return (
-    <main className="min-h-screen border-t-8 border-legacy-accent bg-legacy-surface text-legacy-ink">
+    <main className="min-h-screen">
       <SliceZone slices={page.data.slices} components={components} />
     </main>
   );
