@@ -10,12 +10,6 @@
       "imageUrl": "",
       "name": "Default",
       "primary": {
-        "pretitle": {
-          "config": {
-            "label": "pretitle"
-          },
-          "type": "Text"
-        },
         "title": {
           "config": {
             "label": "title"
@@ -23,84 +17,40 @@
           "type": "Text"
         },
         "description": {
+          "type": "StructuredText",
           "config": {
-            "label": "description"
-          },
-          "type": "Text"
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,list-item,o-list-item"
+          }
         },
-        "commitment_label": {
+        "highlight_text": {
+          "type": "Text",
           "config": {
-            "label": "commitment label"
-          },
-          "type": "Text"
+            "label": "Highlight Text",
+            "placeholder": ""
+          }
         },
-        "banner_pretitle": {
+        "repetable_item": {
+          "type": "Group",
           "config": {
-            "label": "banner pretitle"
-          },
-          "type": "Text"
-        },
-        "banner_title": {
-          "config": {
-            "label": "banner title"
-          },
-          "type": "Text"
-        },
-        "banner_description": {
-          "config": {
-            "label": "banner description"
-          },
-          "type": "Text"
-        },
-        "outcomes": {
-          "config": {
-            "fields": {
-              "icon": {
-                "config": {
-                  "default_value": "graduation",
-                  "label": "Outcome icon",
-                  "options": [
-                    "graduation",
-                    "heart",
-                    "temple",
-                    "book",
-                    "research",
-                    "community"
-                  ]
-                },
-                "type": "Select"
-              },
-              "title": {
-                "config": {
-                  "label": "Outcome title"
-                },
-                "type": "Text"
-              },
-              "description": {
-                "config": {
-                  "label": "Outcome description"
-                },
-                "type": "Text"
-              }
-            },
-            "label": "Outcomes"
-          },
-          "type": "Group"
-        },
-        "actions": {
-          "config": {
-            "allowText": true,
-            "label": "Banner actions",
+            "label": "Repetable Item",
             "repeat": true,
-            "variants": [
-              "support",
-              "volunteer"
-            ]
-          },
-          "type": "Link"
+            "fields": {
+              "impact_statement": {
+                "type": "Text",
+                "config": {
+                  "label": "Impact Statement",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
         }
       },
-      "version": ""
+      "version": "",
+      "items": {}
     }
   ]
 }

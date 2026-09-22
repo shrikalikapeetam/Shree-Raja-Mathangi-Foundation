@@ -963,58 +963,24 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
- * Item in *Impact Overview → Default → Primary → Outcomes*
+ * Item in *Impact Overview → Default → Primary → Repetable Item*
  */
-export interface ImpactOverviewSliceDefaultPrimaryOutcomesItem {
+export interface ImpactOverviewSliceDefaultPrimaryRepetableItemItem {
   /**
-   * Outcome icon field in *Impact Overview → Default → Primary → Outcomes*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: graduation
-   * - **API ID Path**: impact_overview.default.primary.outcomes[].icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon: prismic.SelectField<
-    "graduation" | "heart" | "temple" | "book" | "research" | "community",
-    "filled"
-  >;
-
-  /**
-   * Outcome title field in *Impact Overview → Default → Primary → Outcomes*
+   * Impact Statement field in *Impact Overview → Default → Primary → Repetable Item*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: impact_overview.default.primary.outcomes[].title
+   * - **API ID Path**: impact_overview.default.primary.repetable_item[].impact_statement
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  title: prismic.KeyTextField;
-
-  /**
-   * Outcome description field in *Impact Overview → Default → Primary → Outcomes*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: impact_overview.default.primary.outcomes[].description
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  description: prismic.KeyTextField;
+  impact_statement: prismic.KeyTextField;
 }
 
 /**
  * Primary content in *Impact Overview → Default → Primary*
  */
 export interface ImpactOverviewSliceDefaultPrimary {
-  /**
-   * pretitle field in *Impact Overview → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: impact_overview.default.primary.pretitle
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  pretitle: prismic.KeyTextField;
-
   /**
    * title field in *Impact Overview → Default → Primary*
    *
@@ -1026,83 +992,35 @@ export interface ImpactOverviewSliceDefaultPrimary {
   title: prismic.KeyTextField;
 
   /**
-   * description field in *Impact Overview → Default → Primary*
+   * Description field in *Impact Overview → Default → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: impact_overview.default.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  description: prismic.KeyTextField;
+  description: prismic.RichTextField;
 
   /**
-   * commitment label field in *Impact Overview → Default → Primary*
+   * Highlight Text field in *Impact Overview → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: impact_overview.default.primary.commitment_label
+   * - **API ID Path**: impact_overview.default.primary.highlight_text
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  commitment_label: prismic.KeyTextField;
+  highlight_text: prismic.KeyTextField;
 
   /**
-   * banner pretitle field in *Impact Overview → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: impact_overview.default.primary.banner_pretitle
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  banner_pretitle: prismic.KeyTextField;
-
-  /**
-   * banner title field in *Impact Overview → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: impact_overview.default.primary.banner_title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  banner_title: prismic.KeyTextField;
-
-  /**
-   * banner description field in *Impact Overview → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: impact_overview.default.primary.banner_description
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  banner_description: prismic.KeyTextField;
-
-  /**
-   * Outcomes field in *Impact Overview → Default → Primary*
+   * Repetable Item field in *Impact Overview → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: impact_overview.default.primary.outcomes[]
+   * - **API ID Path**: impact_overview.default.primary.repetable_item[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  outcomes: prismic.GroupField<
-    Simplify<ImpactOverviewSliceDefaultPrimaryOutcomesItem>
-  >;
-
-  /**
-   * Banner actions field in *Impact Overview → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: impact_overview.default.primary.actions
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  actions: prismic.Repeatable<
-    prismic.LinkField<
-      string,
-      string,
-      unknown,
-      prismic.FieldState,
-      "support" | "volunteer"
-    >
+  repetable_item: prismic.GroupField<
+    Simplify<ImpactOverviewSliceDefaultPrimaryRepetableItemItem>
   >;
 }
 
@@ -1975,7 +1893,7 @@ declare module "@prismicio/client" {
       HeroSliceVariation,
       HeroSliceDefault,
       ImpactOverviewSlice,
-      ImpactOverviewSliceDefaultPrimaryOutcomesItem,
+      ImpactOverviewSliceDefaultPrimaryRepetableItemItem,
       ImpactOverviewSliceDefaultPrimary,
       ImpactOverviewSliceVariation,
       ImpactOverviewSliceDefault,

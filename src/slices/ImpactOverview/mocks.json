@@ -1,0 +1,55 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "blue",
+				"type": "Text"
+			},
+			"repetable_item": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"key": "3d38f231-5438-4a61-9300-b659683056bf",
+						"value": [
+							[
+								"impact_statement",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "low",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Culpa quis sunt mollit deserunt excepteur ad."
+						}
+					}
+				]
+			},
+			"highlight_text": {
+				"__TYPE__": "FieldContent",
+				"value": "slight",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"key": "065e521a-d6ff-47f2-b748-08614e8c685d",
+				"value": []
+			}
+		]
+	}
+]

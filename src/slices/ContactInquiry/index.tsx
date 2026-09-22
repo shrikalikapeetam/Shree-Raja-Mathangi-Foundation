@@ -14,7 +14,7 @@ export default function ContactInquiry({
       <div className="container flex flex-col md:flex-row gap-10 sm:gap-12 md:gap-14 lg:gap-16 xl:gap-20">
         {(isFilled.keyText(slice.primary.office_title) ||
           slice.primary.contact_details.length > 0) && (
-          <aside className="rounded-xl md:rounded-2xl xl:rounded-3xl flex-1 border border-foundation-gold/70 bg-foundation-white p-6 shadow-sm sm:p-7 md:p-8 lg:p-9 xl:p-10 flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10">
+          <aside className="rounded-xl md:rounded-2xl xl:rounded-3xl flex-1 border border-foundation-gold/70 bg-foundation-white p-6 shadow-sm sm:p-7 md:p-8 lg:p-9 xl:p-10 flex flex-col gap-4">
             {isFilled.keyText(slice.primary.office_title) && (
               <h2 className="flex items-center gap-3 text-foundation-ink">
                 {slice.primary.office_title}
@@ -58,14 +58,16 @@ export default function ContactInquiry({
               {slice.primary.form_description}
             </p>
           )}
-          <InquiryForm labels={{
-            name_label: slice.primary.name_label,
-            gender_label: slice.primary.gender_label,
-            phone_number_label: slice.primary.phone_number_label,
-            email_label: slice.primary.email_label,
-            message_label: slice.primary.message_label,
-            submit_label: slice.primary.submit_label,
-          }} />
+          <InquiryForm
+            labels={{
+              name_label: slice.primary.name_label,
+              gender_label: slice.primary.gender_label,
+              phone_number_label: slice.primary.phone_number_label,
+              email_label: slice.primary.email_label,
+              message_label: slice.primary.message_label,
+              submit_label: slice.primary.submit_label,
+            }}
+          />
         </div>
       </div>
     </section>
