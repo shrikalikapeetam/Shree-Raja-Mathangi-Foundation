@@ -29,30 +29,16 @@
           },
           "type": "StructuredText"
         },
-        "callout": {
+        "key_title": {
+          "type": "Text",
           "config": {
-            "label": "Callout"
-          },
-          "type": "Text"
+            "label": "Key Title",
+            "placeholder": ""
+          }
         },
         "cards": {
           "config": {
             "fields": {
-              "icon": {
-                "config": {
-                  "default_value": "heart",
-                  "label": "Icon",
-                  "options": [
-                    "heart",
-                    "graduation",
-                    "sprout",
-                    "temple",
-                    "community",
-                    "shield"
-                  ]
-                },
-                "type": "Select"
-              },
               "title": {
                 "config": {
                   "label": "Card title"
@@ -65,11 +51,14 @@
                 },
                 "type": "Text"
               },
-              "footer": {
+              "key_description": {
+                "type": "StructuredText",
                 "config": {
-                  "label": "Card footer"
-                },
-                "type": "Text"
+                  "label": "Key Description",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,hyperlink,list-item,o-list-item,strong"
+                }
               }
             },
             "label": "Cards"
@@ -77,7 +66,8 @@
           "type": "Group"
         }
       },
-      "version": ""
+      "version": "",
+      "items": {}
     }
   ]
 }

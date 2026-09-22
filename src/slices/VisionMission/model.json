@@ -52,21 +52,9 @@
           },
           "type": "Text"
         },
-        "directives_label": {
-          "config": {
-            "label": "Directives Label"
-          },
-          "type": "Text"
-        },
         "pillars": {
           "config": {
             "fields": {
-              "icon": {
-                "config": {
-                  "label": "Pillar icon"
-                },
-                "type": "Text"
-              },
               "title": {
                 "config": {
                   "label": "Pillar title"
@@ -83,16 +71,10 @@
             "label": "Pillars"
           },
           "type": "Group"
-        },
-        "directives_link": {
-          "config": {
-            "allowText": true,
-            "label": "Directives link"
-          },
-          "type": "Link"
         }
       },
-      "version": ""
+      "version": "",
+      "items": {}
     }
   ]
 }

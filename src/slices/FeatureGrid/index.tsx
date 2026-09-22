@@ -1,31 +1,76 @@
 import { isFilled, type Content } from "@prismicio/client";
 import { PrismicRichText, type SliceComponentProps } from "@prismicio/react";
-import { Compass, GraduationCap, Heart, Landmark, ShieldCheck, Sprout, Users } from "lucide-react";
 
-const icons = { heart: Heart, graduation: GraduationCap, sprout: Sprout, temple: Landmark, community: Users, shield: ShieldCheck };
-
-export default function FeatureGrid({ slice }: SliceComponentProps<Content.FeatureGridSlice>) {
-  const p = slice.primary;
+export default function FeatureGrid({
+  slice,
+}: SliceComponentProps<Content.FeatureGridSlice>) {
   return (
-    <section className="pt-9.5 pr-6 pb-12 pl-6 [background:linear-gradient(180deg,_var(--foundation-surface-light),_var(--foundation-surface))]  text-[color:var(--foundation-ink)] max-[600.01px]:py-9 max-[600.01px]:px-5" data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
-      <header className="mt-0 mr-auto mb-12 ml-auto text-center max-w-205 [&_h2]:mt-2.5 [&_h2]:mr-0 [&_h2]:mb-4 [&_h2]:ml-0  [&_h2]:font-bold [&_h2]:leading-[1.2] [&_h2]:uppercase [&_h2]:text-balance max-[600.01px]:mb-8">
-        {p.pretitle && <span className="py-[7px] px-3.5 inline-flex items-center gap-2 [border:1px_solid_var(--foundation-gold)] rounded-full [background:var(--foundation-badge)] text-[color:var(--foundation-accent)] text-[length:var(--text-sm)] font-semibold uppercase tracking-[.1em]"><Compass size={14} aria-hidden="true" />{p.pretitle}</span>}
-        {p.title && <h2>{p.title}</h2>}
-        <div className="text-[color:var(--foundation-copy)] leading-[1.6] [&_p]:my-0 [&_p]:mx-0 [&_p_+_p]:mt-3 [&_strong]:text-[color:var(--foundation-ink)] [&_strong]:font-bold [&_em]:italic [&_a]:text-[color:var(--foundation-ink)] [&_a]:underline"><PrismicRichText field={p.introduction} /></div>
-        {p.callout && <p className="py-[13px] px-6 mt-4.5 mr-auto mb-0 ml-auto max-w-168 [border:1px_solid_var(--foundation-gold)] rounded-[13px] [background:var(--foundation-badge)] leading-[1.5] max-[600.01px]:py-3.5 max-[600.01px]:px-4.5">{p.callout}</p>}
-      </header>
-      {isFilled.group(p.cards) && <ul className="py-0 px-0 my-0 mx-auto max-w-305 list-none grid grid-cols-3 gap-6 max-[900.01px]:grid-cols-2 max-[600.01px]:grid-cols-1 max-[600.01px]:gap-5">
-        {p.cards.map((card, index) => {
-          const Icon = icons[card.icon ?? "heart"];
-          return <li key={index} className="py-6 px-6 flex flex-col min-w-0 min-h-70 [background:var(--foundation-white)] [border:1px_solid_var(--foundation-gold)] rounded-[17px] shadow-[var(--shadow-pill)] [&_h3]:mt-3 [&_h3]:mr-0 [&_h3]:mb-3.5 [&_h3]:ml-0  [&_h3]:font-bold [&_h3]:[font-variant-caps:small-caps] [&_h3]:leading-[1.25]">
-            <span className="inline-flex w-12 h-12 items-center justify-center [border:1px_solid_var(--foundation-gold)] rounded-[13px] [background:var(--foundation-surface)] text-[color:var(--foundation-accent)]"><Icon size={20} aria-hidden="true" /></span>
-            {card.title && <h3>{card.title}</h3>}
-            {card.description && <p className="mt-0 mr-0 mb-2.5 ml-0 leading-[1.65] text-[color:var(--foundation-muted)]">{card.description}</p>}
-            {card.footer && <p className="mt-auto mr-0 mb-0 ml-0 pt-4 [border-top:1px_solid_var(--foundation-divider)] text-[color:var(--foundation-accent)] leading-[1.5] font-medium">{card.footer}</p>}
-          </li>;
-        })}
-      </ul>}
+    <section
+      className="section-py border-y border-orange-100 bg-legacy-surface"
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
+    >
+      <div className="container flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10">
+        {(isFilled.keyText(slice.primary.pretitle) ||
+          isFilled.keyText(slice.primary.title) ||
+          isFilled.richText(slice.primary.introduction)) && (
+          <header className="mx-auto flex w-full flex-col items-center gap-4 text-center">
+            {isFilled.keyText(slice.primary.pretitle) && (
+              <span className="w-fit rounded-4xl border border-orange-200 bg-yellow-100/60 px-4 py-1 text-base font-semibold text-foundation-ink shadow shadow-amber-50">
+                {slice.primary.pretitle}
+              </span>
+            )}
+            {isFilled.keyText(slice.primary.title) && (
+              <h2 className="text-balance text-foundation-ink">
+                {slice.primary.title}
+              </h2>
+            )}
+            {isFilled.richText(slice.primary.introduction) && (
+              <div className="space-y-3 max-w-3xl wrap-anywhere text-foundation-body [&_a]:text-foundation-accent [&_a]:underline [&_a]:underline-offset-4 [&_p]:leading-relaxed [&_strong]:text-foundation-ink">
+                <PrismicRichText field={slice.primary.introduction} />
+              </div>
+            )}
+          </header>
+        )}
+
+        {isFilled.group(slice.primary.cards) && (
+          <ul className="grid list-none gap-4 p-0 sm:grid-cols-2 md:gap-5 lg:grid-cols-3 xl:gap-6">
+            {slice.primary.cards.map((card, index) =>
+              isFilled.keyText(card.title) ||
+              isFilled.keyText(card.description) ||
+              isFilled.richText(card.key_description) ? (
+                <li
+                  key={index}
+                  className="flex min-w-0 flex-col gap-4 rounded-xl border border-foundation-gold/70 bg-foundation-white p-4 shadow-sm sm:p-5 md:rounded-2xl md:p-6 lg:p-7 xl:rounded-3xl xl:p-8"
+                >
+                  {isFilled.keyText(card.title) && (
+                    <h3 className="header6 wrap-anywhere text-foundation-ink">
+                      {card.title}
+                    </h3>
+                  )}
+                  {isFilled.keyText(card.description) && (
+                    <p className="wrap-anywhere leading-relaxed text-foundation-body">
+                      {card.description}
+                    </p>
+                  )}
+                  {isFilled.richText(card.key_description) && (
+                    <div className="flex flex-col gap-3 border-t border-foundation-gold/40 pt-4 md:pt-5 xl:pt-6">
+                      {isFilled.keyText(slice.primary.key_title) && (
+                        <h4 className="font-sans text-base font-semibold text-foundation-accent">
+                          {slice.primary.key_title}
+                        </h4>
+                      )}
+                      <div className="space-y-3 wrap-anywhere text-(--foundation-muted) [&_a]:text-foundation-accent [&_a]:underline [&_a]:underline-offset-4 [&_li]:text-base [&_li]:leading-relaxed [&_p]:leading-relaxed [&_strong]:text-foundation-ink">
+                        <PrismicRichText field={card.key_description} />
+                      </div>
+                    </div>
+                  )}
+                </li>
+              ) : null,
+            )}
+          </ul>
+        )}
+      </div>
     </section>
   );
 }
-

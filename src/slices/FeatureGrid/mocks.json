@@ -1,0 +1,82 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"pretitle": {
+				"__TYPE__": "FieldContent",
+				"value": "thousand",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "farther",
+				"type": "Text"
+			},
+			"introduction": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Adipisicing reprehenderit tempor laboris eu. Consectetur eiusmod qui enim mollit quis officia."
+						}
+					}
+				]
+			},
+			"cards": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"key": "75b66487-b9f6-40b1-9cba-7331a2c95cfc",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "figure",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "class",
+									"type": "Text"
+								}
+							],
+							[
+								"key_description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Deserunt proident aliqua officia veniam id exercitation ex ut enim mollit ut consequat."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"key_title": {
+				"__TYPE__": "FieldContent",
+				"value": "stand",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"key": "b2be3f44-2584-4d33-a54d-c1ac1b831966",
+				"value": []
+			}
+		]
+	}
+]

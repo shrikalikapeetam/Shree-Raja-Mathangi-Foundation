@@ -27,7 +27,7 @@ export default function Hero({ slice }: HeroProps) {
           className={cn(
             " flex flex-col items-center text-center gap-5",
             !slice.primary.background_type
-              ? "bg-legacy-surface section-my p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20 shadow shadow-amber-50 border border-legacy-sand rounded-2xl"
+              ? "bg-legacy-surface p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20 shadow shadow-amber-50 border border-legacy-sand rounded-2xl"
               : "bg-transparent",
           )}
         >
@@ -69,10 +69,6 @@ export default function Hero({ slice }: HeroProps) {
               paragraph: ({ children }) => (
                 <>
                   <p className={"text-foundation-body"}>{children}</p>
-                  <div
-                    aria-hidden="true"
-                    className="h-2 w-40 shrink-0 rounded-full bg-linear-to-r from-orange-500 to-yellow-500"
-                  />
                 </>
               ),
               strong: ({ children }) => (

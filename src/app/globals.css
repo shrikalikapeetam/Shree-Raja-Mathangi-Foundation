@@ -216,37 +216,37 @@
 
   h1,
   .header1 {
-    @apply m-0 text-7xl sm:text-8xl md:text-9xl lg:text-10xl xl:text-11xl;
+    @apply m-0 text-4xl sm:text-5xl md:text-6xl font-bold lg:text-7xl xl:text-8xl;
   }
 
   h2,
   .header2 {
-    @apply m-0 text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-10xl;
+    @apply m-0 text-3xl md:text-4xl xl:text-5xl font-bold;
   }
 
   h3,
   .header3 {
-    @apply m-0 text-5xl sm:text-6xl md:text-7xl lg:text-8xl;
+    @apply m-0 text-2xl md:text-3xl font-bold xl:text-4xl;
   }
 
   h4,
   .header4 {
-    @apply m-0  text-4xl sm:text-5xl md:text-6xl lg:text-7xl;
+    @apply m-0  text-xl md:text-2xl font-bold lg:text-3xl;
   }
 
   h5,
   .header5 {
-    @apply m-0 text-3xl md:text-4xl xl:text-5xl;
+    @apply m-0 text-lg md:text-xl font-bold;
   }
 
   h6,
   .header6 {
-    @apply m-0  text-2xl md:text-3xl xl:text-4xl;
+    @apply m-0  text-md md:text-lg font-bold;
   }
 
   p,
   .paragraph {
-    @apply font-sans text-md md:text-lg font-normal xl:text-xl;
+    @apply font-sans text-base md:text-sm font-normal xl:text-md;
   }
 
   a {

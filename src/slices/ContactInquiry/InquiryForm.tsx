@@ -1,43 +1,200 @@
 "use client";
 
-import { useId, useState, type FormEvent } from "react";
-import { Send } from "lucide-react";
+import { useId, useRef, useState, type FormEvent } from "react";
+import { validateInquiryField, type InquiryField } from "./validation";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Field, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field";
+import { Textarea } from "@/components/ui/textarea";
+import { isFilled, type Content } from "@prismicio/client";
 
-type Props = { recipient: string; audiences: string[]; interests: string[]; submitLabel: string; privacyNote: string };
 
-export default function InquiryForm({ recipient, audiences, interests, submitLabel, privacyNote }: Props) {
+type Labels = Pick<Content.ContactInquirySlice["primary"],
+  "name_label" | "gender_label" | "phone_number_label" | "email_label" | "message_label" | "submit_label">;
+
+export default function InquiryForm({ labels }: { labels: Labels }) {
   const id = useId();
-  const [draftReady, setDraftReady] = useState(false);
-  const validRecipient = /^[^\s@?&#]+@[^\s@?&#]+\.[^\s@?&#]+$/.test(recipient);
-  function submit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (!validRecipient) return;
-    const data = new FormData(event.currentTarget);
-    const body = [
-      `Reaching out as: ${data.get("audience") ?? ""}`,
-      `Area of interest: ${data.get("interest") ?? ""}`,
-      `Name: ${data.get("name")}`, `Email: ${data.get("email")}`,
-      `Phone / WhatsApp: ${data.get("phone")}`, `City / Country: ${data.get("location")}`,
-      `Preferred reply: ${data.get("reply")}`, "", String(data.get("message") ?? ""),
-    ].join("\n");
-    window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(`Foundation inquiry: ${data.get("interest") ?? "General Inquiry"}`)}&body=${encodeURIComponent(body)}`;
-    setDraftReady(true);
+  const [errors, setErrors] = useState<Partial<Record<InquiryField, string>>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const submitting = useRef(false);
+  const [status, setStatus] = useState<{ kind: "success" | "error"; message: string } | null>(null);
+
+  function checkField(name: InquiryField, value: string) {
+    setErrors((previous) => ({ ...previous, [name]: validateInquiryField(name, value) }));
   }
-  return <form className="grid gap-6.5 [&_fieldset]:py-0 [&_fieldset]:px-0 [&_fieldset]:my-0 [&_fieldset]:mx-0 [&_fieldset]:[border:0] [&_fieldset]:min-w-0 [&&_legend]:block [&&_legend]:text-[length:var(--text-sm)] [&&_legend]:uppercase [&&_legend]:tracking-[.06em] [&&_legend]:font-bold [&&_legend]:mb-2 [&_[class~='group/contact-inquiry-reply']]:flex [&_[class~='group/contact-inquiry-reply']]:flex-wrap [&_[class~='group/contact-inquiry-reply']]:gap-[14px_24px] [&_[class~='group/contact-inquiry-reply']]:items-center [&_[class~='group/contact-inquiry-submit']]:w-full [&_[class~='group/contact-inquiry-submit']]:h-auto [&_[class~='group/contact-inquiry-submit']]:min-h-14.5 [&_[class~='group/contact-inquiry-submit']]:whitespace-normal [&_[class~='group/contact-inquiry-submit']]:rounded-[16px] [&_[class~='group/contact-inquiry-submit']]:gap-3 [&_[class~='group/contact-inquiry-submit']]:text-[length:var(--text-md)] [&_[class~='group/contact-inquiry-submit']]:font-bold" onSubmit={submit}>
-    {audiences.length > 0 && <fieldset><legend>I am reaching out as:</legend><div className="grid grid-cols-3 gap-2.5 [&_label]:relative [&_label]:cursor-pointer [&_input]:absolute [&_input]:opacity-0 [&_input]:w-[1px] [&_input]:h-[1px] [&_span]:py-2 [&_span]:px-2 [&_span]:flex [&_span]:justify-center [&_span]:items-center [&_span]:text-center [&_span]:h-full [&_span]:min-h-10.5 [&_span]:[border:1px_solid_var(--foundation-gold)] [&_span]:rounded-[14px] [&_span]:[background:var(--foundation-surface)] [&_span]:text-[length:var(--text-md)] [&_span]:font-bold [&_input:checked_+_span]:[background:var(--foundation-ink)] [&_input:checked_+_span]:text-[color:var(--foundation-white)] [&_input:checked_+_span]:[border-color:var(--foundation-ink)] [&_input:focus-visible_+_span]:[outline:3px_solid_var(--foundation-accent)] [&_input:focus-visible_+_span]:[outline-offset:3px] max-[600.01px]:grid-cols-2">{audiences.map((audience,index)=><label key={index}><input type="radio" name="audience" value={audience} defaultChecked={index===0} /><span>{audience}</span></label>)}</div></fieldset>}
-    {interests.length > 0 && <div className="[&_>_label]:block [&_>_label]:text-[length:var(--text-sm)] [&_>_label]:uppercase [&_>_label]:tracking-[.06em] [&_>_label]:font-bold [&_>_label]:mb-2 min-w-0 [&_>_label_>_span]:text-[color:var(--destructive)] [&_input]:py-3.5 [&_input]:px-4.5 [&_input]:w-full [&_input]:min-h-12.5 [&_input]:[background:var(--foundation-surface)] [&_input]:[border:1px_solid_var(--foundation-gold)] [&_input]:rounded-[16px] [&_input]:text-[length:var(--text-base)] [&_input]:text-[color:var(--foundation-body)] [&_select]:py-3.5 [&_select]:px-4.5 [&_select]:w-full [&_select]:min-h-12.5 [&_select]:[background:var(--foundation-surface)] [&_select]:[border:1px_solid_var(--foundation-gold)] [&_select]:rounded-[16px] [&_select]:text-[length:var(--text-base)] [&_select]:text-[color:var(--foundation-body)] [&_textarea]:py-3.5 [&_textarea]:px-4.5 [&_textarea]:w-full [&_textarea]:min-h-12.5 [&_textarea]:[background:var(--foundation-surface)] [&_textarea]:[border:1px_solid_var(--foundation-gold)] [&_textarea]:rounded-[16px] [&_textarea]:text-[length:var(--text-base)] [&_textarea]:text-[color:var(--foundation-body)] [&_textarea]:resize-y [&_input:focus-visible]:[outline:2px_solid_var(--foundation-ink)] [&_input:focus-visible]:[outline-offset:2px] [&_select:focus-visible]:[outline:2px_solid_var(--foundation-ink)] [&_select:focus-visible]:[outline-offset:2px] [&_textarea:focus-visible]:[outline:2px_solid_var(--foundation-ink)] [&_textarea:focus-visible]:[outline-offset:2px] [&_input::placeholder]:text-[color:var(--foundation-muted)] [&_input::placeholder]:opacity-75 [&_textarea::placeholder]:text-[color:var(--foundation-muted)] [&_textarea::placeholder]:opacity-75"><label htmlFor={`${id}-interest`}>Primary area of interest:</label><select id={`${id}-interest`} name="interest">{interests.map((interest,index)=><option key={index}>{interest}</option>)}</select></div>}
-    <div className="grid grid-cols-2 gap-[26px_20px] max-[600.01px]:grid-cols-1">
-      <div className="[&_>_label]:block [&_>_label]:text-[length:var(--text-sm)] [&_>_label]:uppercase [&_>_label]:tracking-[.06em] [&_>_label]:font-bold [&_>_label]:mb-2 min-w-0 [&_>_label_>_span]:text-[color:var(--destructive)] [&_input]:py-3.5 [&_input]:px-4.5 [&_input]:w-full [&_input]:min-h-12.5 [&_input]:[background:var(--foundation-surface)] [&_input]:[border:1px_solid_var(--foundation-gold)] [&_input]:rounded-[16px] [&_input]:text-[length:var(--text-base)] [&_input]:text-[color:var(--foundation-body)] [&_select]:py-3.5 [&_select]:px-4.5 [&_select]:w-full [&_select]:min-h-12.5 [&_select]:[background:var(--foundation-surface)] [&_select]:[border:1px_solid_var(--foundation-gold)] [&_select]:rounded-[16px] [&_select]:text-[length:var(--text-base)] [&_select]:text-[color:var(--foundation-body)] [&_textarea]:py-3.5 [&_textarea]:px-4.5 [&_textarea]:w-full [&_textarea]:min-h-12.5 [&_textarea]:[background:var(--foundation-surface)] [&_textarea]:[border:1px_solid_var(--foundation-gold)] [&_textarea]:rounded-[16px] [&_textarea]:text-[length:var(--text-base)] [&_textarea]:text-[color:var(--foundation-body)] [&_textarea]:resize-y [&_input:focus-visible]:[outline:2px_solid_var(--foundation-ink)] [&_input:focus-visible]:[outline-offset:2px] [&_select:focus-visible]:[outline:2px_solid_var(--foundation-ink)] [&_select:focus-visible]:[outline-offset:2px] [&_textarea:focus-visible]:[outline:2px_solid_var(--foundation-ink)] [&_textarea:focus-visible]:[outline-offset:2px] [&_input::placeholder]:text-[color:var(--foundation-muted)] [&_input::placeholder]:opacity-75 [&_textarea::placeholder]:text-[color:var(--foundation-muted)] [&_textarea::placeholder]:opacity-75"><label htmlFor={`${id}-name`}>Full name <span>*</span></label><input id={`${id}-name`} name="name" autoComplete="name" placeholder="e.g. Ramesh Sharma" required maxLength={120} /></div>
-      <div className="[&_>_label]:block [&_>_label]:text-[length:var(--text-sm)] [&_>_label]:uppercase [&_>_label]:tracking-[.06em] [&_>_label]:font-bold [&_>_label]:mb-2 min-w-0 [&_>_label_>_span]:text-[color:var(--destructive)] [&_input]:py-3.5 [&_input]:px-4.5 [&_input]:w-full [&_input]:min-h-12.5 [&_input]:[background:var(--foundation-surface)] [&_input]:[border:1px_solid_var(--foundation-gold)] [&_input]:rounded-[16px] [&_input]:text-[length:var(--text-base)] [&_input]:text-[color:var(--foundation-body)] [&_select]:py-3.5 [&_select]:px-4.5 [&_select]:w-full [&_select]:min-h-12.5 [&_select]:[background:var(--foundation-surface)] [&_select]:[border:1px_solid_var(--foundation-gold)] [&_select]:rounded-[16px] [&_select]:text-[length:var(--text-base)] [&_select]:text-[color:var(--foundation-body)] [&_textarea]:py-3.5 [&_textarea]:px-4.5 [&_textarea]:w-full [&_textarea]:min-h-12.5 [&_textarea]:[background:var(--foundation-surface)] [&_textarea]:[border:1px_solid_var(--foundation-gold)] [&_textarea]:rounded-[16px] [&_textarea]:text-[length:var(--text-base)] [&_textarea]:text-[color:var(--foundation-body)] [&_textarea]:resize-y [&_input:focus-visible]:[outline:2px_solid_var(--foundation-ink)] [&_input:focus-visible]:[outline-offset:2px] [&_select:focus-visible]:[outline:2px_solid_var(--foundation-ink)] [&_select:focus-visible]:[outline-offset:2px] [&_textarea:focus-visible]:[outline:2px_solid_var(--foundation-ink)] [&_textarea:focus-visible]:[outline-offset:2px] [&_input::placeholder]:text-[color:var(--foundation-muted)] [&_input::placeholder]:opacity-75 [&_textarea::placeholder]:text-[color:var(--foundation-muted)] [&_textarea::placeholder]:opacity-75"><label htmlFor={`${id}-email`}>Email address <span>*</span></label><input id={`${id}-email`} name="email" type="email" autoComplete="email" placeholder="e.g. ramesh@example.com" required maxLength={254} /></div>
-      <div className="[&_>_label]:block [&_>_label]:text-[length:var(--text-sm)] [&_>_label]:uppercase [&_>_label]:tracking-[.06em] [&_>_label]:font-bold [&_>_label]:mb-2 min-w-0 [&_>_label_>_span]:text-[color:var(--destructive)] [&_input]:py-3.5 [&_input]:px-4.5 [&_input]:w-full [&_input]:min-h-12.5 [&_input]:[background:var(--foundation-surface)] [&_input]:[border:1px_solid_var(--foundation-gold)] [&_input]:rounded-[16px] [&_input]:text-[length:var(--text-base)] [&_input]:text-[color:var(--foundation-body)] [&_select]:py-3.5 [&_select]:px-4.5 [&_select]:w-full [&_select]:min-h-12.5 [&_select]:[background:var(--foundation-surface)] [&_select]:[border:1px_solid_var(--foundation-gold)] [&_select]:rounded-[16px] [&_select]:text-[length:var(--text-base)] [&_select]:text-[color:var(--foundation-body)] [&_textarea]:py-3.5 [&_textarea]:px-4.5 [&_textarea]:w-full [&_textarea]:min-h-12.5 [&_textarea]:[background:var(--foundation-surface)] [&_textarea]:[border:1px_solid_var(--foundation-gold)] [&_textarea]:rounded-[16px] [&_textarea]:text-[length:var(--text-base)] [&_textarea]:text-[color:var(--foundation-body)] [&_textarea]:resize-y [&_input:focus-visible]:[outline:2px_solid_var(--foundation-ink)] [&_input:focus-visible]:[outline-offset:2px] [&_select:focus-visible]:[outline:2px_solid_var(--foundation-ink)] [&_select:focus-visible]:[outline-offset:2px] [&_textarea:focus-visible]:[outline:2px_solid_var(--foundation-ink)] [&_textarea:focus-visible]:[outline-offset:2px] [&_input::placeholder]:text-[color:var(--foundation-muted)] [&_input::placeholder]:opacity-75 [&_textarea::placeholder]:text-[color:var(--foundation-muted)] [&_textarea::placeholder]:opacity-75"><label htmlFor={`${id}-phone`}>Phone / WhatsApp number <span>*</span></label><input id={`${id}-phone`} name="phone" type="tel" autoComplete="tel" placeholder="+91 98765 43210" required maxLength={40} /></div>
-      <div className="[&_>_label]:block [&_>_label]:text-[length:var(--text-sm)] [&_>_label]:uppercase [&_>_label]:tracking-[.06em] [&_>_label]:font-bold [&_>_label]:mb-2 min-w-0 [&_>_label_>_span]:text-[color:var(--destructive)] [&_input]:py-3.5 [&_input]:px-4.5 [&_input]:w-full [&_input]:min-h-12.5 [&_input]:[background:var(--foundation-surface)] [&_input]:[border:1px_solid_var(--foundation-gold)] [&_input]:rounded-[16px] [&_input]:text-[length:var(--text-base)] [&_input]:text-[color:var(--foundation-body)] [&_select]:py-3.5 [&_select]:px-4.5 [&_select]:w-full [&_select]:min-h-12.5 [&_select]:[background:var(--foundation-surface)] [&_select]:[border:1px_solid_var(--foundation-gold)] [&_select]:rounded-[16px] [&_select]:text-[length:var(--text-base)] [&_select]:text-[color:var(--foundation-body)] [&_textarea]:py-3.5 [&_textarea]:px-4.5 [&_textarea]:w-full [&_textarea]:min-h-12.5 [&_textarea]:[background:var(--foundation-surface)] [&_textarea]:[border:1px_solid_var(--foundation-gold)] [&_textarea]:rounded-[16px] [&_textarea]:text-[length:var(--text-base)] [&_textarea]:text-[color:var(--foundation-body)] [&_textarea]:resize-y [&_input:focus-visible]:[outline:2px_solid_var(--foundation-ink)] [&_input:focus-visible]:[outline-offset:2px] [&_select:focus-visible]:[outline:2px_solid_var(--foundation-ink)] [&_select:focus-visible]:[outline-offset:2px] [&_textarea:focus-visible]:[outline:2px_solid_var(--foundation-ink)] [&_textarea:focus-visible]:[outline-offset:2px] [&_input::placeholder]:text-[color:var(--foundation-muted)] [&_input::placeholder]:opacity-75 [&_textarea::placeholder]:text-[color:var(--foundation-muted)] [&_textarea::placeholder]:opacity-75"><label htmlFor={`${id}-location`}>City / Country</label><input id={`${id}-location`} name="location" autoComplete="address-level2" placeholder="e.g. Chennai, India / London, UK" maxLength={160} /></div>
-    </div>
-    <div className="[&_>_label]:block [&_>_label]:text-[length:var(--text-sm)] [&_>_label]:uppercase [&_>_label]:tracking-[.06em] [&_>_label]:font-bold [&_>_label]:mb-2 min-w-0 [&_>_label_>_span]:text-[color:var(--destructive)] [&_input]:py-3.5 [&_input]:px-4.5 [&_input]:w-full [&_input]:min-h-12.5 [&_input]:[background:var(--foundation-surface)] [&_input]:[border:1px_solid_var(--foundation-gold)] [&_input]:rounded-[16px] [&_input]:text-[length:var(--text-base)] [&_input]:text-[color:var(--foundation-body)] [&_select]:py-3.5 [&_select]:px-4.5 [&_select]:w-full [&_select]:min-h-12.5 [&_select]:[background:var(--foundation-surface)] [&_select]:[border:1px_solid_var(--foundation-gold)] [&_select]:rounded-[16px] [&_select]:text-[length:var(--text-base)] [&_select]:text-[color:var(--foundation-body)] [&_textarea]:py-3.5 [&_textarea]:px-4.5 [&_textarea]:w-full [&_textarea]:min-h-12.5 [&_textarea]:[background:var(--foundation-surface)] [&_textarea]:[border:1px_solid_var(--foundation-gold)] [&_textarea]:rounded-[16px] [&_textarea]:text-[length:var(--text-base)] [&_textarea]:text-[color:var(--foundation-body)] [&_textarea]:resize-y [&_input:focus-visible]:[outline:2px_solid_var(--foundation-ink)] [&_input:focus-visible]:[outline-offset:2px] [&_select:focus-visible]:[outline:2px_solid_var(--foundation-ink)] [&_select:focus-visible]:[outline-offset:2px] [&_textarea:focus-visible]:[outline:2px_solid_var(--foundation-ink)] [&_textarea:focus-visible]:[outline-offset:2px] [&_input::placeholder]:text-[color:var(--foundation-muted)] [&_input::placeholder]:opacity-75 [&_textarea::placeholder]:text-[color:var(--foundation-muted)] [&_textarea::placeholder]:opacity-75"><label htmlFor={`${id}-message`}>Your message or collaboration proposal <span>*</span></label><textarea id={`${id}-message`} name="message" rows={5} placeholder="Please share how you would like to connect, contribute, or visit our institutions..." required maxLength={4000} /></div>
-    <fieldset className="group/contact-inquiry-reply [&&_legend]:mt-0 [&&_legend]:mr-5 [&&_legend]:mb-0 [&&_legend]:ml-0 [&&_legend]:[float:left] [&&_legend]:normal-case [&&_legend]:tracking-[0] [&_label]:flex [&_label]:items-center [&_label]:gap-2 [&_label]:text-[length:var(--text-base)] [&_input]:[accent-color:var(--foundation-accent)] [&_input]:w-[17px] [&_input]:h-[17px]"><legend>Preferred reply via:</legend><label><input type="radio" name="reply" value="Email" defaultChecked /> Email</label><label><input type="radio" name="reply" value="Phone / WhatsApp" /> Phone / WhatsApp</label></fieldset>
-    <Button type="submit" variant="accent" className="group/contact-inquiry-submit" disabled={!validRecipient}><Send aria-hidden="true" />{submitLabel}</Button>
-    <p className="my-0 mx-0 text-[color:var(--foundation-muted)] text-center leading-[1.6]">Opens your email app with a prepared message. Please send it there to complete your inquiry.</p>
-    <p role="status" className="my-0 mx-0 text-[color:var(--foundation-ink)] text-center leading-[1.6] [&:empty]:hidden">{draftReady ? "Your email draft is ready. If your email app did not open, use the official email link to contact us. Your message has not been sent by this website." : !validRecipient ? "Please use the contact details to reach the foundation." : ""}</p>
-    {privacyNote && <p className="my-0 mx-0 text-[color:var(--foundation-muted)] text-center leading-[1.6]">{privacyNote}</p>}
-  </form>;
+
+  function validationProps(name: InquiryField) {
+    return {
+      required: name !== "gender",
+      disabled: isSubmitting,
+      "aria-invalid": Boolean(errors[name]),
+      "aria-describedby": errors[name] ? `${id}-${name}-error` : undefined,
+      onBlur: (event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        checkField(name, event.currentTarget.value);
+      },
+      onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setStatus(null);
+        if (errors[name] !== undefined) checkField(name, event.currentTarget.value);
+      },
+    };
+  }
+
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (submitting.current) return;
+    setStatus(null);
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const nextErrors: Partial<Record<InquiryField, string>> = {};
+    const names: InquiryField[] = ["name", "gender", "phone", "email", "message"];
+    for (const name of names) {
+      if (data.has(name)) {
+        const error = validateInquiryField(name, String(data.get(name) ?? ""));
+        if (error) nextErrors[name] = error;
+      }
+    }
+    setErrors(nextErrors);
+    const firstInvalid = names.find((name) => nextErrors[name]);
+    if (firstInvalid) {
+      const input = form.elements.namedItem(firstInvalid);
+      if (input instanceof HTMLElement) input.focus();
+      return;
+    }
+    submitting.current = true;
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(data)),
+      });
+      const result = await response.json() as {
+        ok?: boolean;
+        error?: string;
+        errors?: Partial<Record<InquiryField, string>>;
+      };
+      if (!response.ok || !result.ok) {
+        if (result.errors) {
+          setErrors(result.errors);
+          const invalid = names.find((name) => result.errors?.[name]);
+          const input = invalid ? form.elements.namedItem(invalid) : null;
+          if (input instanceof HTMLElement) input.focus();
+        }
+        throw new Error(result.error || "Unable to send your message. Please try again.");
+      }
+      form.reset();
+      setErrors({});
+      setStatus({ kind: "success", message: "Thank you. Your message has been sent." });
+    } catch (error) {
+      setStatus({ kind: "error", message: error instanceof Error ? error.message : "Unable to send your message. Please try again." });
+    } finally {
+      submitting.current = false;
+      setIsSubmitting(false);
+    }
+  }
+
+  return (
+          <form className="flex flex-col gap-4" noValidate onSubmit={submit} aria-busy={isSubmitting}>
+            <FieldGroup>
+              {isFilled.keyText(labels.name_label) && (
+                <Field data-invalid={Boolean(errors.name)}>
+                  <FieldLabel htmlFor={`${id}-name`}>
+                    {labels.name_label}
+                  </FieldLabel>
+                  <Input
+                    id={`${id}-name`}
+                    name="name"
+                    {...validationProps("name")}
+                    type="text"
+                    autoComplete="name"
+                  />
+                  {errors.name && (
+                    <FieldError id={`${id}-name-error`}>{errors.name}</FieldError>
+                  )}
+                </Field>
+              )}
+              {isFilled.keyText(labels.gender_label) && (
+                <Field data-invalid={Boolean(errors.gender)}>
+                  <FieldLabel htmlFor={`${id}-gender`}>
+                    {labels.gender_label}
+                  </FieldLabel>
+                  <Input
+                    id={`${id}-gender`}
+                    name="gender"
+                    {...validationProps("gender")}
+                    type="text"
+                    autoComplete="sex"
+                  />
+                  {errors.gender && (
+                    <FieldError id={`${id}-gender-error`}>{errors.gender}</FieldError>
+                  )}
+                </Field>
+              )}
+              {isFilled.keyText(labels.phone_number_label) && (
+                <Field data-invalid={Boolean(errors.phone)}>
+                  <FieldLabel htmlFor={`${id}-phone`}>
+                    {labels.phone_number_label}
+                  </FieldLabel>
+                  <Input
+                    id={`${id}-phone`}
+                    name="phone"
+                    {...validationProps("phone")}
+                    type="tel"
+                    autoComplete="tel"
+                  />
+                  {errors.phone && (
+                    <FieldError id={`${id}-phone-error`}>{errors.phone}</FieldError>
+                  )}
+                </Field>
+              )}
+              {isFilled.keyText(labels.email_label) && (
+                <Field data-invalid={Boolean(errors.email)}>
+                  <FieldLabel htmlFor={`${id}-email`}>
+                    {labels.email_label}
+                  </FieldLabel>
+                  <Input
+                    id={`${id}-email`}
+                    name="email"
+                    {...validationProps("email")}
+                    type="email"
+                    autoComplete="email"
+                  />
+                  {errors.email && (
+                    <FieldError id={`${id}-email-error`}>{errors.email}</FieldError>
+                  )}
+                </Field>
+              )}
+              {isFilled.keyText(labels.message_label) && (
+                <Field data-invalid={Boolean(errors.message)}>
+                  <FieldLabel htmlFor={`${id}-message`}>
+                    {labels.message_label}
+                  </FieldLabel>
+                  <Textarea
+                    id={`${id}-message`}
+                    name="message"
+                    {...validationProps("message")}
+                    rows={5}
+                  />
+                  {errors.message && (
+                    <FieldError id={`${id}-message-error`}>{errors.message}</FieldError>
+                  )}
+                </Field>
+              )}
+            </FieldGroup>
+
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              variant="accent"
+              className="mt-2 h-auto min-h-16 w-full gap-3 rounded-2xl px-6 py-4 text-center text-md font-bold whitespace-normal shadow-md hover:shadow-lg sm:col-span-2"
+            >
+              {isSubmitting ? "Sending message…" : labels.submit_label}
+            </Button>
+            {status && (
+              <p role={status.kind === "error" ? "alert" : "status"} className="text-sm text-foundation-body">
+                {status.message}
+              </p>
+            )}
+          </form>
+  );
 }

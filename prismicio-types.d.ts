@@ -404,20 +404,6 @@ export type CtaBannerSlice = prismic.SharedSlice<
  */
 export interface FeatureGridSliceDefaultPrimaryCardsItem {
   /**
-   * Icon field in *Feature Grid → Default → Primary → Cards*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: heart
-   * - **API ID Path**: feature_grid.default.primary.cards[].icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon: prismic.SelectField<
-    "heart" | "graduation" | "sprout" | "temple" | "community" | "shield",
-    "filled"
-  >;
-
-  /**
    * Card title field in *Feature Grid → Default → Primary → Cards*
    *
    * - **Field Type**: Text
@@ -438,14 +424,14 @@ export interface FeatureGridSliceDefaultPrimaryCardsItem {
   description: prismic.KeyTextField;
 
   /**
-   * Card footer field in *Feature Grid → Default → Primary → Cards*
+   * Key Description field in *Feature Grid → Default → Primary → Cards*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: feature_grid.default.primary.cards[].footer
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **API ID Path**: feature_grid.default.primary.cards[].key_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  footer: prismic.KeyTextField;
+  key_description: prismic.RichTextField;
 }
 
 /**
@@ -483,14 +469,14 @@ export interface FeatureGridSliceDefaultPrimary {
   introduction: prismic.RichTextField;
 
   /**
-   * Callout field in *Feature Grid → Default → Primary*
+   * Key Title field in *Feature Grid → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: feature_grid.default.primary.callout
+   * - **API ID Path**: feature_grid.default.primary.key_title
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  callout: prismic.KeyTextField;
+  key_title: prismic.KeyTextField;
 
   /**
    * Cards field in *Feature Grid → Default → Primary*
@@ -865,31 +851,6 @@ export type FoundationOverviewSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *Hero → Default → Primary → Pillars*
- */
-export interface HeroSliceDefaultPrimaryPillarsItem {
-  /**
-   * Label field in *Hero → Default → Primary → Pillars*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.pillars[].label
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  label: prismic.KeyTextField;
-
-  /**
-   * Link field in *Hero → Default → Primary → Pillars*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.pillars[].link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-}
-
-/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -943,16 +904,6 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   content: prismic.RichTextField;
-
-  /**
-   * Pillars field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.pillars[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  pillars: prismic.GroupField<Simplify<HeroSliceDefaultPrimaryPillarsItem>>;
 
   /**
    * CTA field in *Hero → Default → Primary*
@@ -1834,16 +1785,6 @@ export type ValuesActionsSlice = prismic.SharedSlice<
  */
 export interface VisionMissionSliceDefaultPrimaryPillarsItem {
   /**
-   * Pillar icon field in *Vision Mission → Default → Primary → Pillars*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: vision_mission.default.primary.pillars[].icon
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  icon: prismic.KeyTextField;
-
-  /**
    * Pillar title field in *Vision Mission → Default → Primary → Pillars*
    *
    * - **Field Type**: Text
@@ -1939,16 +1880,6 @@ export interface VisionMissionSliceDefaultPrimary {
   mission_description: prismic.KeyTextField;
 
   /**
-   * Directives Label field in *Vision Mission → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: vision_mission.default.primary.directives_label
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  directives_label: prismic.KeyTextField;
-
-  /**
    * Pillars field in *Vision Mission → Default → Primary*
    *
    * - **Field Type**: Group
@@ -1958,22 +1889,6 @@ export interface VisionMissionSliceDefaultPrimary {
    */
   pillars: prismic.GroupField<
     Simplify<VisionMissionSliceDefaultPrimaryPillarsItem>
-  >;
-
-  /**
-   * Directives link field in *Vision Mission → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: vision_mission.default.primary.directives_link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  directives_link: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
   >;
 }
 
@@ -2056,7 +1971,6 @@ declare module "@prismicio/client" {
       FoundationOverviewSliceVariation,
       FoundationOverviewSliceDefault,
       HeroSlice,
-      HeroSliceDefaultPrimaryPillarsItem,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,

@@ -1,0 +1,77 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"vision_pretitle": {
+				"__TYPE__": "FieldContent",
+				"value": "whose",
+				"type": "Text"
+			},
+			"vision_title": {
+				"__TYPE__": "FieldContent",
+				"value": "follow",
+				"type": "Text"
+			},
+			"vision_quote": {
+				"__TYPE__": "FieldContent",
+				"value": "unusual",
+				"type": "Text"
+			},
+			"vision_footer": {
+				"__TYPE__": "FieldContent",
+				"value": "lesson",
+				"type": "Text"
+			},
+			"mission_pretitle": {
+				"__TYPE__": "FieldContent",
+				"value": "happen",
+				"type": "Text"
+			},
+			"mission_title": {
+				"__TYPE__": "FieldContent",
+				"value": "fought",
+				"type": "Text"
+			},
+			"mission_description": {
+				"__TYPE__": "FieldContent",
+				"value": "consist",
+				"type": "Text"
+			},
+			"pillars": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"key": "305bdb1c-32cc-41a4-b324-15752d77d49e",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "count",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "back",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"key": "984ff211-ea4f-48f2-91ec-af08777856a6",
+				"value": []
+			}
+		]
+	}
+]
