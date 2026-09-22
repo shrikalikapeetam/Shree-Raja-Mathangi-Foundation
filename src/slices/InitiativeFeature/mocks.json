@@ -1,0 +1,50 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Id sint deserunt aute duis ex do ut id id duis dolor et officia esse est."
+						}
+					}
+				]
+			},
+			"initiatives": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"key": "bdbcde0c-087a-4091-bc10-8e06ed9b6316",
+						"value": [
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "hollow",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"highlight_text": {
+				"__TYPE__": "FieldContent",
+				"value": "shinning",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"key": "f0ccaf7e-2899-4f3a-9f50-26a9ed754f0b",
+				"value": []
+			}
+		]
+	}
+]

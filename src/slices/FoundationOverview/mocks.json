@@ -1,0 +1,90 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"highlights": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Laborum occaecat cillum ut. Aliquip aute aliqua dolore consectetur aliquip consectetur et ut dolor exercitation enim ut."
+						}
+					}
+				]
+			},
+			"featured_image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+					"width": 2747,
+					"height": 4120
+				},
+				"width": 2747,
+				"height": 4120,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+				"alt": "bone",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"title_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Eiusmod commodo tempor voluptate dolore aute. Excepteur cupidatat ipsum eiusmod consequat nostrud id ad est labore ad."
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Consequat aliqua cillum et aute incididunt enim est in occaecat ad voluptate nisi culpa amet id. Eiusmod dolor mollit ex Lorem consequat. Ex est aute dolor fugiat in dolore fugiat est ullamco reprehenderit excepteur magna velit."
+						}
+					}
+				]
+			},
+			"repetable_item": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"key": "81649252-5af1-48b2-95b5-259f226759ee",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "roof",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"key": "f2f64ea1-4b08-4a51-82ec-0e2857745dad",
+				"value": []
+			}
+		]
+	}
+]

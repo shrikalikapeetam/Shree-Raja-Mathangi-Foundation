@@ -10,54 +10,47 @@
       "imageUrl": "",
       "name": "Default",
       "primary": {
-        "pretitle": {
+        "featured_image": {
+          "type": "Image",
           "config": {
-            "label": "pretitle"
-          },
-          "type": "Text"
+            "label": "Featured Image",
+            "constraint": {},
+            "thumbnails": []
+          }
         },
-        "title": {
+        "title_description": {
+          "type": "StructuredText",
           "config": {
-            "label": "title"
-          },
-          "type": "Text"
+            "label": "Title Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,list-item,o-list-item"
+          }
         },
-        "highlights_title": {
+        "description": {
+          "type": "StructuredText",
           "config": {
-            "label": "highlights title"
-          },
-          "type": "Text"
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,list-item,o-list-item"
+          }
         },
-        "trust_pretitle": {
+        "repetable_item": {
+          "type": "Group",
           "config": {
-            "label": "trust pretitle"
-          },
-          "type": "Text"
-        },
-        "trust_title": {
-          "config": {
-            "label": "trust title"
-          },
-          "type": "Text"
-        },
-        "trust_description": {
-          "config": {
-            "label": "trust description"
-          },
-          "type": "Text"
-        },
-        "banner_text": {
-          "config": {
-            "label": "banner text"
-          },
-          "type": "Text"
-        },
-        "content": {
-          "config": {
-            "label": "Mission content",
-            "multi": "paragraph,strong,em,hyperlink"
-          },
-          "type": "StructuredText"
+            "label": "Repetable Item",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
         },
         "highlights": {
           "config": {
@@ -65,55 +58,10 @@
             "multi": "list-item,strong,em,hyperlink"
           },
           "type": "StructuredText"
-        },
-        "trustees": {
-          "config": {
-            "fields": {
-              "name": {
-                "config": {
-                  "label": "Trustee name"
-                },
-                "type": "Text"
-              },
-              "role": {
-                "config": {
-                  "label": "Trustee role"
-                },
-                "type": "Text"
-              },
-              "responsibility": {
-                "config": {
-                  "label": "Trustee responsibility"
-                },
-                "type": "Text"
-              }
-            },
-            "label": "Trustees"
-          },
-          "type": "Group"
-        },
-        "actions": {
-          "config": {
-            "allowText": true,
-            "label": "Actions",
-            "repeat": true,
-            "variants": [
-              "support",
-              "vision",
-              "csr"
-            ]
-          },
-          "type": "Link"
-        },
-        "volunteer": {
-          "config": {
-            "allowText": true,
-            "label": "Volunteer action"
-          },
-          "type": "Link"
         }
       },
-      "version": ""
+      "version": "",
+      "items": {}
     }
   ]
 }

@@ -645,38 +645,18 @@ export type FeaturedProfileSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *Foundation Overview → Default → Primary → Trustees*
+ * Item in *Foundation Overview → Default → Primary → Repetable Item*
  */
-export interface FoundationOverviewSliceDefaultPrimaryTrusteesItem {
+export interface FoundationOverviewSliceDefaultPrimaryRepetableItemItem {
   /**
-   * Trustee name field in *Foundation Overview → Default → Primary → Trustees*
+   * Title field in *Foundation Overview → Default → Primary → Repetable Item*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: foundation_overview.default.primary.trustees[].name
+   * - **API ID Path**: foundation_overview.default.primary.repetable_item[].title
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  name: prismic.KeyTextField;
-
-  /**
-   * Trustee role field in *Foundation Overview → Default → Primary → Trustees*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: foundation_overview.default.primary.trustees[].role
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  role: prismic.KeyTextField;
-
-  /**
-   * Trustee responsibility field in *Foundation Overview → Default → Primary → Trustees*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: foundation_overview.default.primary.trustees[].responsibility
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  responsibility: prismic.KeyTextField;
+  title: prismic.KeyTextField;
 }
 
 /**
@@ -684,84 +664,46 @@ export interface FoundationOverviewSliceDefaultPrimaryTrusteesItem {
  */
 export interface FoundationOverviewSliceDefaultPrimary {
   /**
-   * pretitle field in *Foundation Overview → Default → Primary*
+   * Featured Image field in *Foundation Overview → Default → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: foundation_overview.default.primary.pretitle
-   * - **Documentation**: https://prismic.io/docs/fields/text
+   * - **API ID Path**: foundation_overview.default.primary.featured_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
    */
-  pretitle: prismic.KeyTextField;
+  featured_image: prismic.ImageField<never>;
 
   /**
-   * title field in *Foundation Overview → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: foundation_overview.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * highlights title field in *Foundation Overview → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: foundation_overview.default.primary.highlights_title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  highlights_title: prismic.KeyTextField;
-
-  /**
-   * trust pretitle field in *Foundation Overview → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: foundation_overview.default.primary.trust_pretitle
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  trust_pretitle: prismic.KeyTextField;
-
-  /**
-   * trust title field in *Foundation Overview → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: foundation_overview.default.primary.trust_title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  trust_title: prismic.KeyTextField;
-
-  /**
-   * trust description field in *Foundation Overview → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: foundation_overview.default.primary.trust_description
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  trust_description: prismic.KeyTextField;
-
-  /**
-   * banner text field in *Foundation Overview → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: foundation_overview.default.primary.banner_text
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  banner_text: prismic.KeyTextField;
-
-  /**
-   * Mission content field in *Foundation Overview → Default → Primary*
+   * Title Description field in *Foundation Overview → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: foundation_overview.default.primary.content
+   * - **API ID Path**: foundation_overview.default.primary.title_description
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  content: prismic.RichTextField;
+  title_description: prismic.RichTextField;
+
+  /**
+   * Description field in *Foundation Overview → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: foundation_overview.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Repetable Item field in *Foundation Overview → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: foundation_overview.default.primary.repetable_item[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  repetable_item: prismic.GroupField<
+    Simplify<FoundationOverviewSliceDefaultPrimaryRepetableItemItem>
+  >;
 
   /**
    * Trust highlights field in *Foundation Overview → Default → Primary*
@@ -772,52 +714,6 @@ export interface FoundationOverviewSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   highlights: prismic.RichTextField;
-
-  /**
-   * Trustees field in *Foundation Overview → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: foundation_overview.default.primary.trustees[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  trustees: prismic.GroupField<
-    Simplify<FoundationOverviewSliceDefaultPrimaryTrusteesItem>
-  >;
-
-  /**
-   * Actions field in *Foundation Overview → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: foundation_overview.default.primary.actions
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  actions: prismic.Repeatable<
-    prismic.LinkField<
-      string,
-      string,
-      unknown,
-      prismic.FieldState,
-      "support" | "vision" | "csr"
-    >
-  >;
-
-  /**
-   * Volunteer action field in *Foundation Overview → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: foundation_overview.default.primary.volunteer
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  volunteer: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
-  >;
 }
 
 /**
@@ -1144,76 +1040,6 @@ export interface InitiativeFeatureSliceDefaultPrimaryInitiativesItem {
  */
 export interface InitiativeFeatureSliceDefaultPrimary {
   /**
-   * anchor id field in *Initiative Feature → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: initiative_feature.default.primary.anchor_id
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  anchor_id: prismic.KeyTextField;
-
-  /**
-   * pretitle field in *Initiative Feature → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: initiative_feature.default.primary.pretitle
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  pretitle: prismic.KeyTextField;
-
-  /**
-   * title field in *Initiative Feature → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: initiative_feature.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * image badge field in *Initiative Feature → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: initiative_feature.default.primary.image_badge
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  image_badge: prismic.KeyTextField;
-
-  /**
-   * image title field in *Initiative Feature → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: initiative_feature.default.primary.image_title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  image_title: prismic.KeyTextField;
-
-  /**
-   * initiatives heading field in *Initiative Feature → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: initiative_feature.default.primary.initiatives_heading
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  initiatives_heading: prismic.KeyTextField;
-
-  /**
-   * Featured image field in *Initiative Feature → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: initiative_feature.default.primary.image
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
    * Description field in *Initiative Feature → Default → Primary*
    *
    * - **Field Type**: Rich Text
@@ -1236,22 +1062,14 @@ export interface InitiativeFeatureSliceDefaultPrimary {
   >;
 
   /**
-   * Actions field in *Initiative Feature → Default → Primary*
+   * Highlight Text field in *Initiative Feature → Default → Primary*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: initiative_feature.default.primary.actions
-   * - **Documentation**: https://prismic.io/docs/fields/link
+   * - **API ID Path**: initiative_feature.default.primary.highlight_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  actions: prismic.Repeatable<
-    prismic.LinkField<
-      string,
-      string,
-      unknown,
-      prismic.FieldState,
-      "sponsor" | "explore" | "volunteer"
-    >
-  >;
+  highlight_text: prismic.KeyTextField;
 }
 
 /**
@@ -1884,7 +1702,7 @@ declare module "@prismicio/client" {
       FeaturedProfileSliceVariation,
       FeaturedProfileSliceDefault,
       FoundationOverviewSlice,
-      FoundationOverviewSliceDefaultPrimaryTrusteesItem,
+      FoundationOverviewSliceDefaultPrimaryRepetableItemItem,
       FoundationOverviewSliceDefaultPrimary,
       FoundationOverviewSliceVariation,
       FoundationOverviewSliceDefault,
