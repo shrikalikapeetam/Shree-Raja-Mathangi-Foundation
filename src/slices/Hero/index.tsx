@@ -17,12 +17,17 @@ export default function Hero({ slice }: HeroProps) {
       data-slice-variation={slice.variation}
       className={cn(
         slice.primary.background_color === "Light" &&
-          "bg-foundation-white section-my",
+          "bg-foundation-white section-my pt-16",
         slice.primary.background_color === "Dark" &&
           "bg-legacy-surface section-py border-y border-orange-100",
       )}
     >
-      <div className="container p-4">
+      <div
+        className={cn(
+          "container",
+          slice.primary.background_color === "Dark" && "pt-16",
+        )}
+      >
         <div
           className={cn(
             " flex flex-col items-center text-center gap-5",

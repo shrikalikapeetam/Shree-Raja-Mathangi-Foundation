@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cinzel, Geist } from "next/font/google";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
+import Header from "@/components/Header";
 import "./globals.css";
 
 const cinzel = Cinzel({
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${cinzel.variable} ${geist.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <Header />
         {children}
         <PrismicPreview repositoryName={repositoryName} />
       </body>
