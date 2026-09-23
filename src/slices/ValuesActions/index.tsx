@@ -51,11 +51,11 @@ export default function ValuesActions({ slice }: ValuesActionsProps) {
             const Icon = actionIcons[variant];
             const content = <><Icon aria-hidden="true" className="size-5" fill={variant === "accent" ? "currentColor" : "none"} /><span>{action.text}</span></>;
             return isFilled.link(action) ? (
-              <Button key={action.key ?? index} variant={variant} size="action" nativeButton={false} role="link" render={<PrismicLink field={action}>{content}</PrismicLink>}>
+              <Button key={action.key ?? index} variant={variant} size="default" nativeButton={false} role="link" render={<PrismicLink field={action}>{content}</PrismicLink>}>
                 {content}
               </Button>
             ) : (
-              <Button key={action.key ?? index} variant={variant} size="action" disabled>{content}</Button>
+              <Button key={action.key ?? index} variant={variant} size="default" disabled>{content}</Button>
             );
           })}
         </div>

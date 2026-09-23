@@ -24,7 +24,7 @@
   --color-legacy-surface: #f7f4ee;
   --color-legacy-ink: #26352f;
   --color-legacy-muted: #68746d;
-  --color-legacy-accent: #d96b45;
+  --color-legacy-accent: #b64724;
   --color-legacy-hover: #3d5148;
   --color-legacy-sand: #e8d8bd;
   --color-legacy-sage: #a9c5a0;
@@ -94,8 +94,8 @@
   /* Shared foundation palette and typography. */
   --foundation-ink: #132e73;
   --foundation-ink-hover: #0c2056;
-  --foundation-accent: #e9500b;
-  --foundation-accent-deep: #c43d08;
+  --foundation-accent: #c43d08;
+  --foundation-accent-deep: #a93406;
   --foundation-white: #ffffff;
   --foundation-body: #302c29;
   --foundation-muted: #5c5750;

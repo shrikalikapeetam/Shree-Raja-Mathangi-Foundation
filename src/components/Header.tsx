@@ -39,7 +39,7 @@ export default async function Header() {
         <div className="container flex items-center justify-between lg:gap-9 md:gap-8 sm:gap-7 gap-6 xl:gap-10">
           <Link
             href="/"
-            aria-label={brandName ? `${brandName} — Home` : "Home"}
+            aria-label={brandName ? undefined : "Home"}
             className="flex min-w-0 items-center gap-2 md:gap-3 rounded-md text-foundation-ink hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foundation-accent xl:gap-4"
           >
             {isFilled.image(logo) && (

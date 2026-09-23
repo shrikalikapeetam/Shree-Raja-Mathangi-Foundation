@@ -6,7 +6,6 @@ import {
   PrismicRichText,
   type SliceComponentProps,
 } from "@prismicio/react";
-import { Sparkles } from "lucide-react";
 
 export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 

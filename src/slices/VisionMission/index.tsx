@@ -1,6 +1,5 @@
 import { isFilled, type Content } from "@prismicio/client";
 import { type SliceComponentProps } from "@prismicio/react";
-import { Eye, Target } from "lucide-react";
 
 export default function VisionMission({
   slice,

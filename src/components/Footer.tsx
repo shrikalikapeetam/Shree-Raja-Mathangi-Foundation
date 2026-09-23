@@ -1,12 +1,15 @@
-import { isFilled } from "@prismicio/client";
+import { asLinkAttrs, isFilled } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { Button } from "@/components/ui/button";
-import { getLayout } from "@/prismicio";
+import { getLayout, linkResolver } from "@/prismicio";
 import Link from "next/link";
 
 export default async function Footer() {
   const layout = await getLayout();
   if (!layout) return null;
+  const brandName = [layout.data.trust_name, layout.data.trust_name2]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <footer>
@@ -43,6 +46,9 @@ export default async function Footer() {
           {layout.data.involve_cta.length > 0 && (
             <ul className="m-0 w-full grid list-none gap-4 md:gap-5 p-0 sm:grid-cols-2 md:grid-cols-3 xl:gap-6">
               {layout.data.involve_cta.map((item, index) => {
+                const { href, target, rel } = asLinkAttrs(item.cta, {
+                  linkResolver,
+                });
                 return (
                   <li
                     key={index}
@@ -59,7 +65,18 @@ export default async function Footer() {
                       </p>
                     )}
                     {item.cta.text && (
-                      <Button variant="accent">{item.cta.text}</Button>
+                      <Button
+                        variant="accent"
+                        disabled={!href}
+                        nativeButton={!href}
+                        render={
+                          href ? (
+                            <Link href={href} target={target} rel={rel} />
+                          ) : undefined
+                        }
+                      >
+                        {item.cta.text}
+                      </Button>
                     )}
                   </li>
                 );
@@ -71,14 +88,10 @@ export default async function Footer() {
 
       <div className="border-t border-foundation-border/60 bg-white">
         <div className="container flex flex-col items-center justify-between gap-4 py-4 text-center md:flex-row md:gap-5 xl:gap-6 md:text-left">
-          {(isFilled.image(layout.data.logo) || layout.data.brandName) && (
+          {(isFilled.image(layout.data.logo) || brandName) && (
             <Link
               href="/"
-              aria-label={
-                layout.data.brandName
-                  ? `${layout.data.brandName} — Home`
-                  : "Home"
-              }
+              aria-label={brandName ? undefined : "Home"}
               className="flex min-w-0 items-center gap-2 md:gap-3 rounded-md text-foundation-ink hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foundation-accent xl:gap-4"
             >
               {isFilled.image(layout.data.logo) && (

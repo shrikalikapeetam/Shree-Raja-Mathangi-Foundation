@@ -38,6 +38,9 @@
             },
             "contact_inquiry": {
               "type": "SharedSlice"
+            },
+            "pillar_feature": {
+              "type": "SharedSlice"
             }
           }
         },
@@ -77,6 +80,42 @@
           "thumbnails": []
         },
         "type": "Image"
+      },
+      "og_title": {
+        "config": {
+          "label": "Social sharing title"
+        },
+        "type": "Text"
+      },
+      "og_description": {
+        "config": {
+          "label": "Social sharing description"
+        },
+        "type": "Text"
+      },
+      "og_image": {
+        "config": {
+          "label": "Social sharing image (1200 x 630)"
+        },
+        "type": "Image"
+      },
+      "noindex": {
+        "config": {
+          "label": "Hide this page from search engines"
+        },
+        "type": "Boolean"
+      },
+      "schema_type": {
+        "config": {
+          "label": "Page schema type",
+          "options": [
+            "WebPage",
+            "AboutPage",
+            "ContactPage",
+            "CollectionPage"
+          ]
+        },
+        "type": "Select"
       }
     }
   },

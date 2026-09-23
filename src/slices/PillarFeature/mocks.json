@@ -1,0 +1,360 @@
+[
+  {
+    "slice_type": "pillar_feature",
+    "variation": "default",
+    "version": "",
+    "items": [],
+    "slice_label": null,
+    "primary": {
+      "section_label": "OUR THREE PILLARS",
+      "additional_image": {},
+      "image_caption": "Illustrative image — project photographs to follow.",
+      "initiatives_title": "Our Initiatives",
+      "statistics": [
+        {
+          "value": "4 acres",
+          "label": "Goshala site"
+        },
+        {
+          "value": "150 animals",
+          "label": "Planned capacity"
+        },
+        {
+          "value": "3 acres",
+          "label": "Fodder cultivation"
+        }
+      ],
+      "donations_title": null,
+      "donations": [],
+      "note": null,
+      "image_on_right": false,
+      "anchor_id": "go-samrakshnam",
+      "pillar_name": "01 / Go Samrakshnam",
+      "title": [
+        {
+          "type": "heading2",
+          "text": "Compassion for Every Cow",
+          "spans": []
+        }
+      ],
+      "introduction": [
+        {
+          "type": "paragraph",
+          "text": "The Foundation supports Goshalas that provide lifelong care for rescued, abandoned, aged, and indigenous cows.",
+          "spans": []
+        }
+      ],
+      "featured_image": {
+        "url": "/images/pillars/goshala.png",
+        "alt": "Illustration of indigenous cows in a shaded goshala",
+        "dimensions": {
+          "width": 1536,
+          "height": 1024
+        },
+        "id": "goshala",
+        "copyright": null
+      },
+      "initiatives": [
+        {
+          "type": "list-item",
+          "text": "Cow rescue and rehabilitation",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Shelter and nutrition",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Veterinary healthcare",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Indigenous breed conservation",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Sustainable agriculture initiatives",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Community awareness programs",
+          "spans": []
+        }
+      ],
+      "project_title": [
+        {
+          "type": "heading3",
+          "text": "A home for lifelong care",
+          "spans": []
+        }
+      ],
+      "project_content": [
+        {
+          "type": "paragraph",
+          "text": "The Foundation has started constructing a goshala on a 4-acre plot near the Sri Raja Mathangi Sametha Sri Raja Rajeshwara Temple, located in Keezhanthurai Village near Arakonam, Tamil Nadu.",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "The four-acre plot will house three sheds for 150 animals, a feed storage shed, a quarantine shed, and a clinic.",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "On the remaining 3 acres, fodder grass is also cultivated to ensure year-round availability of green fodder for the cows.",
+          "spans": []
+        }
+      ],
+      "cta": {
+        "link_type": "Any",
+        "text": "Support Go Samrakshnam"
+      }
+    },
+    "id": "pillar_feature$mock-0"
+  },
+  {
+    "slice_type": "pillar_feature",
+    "variation": "default",
+    "version": "",
+    "items": [],
+    "slice_label": null,
+    "primary": {
+      "section_label": null,
+      "additional_image": {},
+      "image_caption": "Illustrative image — project photographs to follow.",
+      "initiatives_title": "Our Initiatives",
+      "statistics": [
+        {
+          "value": "13",
+          "label": "Current students"
+        },
+        {
+          "value": "50",
+          "label": "Planned students"
+        },
+        {
+          "value": "3",
+          "label": "Planned Acharyas"
+        }
+      ],
+      "donations_title": "Support the Veda Patashala",
+      "donations": [
+        {
+          "label": "Corpus fund",
+          "amount": 6000
+        },
+        {
+          "label": "Sponsor one vidhyarthi for one year",
+          "amount": 60000
+        },
+        {
+          "label": "Brahmana Bhojan for one day",
+          "amount": 5000
+        },
+        {
+          "label": "Brahmana Bhojan for one meal",
+          "amount": 3000
+        }
+      ],
+      "note": null,
+      "image_on_right": true,
+      "anchor_id": "vedic-education",
+      "pillar_name": "02 / Vedic Education",
+      "title": [
+        {
+          "type": "heading2",
+          "text": "Preserving Ancient Wisdom",
+          "spans": []
+        }
+      ],
+      "introduction": [
+        {
+          "type": "paragraph",
+          "text": "The Vedas are among humanity's oldest living knowledge traditions. The Foundation supports institutions dedicated to preserving authentic Vedic learning while encouraging research and wider public understanding.",
+          "spans": []
+        }
+      ],
+      "featured_image": {
+        "url": "/images/pillars/vedic-education.png",
+        "alt": "Illustration of Vedic students learning with an Acharya",
+        "dimensions": {
+          "width": 1536,
+          "height": 1024
+        },
+        "id": "vedic-education",
+        "copyright": null
+      },
+      "initiatives": [
+        {
+          "type": "list-item",
+          "text": "Scholarships for students",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Support for Gurukul institutions",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Teacher welfare",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Research and publications",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Heritage education programs",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Digital preservation projects",
+          "spans": []
+        }
+      ],
+      "project_title": [
+        {
+          "type": "heading3",
+          "text": "Supporting a living tradition",
+          "spans": []
+        }
+      ],
+      "project_content": [
+        {
+          "type": "paragraph",
+          "text": "The Foundation supports The Swamy Govinda Bagavatpatha Acharya Vedic Foundation, situated at No. 2, Mundaka Kanni Kovil 4th Street, Mylapore, Chennai – 600 004, Tamil Nadu.",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "This Patasala offers a course on Shukla Yajurveda Madhyandiniya Shaka.",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "There are 13 vidhyarthis currently undergoing studies. It is planned to expand the student base to 50 with three Acharyas from the next academic year.",
+          "spans": []
+        }
+      ],
+      "cta": {
+        "link_type": "Any",
+        "text": "Support Vedic Education"
+      }
+    },
+    "id": "pillar_feature$mock-1"
+  },
+  {
+    "slice_type": "pillar_feature",
+    "variation": "default",
+    "version": "",
+    "items": [],
+    "slice_label": null,
+    "primary": {
+      "section_label": null,
+      "additional_image": {},
+      "image_caption": "Illustrative image — project photographs to follow.",
+      "initiatives_title": "Our Initiatives",
+      "statistics": [],
+      "donations_title": null,
+      "donations": [],
+      "note": "Names of the ten Dasa Maha Vidhyas and temple photographs will be added when supplied.",
+      "image_on_right": false,
+      "anchor_id": "temple-management",
+      "pillar_name": "03 / Temple Management",
+      "title": [
+        {
+          "type": "heading2",
+          "text": "Preserving Sacred Spaces",
+          "spans": []
+        }
+      ],
+      "introduction": [
+        {
+          "type": "paragraph",
+          "text": "Temples have long served as centers of worship, culture, education, and community life. The Foundation works with temple administrators and communities to support the preservation and effective management of these sacred institutions.",
+          "spans": []
+        }
+      ],
+      "featured_image": {
+        "url": "/images/pillars/temple.png",
+        "alt": "Illustration of a South Indian temple courtyard and gopuram",
+        "dimensions": {
+          "width": 1536,
+          "height": 1024
+        },
+        "id": "temple",
+        "copyright": null
+      },
+      "initiatives": [
+        {
+          "type": "list-item",
+          "text": "Temple conservation and restoration",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Administrative support",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Digital record management",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Volunteer coordination",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Cultural and devotional programs",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Capacity building for temple management",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Heritage documentation and awareness",
+          "spans": []
+        }
+      ],
+      "project_title": [
+        {
+          "type": "heading3",
+          "text": "Shri Raja Mathangi Sametha Shri Raja Rajeshwar Temple",
+          "spans": []
+        }
+      ],
+      "project_content": [
+        {
+          "type": "paragraph",
+          "text": "The Foundation is now maintaining and managing the affairs of Shri Raja Mathangi Sametha Shri Raja Rajeshwar Temple, Kizhanthurai Village, Arakonam, Tamil Nadu.",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "The temple houses the Dasa Maha Vidhyas.",
+          "spans": []
+        }
+      ],
+      "cta": {
+        "link_type": "Any",
+        "text": "Support Temple Preservation"
+      }
+    },
+    "id": "pillar_feature$mock-2"
+  }
+]

@@ -28,10 +28,14 @@ export default function FoundationOverview({
               hasImage && hasIntroduction && "md:grid-cols-2",
             )}
           >
-            {hasImage && (
+            {isFilled.image(slice.primary.featured_image) && (
               <div className="relative aspect-4/3 min-w-0 overflow-hidden rounded-xl bg-legacy-surface md:rounded-2xl xl:rounded-3xl">
                 <PrismicNextImage
-                  field={slice.primary.featured_image}
+                  field={{
+                    ...slice.primary.featured_image,
+                    alt: slice.primary.featured_image.alt ?? "",
+                  }}
+                  alt={slice.primary.featured_image.alt ? undefined : ""}
                   fill
                   sizes={
                     hasIntroduction

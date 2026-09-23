@@ -1,21 +1,23 @@
-import { NotFoundError } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
-import { notFound } from "next/navigation";
-import { getPageByUID } from "@/prismicio";
+import { draftMode } from "next/headers";
+import { getPage } from "@/lib/pages";
+import { pageMetadata, pageSchema } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 import { components } from "@/slices";
 
-export default async function Home() {
-  let page;
-  try {
-    page = await getPageByUID("homepage");
-  } catch (error) {
-    if (error instanceof NotFoundError) notFound();
-    throw error;
-  }
-  if (!page) notFound();
+export async function generateMetadata() {
+  const [page, { isEnabled }] = await Promise.all([
+    getPage("homepage"),
+    draftMode(),
+  ]);
+  return pageMetadata(page, isEnabled);
+}
 
+export default async function Home() {
+  const page = await getPage("homepage");
   return (
-    <main>
+    <main id="main-content">
+      <JsonLd data={pageSchema(page)} />
       <SliceZone slices={page.data.slices} components={components} />
     </main>
   );

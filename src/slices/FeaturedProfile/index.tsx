@@ -5,6 +5,7 @@ import { PrismicRichText, type SliceComponentProps } from "@prismicio/react";
 
 export default function FeaturedProfile({
   slice,
+  index,
 }: SliceComponentProps<Content.FeaturedProfileSlice>) {
   return (
     <section
@@ -21,9 +22,17 @@ export default function FeaturedProfile({
           <div className="relative isolate h-auto overflow-hidden rounded-xl bg-foundation-ink md:rounded-2xl xl:rounded-3xl">
             {isFilled.image(slice.primary.featured_image) && (
               <PrismicNextImage
-                field={slice.primary.featured_image}
+                field={{
+                  ...slice.primary.featured_image,
+                  alt:
+                    slice.primary.featured_image.alt ??
+                    slice.primary.overlay_title ??
+                    "",
+                }}
+                loading={index < 2 ? "eager" : "lazy"}
+                fetchPriority={index < 2 ? "high" : "auto"}
                 sizes={
-                  "(min-width: 1280px) 490px, (min-width: 1024px) 42vw, 100vw"
+                  "(min-width: 1280px) 588px, (min-width: 1024px) 50vw, 100vw"
                 }
                 className="object-cover size-full aspect-1/1.5"
               />
@@ -53,7 +62,16 @@ export default function FeaturedProfile({
           <div className="flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10">
             {isFilled.richText(slice.primary.content) && (
               <div className="wrap-anywhere flex flex-col gap-4 text-foundation-body [&_a]:text-foundation-accent [&_a]:underline [&_a]:underline-offset-4 [&_h3]:text-foundation-ink [&_h4]:text-foundation-accent [&_li]:leading-relaxed [&_p]:leading-relaxed">
-                <PrismicRichText field={slice.primary.content} />
+                <PrismicRichText
+                  field={slice.primary.content}
+                  components={{
+                    heading4: ({ children }) => (
+                      <h3 className="header4 text-foundation-accent">
+                        {children}
+                      </h3>
+                    ),
+                  }}
+                />
               </div>
             )}
 

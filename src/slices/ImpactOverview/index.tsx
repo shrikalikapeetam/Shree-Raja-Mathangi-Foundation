@@ -7,7 +7,6 @@ export default function ImpactOverview({
 }: SliceComponentProps<Content.ImpactOverviewSlice>) {
   const hasIntroduction =
     isFilled.keyText(slice.primary.title) ||
-    isFilled.keyText(slice.primary.subtitle) ||
     isFilled.richText(slice.primary.description);
   const statements = slice.primary.repetable_item.filter((item) =>
     isFilled.keyText(item.impact_statement),

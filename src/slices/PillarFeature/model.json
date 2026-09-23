@@ -1,0 +1,159 @@
+{
+  "id": "pillar_feature",
+  "name": "Pillar Feature",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "section_label": {
+          "config": {
+            "label": "Section label"
+          },
+          "type": "Text"
+        },
+        "anchor_id": {
+          "config": {
+            "label": "Section anchor"
+          },
+          "type": "Text"
+        },
+        "pillar_name": {
+          "config": {
+            "label": "Pillar name"
+          },
+          "type": "Text"
+        },
+        "title": {
+          "config": {
+            "label": "Title",
+            "single": "heading2"
+          },
+          "type": "StructuredText"
+        },
+        "introduction": {
+          "config": {
+            "label": "Introduction",
+            "multi": "paragraph,strong,em,hyperlink"
+          },
+          "type": "StructuredText"
+        },
+        "featured_image": {
+          "config": {
+            "label": "Featured image"
+          },
+          "type": "Image"
+        },
+        "additional_image": {
+          "config": {
+            "label": "Additional featured image"
+          },
+          "type": "Image"
+        },
+        "image_caption": {
+          "config": {
+            "label": "Image caption"
+          },
+          "type": "Text"
+        },
+        "initiatives_title": {
+          "config": {
+            "label": "Initiatives label"
+          },
+          "type": "Text"
+        },
+        "initiatives": {
+          "config": {
+            "label": "Initiatives",
+            "multi": "list-item"
+          },
+          "type": "StructuredText"
+        },
+        "project_title": {
+          "config": {
+            "label": "Project title",
+            "single": "heading3"
+          },
+          "type": "StructuredText"
+        },
+        "project_content": {
+          "config": {
+            "label": "Project details",
+            "multi": "paragraph,strong,em,hyperlink"
+          },
+          "type": "StructuredText"
+        },
+        "statistics": {
+          "config": {
+            "fields": {
+              "value": {
+                "config": {
+                  "label": "Value"
+                },
+                "type": "Text"
+              },
+              "label": {
+                "config": {
+                  "label": "Label"
+                },
+                "type": "Text"
+              }
+            },
+            "label": "Statistics"
+          },
+          "type": "Group"
+        },
+        "donations_title": {
+          "config": {
+            "label": "Donation panel title"
+          },
+          "type": "Text"
+        },
+        "donations": {
+          "config": {
+            "fields": {
+              "label": {
+                "config": {
+                  "label": "Donation label"
+                },
+                "type": "Text"
+              },
+              "amount": {
+                "config": {
+                  "label": "Amount (INR)"
+                },
+                "type": "Number"
+              }
+            },
+            "label": "Donation options"
+          },
+          "type": "Group"
+        },
+        "note": {
+          "config": {
+            "label": "Additional note"
+          },
+          "type": "Text"
+        },
+        "cta": {
+          "config": {
+            "allowText": true,
+            "label": "Call to action"
+          },
+          "type": "Link"
+        },
+        "image_on_right": {
+          "config": {
+            "label": "Image on right"
+          },
+          "type": "Boolean"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

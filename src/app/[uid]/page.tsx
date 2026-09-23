@@ -1,53 +1,25 @@
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { cache } from "react";
-import { asImageSrc, asText, NotFoundError } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
-import { getPageByUID } from "@/prismicio";
+import { draftMode } from "next/headers";
+import { permanentRedirect } from "next/navigation";
+import { getPage } from "@/lib/pages";
+import { pageMetadata, pageSchema } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 import { components } from "@/slices";
 
-const getPage = cache(async (uid: string) => {
-  try {
-    const page = await getPageByUID(uid);
-    if (!page) notFound();
-    return page;
-  } catch (error) {
-    if (error instanceof NotFoundError) notFound();
-    throw error;
-  }
-});
-
-export async function generateMetadata({
-  params,
-}: PageProps<"/[uid]">): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps<"/[uid]">) {
   const { uid } = await params;
-  const page = await getPage(uid);
-  const title =
-    page.data.meta_title ||
-    asText(page.data.title) ||
-    "Shree Raja Mathangi Foundation";
-  const description = page.data.meta_description || undefined;
-  const image = asImageSrc(page.data.meta_image);
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      ...(image
-        ? { images: [{ url: image, alt: page.data.meta_image.alt || title }] }
-        : {}),
-    },
-  };
+  if (uid === "homepage") permanentRedirect("/");
+  const [page, { isEnabled }] = await Promise.all([getPage(uid), draftMode()]);
+  return pageMetadata(page, isEnabled);
 }
 
 export default async function Page({ params }: PageProps<"/[uid]">) {
   const { uid } = await params;
+  if (uid === "homepage") permanentRedirect("/");
   const page = await getPage(uid);
-
   return (
-    <main className="min-h-screen">
+    <main id="main-content" className="min-h-screen">
+      <JsonLd data={pageSchema(page)} />
       <SliceZone slices={page.data.slices} components={components} />
     </main>
   );
