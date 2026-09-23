@@ -17,6 +17,7 @@ export default function ImpactOverview({
       className="container section-my"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      id={slice.primary.anchor_id || ""}
     >
       <div
         className={cn(

@@ -10,6 +10,13 @@
       "imageUrl": "",
       "name": "Default",
       "primary": {
+        "anchor_id": {
+          "type": "Text",
+          "config": {
+            "label": "Anchor ID",
+            "placeholder": ""
+          }
+        },
         "office_title": {
           "config": {
             "label": "Office Title"

@@ -20,6 +20,7 @@ export default function Hero({ slice }: HeroProps) {
         slice.primary.background_color === "Dark" &&
           "bg-legacy-surface section-py border-y border-orange-100",
       )}
+      id={slice.primary.anchor_id || ""}
     >
       <div
         className={cn(

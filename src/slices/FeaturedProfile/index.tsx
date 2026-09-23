@@ -12,6 +12,7 @@ export default function FeaturedProfile({
       className="bg-legacy-surface section-py"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      id={slice.primary.anchor_id || ""}
     >
       <div className="container">
         <div

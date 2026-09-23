@@ -9,6 +9,7 @@ export default function VisionMission({
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="container section-my"
+      id={slice.primary.anchor_id || ""}
     >
       <div className="flex flex-col gap-6 sm:gap-7 md:gap-8 md:flex-row lg:gap-9 xl:gap-10">
         <article className="flex flex-col w-full max-w-md gap-6 rounded-xl border border-foundation-gold/40 bg-foundation-ink bg-(image:--banner-background) p-4 text-(--foundation-cream) shadow-lg sm:gap-7 sm:p-5 md:gap-8 md:rounded-2xl md:p-6 lg:gap-9 lg:p-7 xl:gap-10 xl:rounded-3xl xl:p-8">

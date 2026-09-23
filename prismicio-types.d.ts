@@ -230,7 +230,6 @@ export type LayoutDocument<Lang extends string = string> =
 
 type PageDocumentDataSlicesSlice =
   | HeroSlice
-  | ValuesActionsSlice
   | FeaturedProfileSlice
   | InitiativeFeatureSlice
   | FeatureGridSlice
@@ -409,6 +408,16 @@ export interface ContactInquirySliceDefaultPrimaryContactDetailsItem {
  */
 export interface ContactInquirySliceDefaultPrimary {
   /**
+   * Anchor ID field in *Contact Inquiry → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_inquiry.default.primary.anchor_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  anchor_id: prismic.KeyTextField;
+
+  /**
    * Office Title field in *Contact Inquiry → Default → Primary*
    *
    * - **Field Type**: Text
@@ -581,6 +590,16 @@ export interface FeatureGridSliceDefaultPrimaryCardsItem {
  */
 export interface FeatureGridSliceDefaultPrimary {
   /**
+   * Anchor ID field in *Feature Grid → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_grid.default.primary.anchor_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  anchor_id: prismic.KeyTextField;
+
+  /**
    * Pre-title field in *Feature Grid → Default → Primary*
    *
    * - **Field Type**: Text
@@ -665,6 +684,16 @@ export type FeatureGridSlice = prismic.SharedSlice<
  * Primary content in *Featured Profile → Default → Primary*
  */
 export interface FeaturedProfileSliceDefaultPrimary {
+  /**
+   * Anchor ID field in *Featured Profile → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_profile.default.primary.anchor_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  anchor_id: prismic.KeyTextField;
+
   /**
    * overlay pretitle field in *Featured Profile → Default → Primary*
    *
@@ -806,6 +835,16 @@ export interface FoundationOverviewSliceDefaultPrimaryRepetableItemItem {
  */
 export interface FoundationOverviewSliceDefaultPrimary {
   /**
+   * Anchor ID field in *Foundation Overview → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: foundation_overview.default.primary.anchor_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  anchor_id: prismic.KeyTextField;
+
+  /**
    * Featured Image field in *Foundation Overview → Default → Primary*
    *
    * - **Field Type**: Image
@@ -892,6 +931,16 @@ export type FoundationOverviewSlice = prismic.SharedSlice<
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
+  /**
+   * Anchor ID field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.anchor_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  anchor_id: prismic.KeyTextField;
+
   /**
    * Background Color field in *Hero → Default → Primary*
    *
@@ -1020,6 +1069,16 @@ export interface ImpactOverviewSliceDefaultPrimaryRepetableItemItem {
  */
 export interface ImpactOverviewSliceDefaultPrimary {
   /**
+   * Anchor ID field in *Impact Overview → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_overview.default.primary.anchor_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  anchor_id: prismic.KeyTextField;
+
+  /**
    * title field in *Impact Overview → Default → Primary*
    *
    * - **Field Type**: Text
@@ -1111,6 +1170,16 @@ export interface InitiativeFeatureSliceDefaultPrimaryInitiativesItem {
  * Primary content in *Initiative Feature → Default → Primary*
  */
 export interface InitiativeFeatureSliceDefaultPrimary {
+  /**
+   * Anchor ID field in *Initiative Feature → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: initiative_feature.default.primary.anchor_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  anchor_id: prismic.KeyTextField;
+
   /**
    * Description field in *Initiative Feature → Default → Primary*
    *
@@ -1229,6 +1298,16 @@ export interface PillarFeatureSliceDefaultPrimaryDonationsItem {
  */
 export interface PillarFeatureSliceDefaultPrimary {
   /**
+   * Anchor ID field in *Pillar Feature → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pillar_feature.default.primary.anchor_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  anchor_id: prismic.KeyTextField;
+
+  /**
    * Section label field in *Pillar Feature → Default → Primary*
    *
    * - **Field Type**: Text
@@ -1237,16 +1316,6 @@ export interface PillarFeatureSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   section_label: prismic.KeyTextField;
-
-  /**
-   * Section anchor field in *Pillar Feature → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: pillar_feature.default.primary.anchor_id
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  anchor_id: prismic.KeyTextField;
 
   /**
    * Pillar name field in *Pillar Feature → Default → Primary*
@@ -1444,116 +1513,6 @@ export type PillarFeatureSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *Values Actions → Default → Primary → Values*
- */
-export interface ValuesActionsSliceDefaultPrimaryValuesItem {
-  /**
-   * Title field in *Values Actions → Default → Primary → Values*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: values_actions.default.primary.values[].title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Description field in *Values Actions → Default → Primary → Values*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: values_actions.default.primary.values[].description
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  description: prismic.KeyTextField;
-}
-
-/**
- * Primary content in *Values Actions → Default → Primary*
- */
-export interface ValuesActionsSliceDefaultPrimary {
-  /**
-   * Heading field in *Values Actions → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: values_actions.default.primary.heading
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  heading: prismic.KeyTextField;
-
-  /**
-   * Values field in *Values Actions → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: values_actions.default.primary.values[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  values: prismic.GroupField<
-    Simplify<ValuesActionsSliceDefaultPrimaryValuesItem>
-  >;
-
-  /**
-   * Content field in *Values Actions → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: values_actions.default.primary.content
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  content: prismic.RichTextField;
-
-  /**
-   * Actions field in *Values Actions → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: values_actions.default.primary.actions
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  actions: prismic.Repeatable<
-    prismic.LinkField<
-      string,
-      string,
-      unknown,
-      prismic.FieldState,
-      "Solid Orange" | "Solid Blue" | "Solid White"
-    >
-  >;
-}
-
-/**
- * Default variation for Values Actions Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type ValuesActionsSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<ValuesActionsSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Values Actions*
- */
-type ValuesActionsSliceVariation = ValuesActionsSliceDefault;
-
-/**
- * Values Actions Shared Slice
- *
- * - **API ID**: `values_actions`
- * - **Description**: *None*
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type ValuesActionsSlice = prismic.SharedSlice<
-  "values_actions",
-  ValuesActionsSliceVariation
->;
-
-/**
  * Item in *Vision Mission → Default → Primary → Pillars*
  */
 export interface VisionMissionSliceDefaultPrimaryPillarsItem {
@@ -1582,6 +1541,16 @@ export interface VisionMissionSliceDefaultPrimaryPillarsItem {
  * Primary content in *Vision Mission → Default → Primary*
  */
 export interface VisionMissionSliceDefaultPrimary {
+  /**
+   * Anchor ID field in *Vision Mission → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vision_mission.default.primary.anchor_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  anchor_id: prismic.KeyTextField;
+
   /**
    * Vision Pretitle field in *Vision Mission → Default → Primary*
    *
@@ -1762,11 +1731,6 @@ declare module "@prismicio/client" {
       PillarFeatureSliceDefaultPrimary,
       PillarFeatureSliceVariation,
       PillarFeatureSliceDefault,
-      ValuesActionsSlice,
-      ValuesActionsSliceDefaultPrimaryValuesItem,
-      ValuesActionsSliceDefaultPrimary,
-      ValuesActionsSliceVariation,
-      ValuesActionsSliceDefault,
       VisionMissionSlice,
       VisionMissionSliceDefaultPrimaryPillarsItem,
       VisionMissionSliceDefaultPrimary,

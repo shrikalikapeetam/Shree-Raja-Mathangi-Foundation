@@ -13,6 +13,7 @@ export default function InitiativeFeature({
       className="container section-my"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      id={slice.primary.anchor_id || ""}
     >
       <div className="flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10">
         {isFilled.richText(slice.primary.description) && (

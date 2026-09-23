@@ -9,7 +9,8 @@ export default function ContactInquiry({
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="section-py bg-legacy-surface "
+      className="section-py bg-legacy-surface"
+      id={slice.primary.anchor_id || ""}
     >
       <div className="container flex flex-col md:flex-row gap-10 sm:gap-12 md:gap-14 lg:gap-16 xl:gap-20">
         {(isFilled.keyText(slice.primary.office_title) ||

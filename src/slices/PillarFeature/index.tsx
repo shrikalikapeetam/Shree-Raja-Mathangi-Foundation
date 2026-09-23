@@ -48,7 +48,7 @@ export default function PillarFeature({
 
   return (
     <section
-      id={primary.anchor_id || undefined}
+      id={slice.primary.anchor_id || ""}
       className="container section-my"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}

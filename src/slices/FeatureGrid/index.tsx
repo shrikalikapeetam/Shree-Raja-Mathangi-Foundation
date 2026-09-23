@@ -9,6 +9,7 @@ export default function FeatureGrid({
       className="section-py border-y border-orange-100 bg-legacy-surface"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      id={slice.primary.anchor_id || ""}
     >
       <div className="container flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10">
         {(isFilled.keyText(slice.primary.pretitle) ||

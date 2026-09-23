@@ -10,15 +10,16 @@
       "imageUrl": "",
       "name": "Default",
       "primary": {
+        "anchor_id": {
+          "type": "Text",
+          "config": {
+            "label": "Anchor ID",
+            "placeholder": ""
+          }
+        },
         "section_label": {
           "config": {
             "label": "Section label"
-          },
-          "type": "Text"
-        },
-        "anchor_id": {
-          "config": {
-            "label": "Section anchor"
           },
           "type": "Text"
         },
