@@ -1308,16 +1308,6 @@ export interface PillarFeatureSliceDefaultPrimary {
   anchor_id: prismic.KeyTextField;
 
   /**
-   * Section label field in *Pillar Feature → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: pillar_feature.default.primary.section_label
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  section_label: prismic.KeyTextField;
-
-  /**
    * Pillar name field in *Pillar Feature → Default → Primary*
    *
    * - **Field Type**: Text
@@ -1450,16 +1440,6 @@ export interface PillarFeatureSliceDefaultPrimary {
   donations: prismic.GroupField<
     Simplify<PillarFeatureSliceDefaultPrimaryDonationsItem>
   >;
-
-  /**
-   * Additional note field in *Pillar Feature → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: pillar_feature.default.primary.note
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  note: prismic.KeyTextField;
 
   /**
    * Call to action field in *Pillar Feature → Default → Primary*

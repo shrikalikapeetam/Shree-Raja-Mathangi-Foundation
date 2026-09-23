@@ -38,7 +38,6 @@ export default function PillarFeature({
       variant="accent"
       disabled={!href}
       nativeButton={!href}
-      className="h-auto min-h-12 gap-3 self-start px-5 py-3 text-base whitespace-normal shadow-none"
       render={href ? <Link href={href} target={target} rel={rel} /> : undefined}
     >
       {primary.cta.text}

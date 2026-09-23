@@ -17,12 +17,6 @@
             "placeholder": ""
           }
         },
-        "section_label": {
-          "config": {
-            "label": "Section label"
-          },
-          "type": "Text"
-        },
         "pillar_name": {
           "config": {
             "label": "Pillar name"
@@ -133,12 +127,6 @@
             "label": "Donation options"
           },
           "type": "Group"
-        },
-        "note": {
-          "config": {
-            "label": "Additional note"
-          },
-          "type": "Text"
         },
         "cta": {
           "config": {

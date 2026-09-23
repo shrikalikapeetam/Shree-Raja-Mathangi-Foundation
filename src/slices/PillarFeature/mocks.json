@@ -3,11 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"section_label": {
-				"__TYPE__": "FieldContent",
-				"value": "clothing",
-				"type": "Text"
-			},
 			"anchor_id": {
 				"__TYPE__": "FieldContent",
 				"value": "meat",
@@ -41,7 +36,6 @@
 				]
 			},
 			"featured_image": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
@@ -59,10 +53,11 @@
 					"background": "transparent"
 				},
 				"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
-				"alt": "clothes"
+				"alt": "clothes",
+				"credits": null,
+				"__TYPE__": "ImageContent"
 			},
 			"additional_image": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
@@ -80,7 +75,9 @@
 					"background": "transparent"
 				},
 				"url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
-				"alt": "motor"
+				"alt": "motor",
+				"credits": null,
+				"__TYPE__": "ImageContent"
 			},
 			"image_caption": {
 				"__TYPE__": "FieldContent",
@@ -184,14 +181,9 @@
 					}
 				]
 			},
-			"note": {
-				"__TYPE__": "FieldContent",
-				"value": "please",
-				"type": "Text"
-			},
 			"cta": {
-				"__TYPE__": "LinkContent",
 				"key": "ab0c9872-0e3c-4ef7-b1e1-f0c0eda1834b",
+				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "https://prismic.io",
