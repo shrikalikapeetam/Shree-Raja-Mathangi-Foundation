@@ -54,14 +54,7 @@ export default function PillarFeature({
       data-slice-variation={slice.variation}
     >
       <div className="flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10">
-        {primary.section_label && (
-          <div className="border-b border-foundation-gold/70 pb-6 text-center md:pb-8">
-            <p className="font-semibold tracking-[0.14em] text-foundation-accent uppercase">
-              {primary.section_label}
-            </p>
-          </div>
-        )}
-        <header className="flex flex-col gap-3">
+        <header className="flex flex-col gap-4">
           {primary.pillar_name && (
             <p className="flex items-center gap-4 text-base font-semibold text-foundation-accent uppercase">
               {primary.pillar_name}
@@ -85,56 +78,36 @@ export default function PillarFeature({
           )}
         >
           {images.length > 0 && (
-            <figure
-              className={cn(
-                "min-w-0 space-y-3",
-                primary.image_on_right && "md:order-2",
-              )}
-            >
+            <figure className={cn(primary.image_on_right && "md:order-2")}>
               {images.map((field, index) => (
                 <div
                   key={index}
                   className="relative aspect-[3/2] overflow-hidden rounded-xl bg-legacy-surface md:rounded-2xl"
                 >
-                  {field.url.startsWith("/") ? (
-                    <Image
-                      src={field.url}
-                      alt={field.alt || primary.pillar_name || ""}
-                      fill
-                      sizes="(min-width: 1280px) 588px, (min-width: 768px) 50vw, 100vw"
-                      className="object-cover"
-                    />
-                  ) : (
-                    <PrismicNextImage
-                      field={{
-                        ...field,
-                        alt: field.alt || primary.pillar_name || "",
-                      }}
-                      fallbackAlt=""
-                      fill
-                      sizes="(min-width: 1280px) 588px, (min-width: 768px) 50vw, 100vw"
-                      className="object-cover"
-                    />
-                  )}
+                  <PrismicNextImage
+                    field={{
+                      ...field,
+                      alt: field.alt || primary.pillar_name || "",
+                    }}
+                    fallbackAlt=""
+                    fill
+                    sizes="(min-width: 1280px) 588px, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
                 </div>
               ))}
-              {primary.image_caption && (
-                <figcaption className="text-[13px] text-(--foundation-muted) italic">
-                  {primary.image_caption}
-                </figcaption>
-              )}
             </figure>
           )}
-          <div className="flex min-w-0 flex-col gap-6 md:gap-8">
+          <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-7 xl:gap-8">
             {isFilled.richText(primary.introduction) && (
-              <div className="space-y-3 text-foundation-body wrap-anywhere [&_p]:leading-relaxed [&_a]:text-foundation-accent [&_a]:underline">
+              <div className="text-foundation-body wrap-anywhere [&_p]:leading-relaxed [&_a]:text-foundation-accent [&_a]:underline">
                 <PrismicRichText field={primary.introduction} />
               </div>
             )}
             {isFilled.richText(primary.initiatives) && (
-              <div className="space-y-4">
+              <div className="flex flex-col gap-4">
                 {primary.initiatives_title && (
-                  <h3 className="header5 text-foundation-ink">
+                  <h3 className="text-foundation-ink">
                     {primary.initiatives_title}
                   </h3>
                 )}
@@ -142,15 +115,15 @@ export default function PillarFeature({
                   field={primary.initiatives}
                   components={{
                     list: ({ children }) => (
-                      <ul className="m-0 grid list-none gap-x-5 gap-y-3 p-0 sm:grid-cols-2">
+                      <ul className="m-0 grid list-none gap-x-4 gap-y-4 p-0 sm:grid-cols-2">
                         {children}
                       </ul>
                     ),
                     listItem: ({ children }) => (
-                      <li className="flex items-start gap-2 text-base leading-relaxed text-foundation-body">
+                      <li className="flex items-start gap-2 leading-relaxed text-foundation-body">
                         <Check
                           aria-hidden="true"
-                          className="mt-1 size-4 shrink-0 rounded-full bg-foundation-accent p-0.5 text-white"
+                          className="mt-2 size-4 shrink-0 rounded-full bg-foundation-accent p-0.5 text-white"
                         />
                         <span className="min-w-0 wrap-anywhere">
                           {children}
@@ -167,43 +140,38 @@ export default function PillarFeature({
         {(hasDetails || donations.length > 0 || action) && (
           <div
             className={cn(
-              "grid gap-6 rounded-xl border border-foundation-gold/70 bg-legacy-surface p-5 sm:p-6 md:gap-8 md:rounded-2xl xl:p-8",
+              "grid gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10 rounded-xl border border-foundation-gold/70 bg-legacy-surface p-4 sm:p-5 md:p-6 lg:p-7 xl:p-8  md:rounded-2xl",
               hasDetails && donations.length > 0 && "lg:grid-cols-[1.1fr_1fr]",
             )}
           >
             {(hasDetails || donations.length === 0) && (
-              <div className="flex min-w-0 flex-col gap-5">
+              <div className="flex min-w-0 flex-col gap-4">
                 {isFilled.richText(primary.project_title) && (
-                  <div className="text-foundation-ink wrap-anywhere [&_h3]:text-xl md:[&_h3]:text-2xl">
+                  <div className="text-foundation-ink wrap-anywhere">
                     <PrismicRichText field={primary.project_title} />
                   </div>
                 )}
                 {isFilled.richText(primary.project_content) && (
-                  <div className="space-y-3 text-foundation-body wrap-anywhere [&_p]:leading-relaxed [&_a]:text-foundation-accent [&_a]:underline">
+                  <div className="text-foundation-body wrap-anywhere [&_p]:leading-relaxed [&_a]:text-foundation-accent [&_a]:underline">
                     <PrismicRichText field={primary.project_content} />
                   </div>
                 )}
                 {statistics.length > 0 && (
-                  <dl className="flex flex-wrap gap-5 border-y border-foundation-gold/50 py-5">
+                  <dl className="flex flex-wrap gap-4 border-y border-foundation-gold/50 py-4">
                     {statistics.map((item, index) => (
                       <div
                         key={index}
                         className="flex min-w-0 flex-1 flex-col gap-1 text-center"
                       >
-                        <dt className="order-2 text-[13px] leading-relaxed text-foundation-body wrap-anywhere">
+                        <dt className="order-2 text-base leading-relaxed text-foundation-body wrap-anywhere">
                           {item.label}
                         </dt>
-                        <dd className="font-heading text-xl font-bold text-foundation-ink wrap-anywhere md:text-2xl">
+                        <dd className="font-heading font-bold text-foundation-ink wrap-anywhere header4">
                           {item.value}
                         </dd>
                       </div>
                     ))}
                   </dl>
-                )}
-                {primary.note && (
-                  <p className="text-base leading-relaxed text-(--foundation-muted) wrap-anywhere">
-                    {primary.note}
-                  </p>
                 )}
                 {donations.length === 0 && action}
               </div>
@@ -211,13 +179,13 @@ export default function PillarFeature({
             {donations.length > 0 && (
               <div
                 className={cn(
-                  "flex min-w-0 flex-col gap-5",
+                  "flex flex-col gap-4",
                   hasDetails &&
                     "border-t border-foundation-gold/70 pt-6 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8",
                 )}
               >
                 {primary.donations_title && (
-                  <h3 className="header5 text-foundation-ink">
+                  <h3 className="text-foundation-ink">
                     {primary.donations_title}
                   </h3>
                 )}
@@ -227,10 +195,10 @@ export default function PillarFeature({
                       key={index}
                       className="grid grid-cols-[1fr_auto] border-b border-foundation-gold/50 last:border-b-0"
                     >
-                      <dt className="p-3 text-base text-foundation-body wrap-anywhere">
+                      <dt className="p-4 text-base text-foundation-body wrap-anywhere">
                         {item.label}
                       </dt>
-                      <dd className="border-l border-foundation-gold/50 p-3 text-base font-semibold text-foundation-ink tabular-nums">
+                      <dd className="border-l border-foundation-gold/50 p-4 text-base font-semibold text-foundation-ink tabular-nums">
                         {currency.format(item.amount!)}
                       </dd>
                     </div>
