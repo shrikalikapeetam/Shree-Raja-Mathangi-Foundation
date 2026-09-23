@@ -3,7 +3,7 @@ import { draftMode } from "next/headers";
 import { getPage } from "@/lib/pages";
 import { pageMetadata, pageSchema } from "@/lib/seo";
 import JsonLd from "@/components/JsonLd";
-import { components } from "@/slices";
+import { components } from "@/slices/server";
 
 export async function generateMetadata() {
   const [page, { isEnabled }] = await Promise.all([

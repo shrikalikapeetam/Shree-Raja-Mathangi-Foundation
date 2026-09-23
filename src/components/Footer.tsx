@@ -1,6 +1,6 @@
 import { asLinkAttrs, isFilled } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { getLayout, linkResolver } from "@/prismicio";
 import Link from "next/link";
 
@@ -65,18 +65,14 @@ export default async function Footer() {
                       </p>
                     )}
                     {item.cta.text && (
-                      <Button
-                        variant="accent"
-                        disabled={!href}
-                        nativeButton={!href}
-                        render={
-                          href ? (
-                            <Link href={href} target={target} rel={rel} />
-                          ) : undefined
-                        }
+                      <Link
+                        href={href || "/contact"}
+                        target={target}
+                        rel={rel}
+                        className={buttonVariants({ variant: "accent" })}
                       >
                         {item.cta.text}
-                      </Button>
+                      </Link>
                     )}
                   </li>
                 );

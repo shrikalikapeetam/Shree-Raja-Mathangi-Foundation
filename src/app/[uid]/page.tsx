@@ -4,7 +4,7 @@ import { permanentRedirect } from "next/navigation";
 import { getPage } from "@/lib/pages";
 import { pageMetadata, pageSchema } from "@/lib/seo";
 import JsonLd from "@/components/JsonLd";
-import { components } from "@/slices";
+import { components } from "@/slices/server";
 
 export async function generateMetadata({ params }: PageProps<"/[uid]">) {
   const { uid } = await params;

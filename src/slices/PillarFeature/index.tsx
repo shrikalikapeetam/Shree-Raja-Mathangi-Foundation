@@ -2,9 +2,8 @@ import { asLinkAttrs, isFilled, type Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, type SliceComponentProps } from "@prismicio/react";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { linkResolver } from "@/prismicio";
 
@@ -30,19 +29,18 @@ export default function PillarFeature({
   const hasDetails =
     isFilled.richText(primary.project_title) ||
     isFilled.richText(primary.project_content) ||
-    statistics.length > 0 ||
-    primary.note;
+    statistics.length > 0;
   const { href, target, rel } = asLinkAttrs(primary.cta, { linkResolver });
   const action = primary.cta.text && (
-    <Button
-      variant="accent"
-      disabled={!href}
-      nativeButton={!href}
-      render={href ? <Link href={href} target={target} rel={rel} /> : undefined}
+    <Link
+      href={href || "/contact"}
+      target={target}
+      rel={rel}
+      className={buttonVariants({ variant: "accent" })}
     >
       {primary.cta.text}
       <ArrowRight aria-hidden="true" className="size-4 shrink-0" />
-    </Button>
+    </Link>
   );
 
   return (
@@ -89,8 +87,9 @@ export default function PillarFeature({
                       alt: field.alt || primary.pillar_name || "",
                     }}
                     fallbackAlt=""
+                    imgixParams={{ q: 40 }}
                     fill
-                    sizes="(min-width: 1280px) 588px, (min-width: 768px) 50vw, 100vw"
+                    sizes="(min-width: 1280px) 588px, (min-width: 768px) calc((100vw - 80px) / 2), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
                     className="object-cover"
                   />
                 </div>

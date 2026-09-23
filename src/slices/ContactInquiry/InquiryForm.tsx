@@ -116,7 +116,7 @@ export default function InquiryForm({ labels }: { labels: Labels }) {
               {isFilled.keyText(labels.gender_label) && (
                 <Field data-invalid={Boolean(errors.gender)}>
                   <FieldLabel htmlFor={`${id}-gender`}>
-                    {labels.gender_label}
+                    Gender (optional)
                   </FieldLabel>
                   <Input
                     id={`${id}-gender`}

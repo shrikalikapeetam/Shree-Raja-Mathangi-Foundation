@@ -32,8 +32,9 @@ export default function FeaturedProfile({
                 }}
                 loading={index < 2 ? "eager" : "lazy"}
                 fetchPriority={index < 2 ? "high" : "auto"}
+                imgixParams={{ q: 40, fit: "crop", ar: "2:3" }}
                 sizes={
-                  "(min-width: 1280px) 588px, (min-width: 1024px) 50vw, 100vw"
+                  "(min-width: 1280px) 588px, (min-width: 1024px) calc((100vw - 100px) / 2), (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
                 }
                 className="object-cover size-full aspect-1/1.5"
               />

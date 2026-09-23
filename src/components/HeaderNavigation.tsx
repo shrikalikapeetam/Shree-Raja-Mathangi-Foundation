@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -101,15 +101,16 @@ export default function HeaderNavigation({
             )}
           >
             {actions.map((action) => (
-              <Button
+              <Link
                 key={action.key}
-                type="button"
-                variant={actionVariants[action.variant ?? "Primary"]}
-                disabled
-                className={cn("cursor-not-allowed opacity-50")}
+                href={action.href || "/contact"}
+                target={action.target}
+                rel={action.rel}
+                onClick={() => setOpenPath(null)}
+                className={buttonVariants({ variant: actionVariants[action.variant ?? "Primary"] })}
               >
                 {action.text}
-              </Button>
+              </Link>
             ))}
           </div>
         )}

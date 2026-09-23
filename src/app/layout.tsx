@@ -74,6 +74,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${cinzel.variable} ${geist.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">

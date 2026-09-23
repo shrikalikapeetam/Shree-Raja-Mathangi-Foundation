@@ -1,6 +1,6 @@
 import InquiryForm from "./InquiryForm";
 import { isFilled, type Content } from "@prismicio/client";
-import { PrismicRichText, type SliceComponentProps } from "@prismicio/react";
+import { PrismicLink, PrismicRichText, type SliceComponentProps } from "@prismicio/react";
 
 export default function ContactInquiry({
   slice,
@@ -41,7 +41,18 @@ export default function ContactInquiry({
                       </h3>
                     )}
                     <div className="wrap-anywhere text-foundation-body [&_a]:text-foundation-accent [&_a]:underline [&_a]:underline-offset-4 [&_strong]:text-foundation-ink">
-                      <PrismicRichText field={detail.description} />
+                      <PrismicRichText
+                        field={detail.description}
+                        components={{
+                          hyperlink: ({ node, children }) => {
+                            const field = node.data;
+                            if (field.link_type === "Web" && /^[^\s@/:]+@[^\s@/:]+\.[^\s@/:]+$/.test(field.url.trim())) {
+                              return <a href={`mailto:${field.url.trim()}`}>{children}</a>;
+                            }
+                            return <PrismicLink field={field}>{children}</PrismicLink>;
+                          },
+                        }}
+                      />
                     </div>
                   </div>
                 );
