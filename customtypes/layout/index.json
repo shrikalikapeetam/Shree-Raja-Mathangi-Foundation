@@ -1,0 +1,116 @@
+{
+  "format": "custom",
+  "id": "layout",
+  "label": "Layout",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "trust_name": {
+        "type": "Text",
+        "config": {
+          "label": "Trust Name",
+          "placeholder": ""
+        }
+      },
+      "trust_name2": {
+        "type": "Text",
+        "config": {
+          "label": "Trust Name2",
+          "placeholder": ""
+        }
+      }
+    },
+    "Header": {
+      "link": {
+        "type": "Link",
+        "config": {
+          "label": "Link",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": true
+        }
+      },
+      "cta": {
+        "type": "Link",
+        "config": {
+          "label": "CTA",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": true,
+          "variants": ["Primary", "Secondary", "Tertiary"]
+        }
+      }
+    },
+    "Footer": {
+      "featured_image": {
+        "type": "Image",
+        "config": {
+          "label": "Featured Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "involve_title": {
+        "type": "Text",
+        "config": {
+          "label": "Involve Title",
+          "placeholder": ""
+        }
+      },
+      "description": {
+        "type": "Text",
+        "config": {
+          "label": "Description",
+          "placeholder": ""
+        }
+      },
+      "involve_cta": {
+        "type": "Group",
+        "config": {
+          "label": "Involve CTA",
+          "repeat": true,
+          "fields": {
+            "cta": {
+              "type": "Link",
+              "config": {
+                "label": "CTA",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            },
+            "text": {
+              "type": "Text",
+              "config": {
+                "label": "Text",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "copyright_text": {
+        "type": "Text",
+        "config": {
+          "label": "Copyright Text",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

@@ -33,7 +33,11 @@ export default function FoundationOverview({
                 <PrismicNextImage
                   field={slice.primary.featured_image}
                   fill
-                  sizes={hasIntroduction ? "(min-width: 1280px) 588px, (min-width: 768px) 50vw, 100vw" : "(min-width: 1280px) 1216px, 100vw"}
+                  sizes={
+                    hasIntroduction
+                      ? "(min-width: 1280px) 588px, (min-width: 768px) 50vw, 100vw"
+                      : "(min-width: 1280px) 1216px, 100vw"
+                  }
                   className="object-cover"
                 />
               </div>
@@ -41,7 +45,7 @@ export default function FoundationOverview({
             {hasIntroduction && (
               <div className="flex min-w-0 flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10">
                 {isFilled.richText(slice.primary.title_description) && (
-                  <div className="space-y-4 wrap-anywhere text-foundation-ink [&_a]:text-foundation-accent [&_a]:underline [&_a]:underline-offset-4 [&_p]:leading-relaxed [&_strong]:text-foundation-accent">
+                  <div className="wrap-anywhere text-foundation-ink [&_a]:text-foundation-accent [&_a]:underline [&_a]:underline-offset-4 [&_p]:leading-relaxed [&_strong]:text-foundation-accent">
                     <PrismicRichText
                       field={slice.primary.title_description}
                       components={{
@@ -59,7 +63,7 @@ export default function FoundationOverview({
                   </div>
                 )}
                 {isFilled.richText(slice.primary.description) && (
-                  <div className="space-y-3 wrap-anywhere border-t border-foundation-gold/70 pt-5 text-foundation-ink md:pt-6 [&_a]:text-foundation-accent [&_a]:underline [&_a]:underline-offset-4 [&_p]:leading-relaxed">
+                  <div className="wrap-anywhere pt-6 sm:pt-7 md:pt-8 lg:pt-9 xl:pt-10 border-t border-foundation-gold/70 text-foundation-ink [&_a]:text-foundation-accent [&_a]:underline [&_a]:underline-offset-4 [&_p]:leading-relaxed">
                     <PrismicRichText field={slice.primary.description} />
                   </div>
                 )}
