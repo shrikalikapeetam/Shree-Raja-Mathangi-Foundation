@@ -31,3 +31,7 @@ Lighthouse still reports framework JavaScript/polyfill opportunities and some im
 Header and footer donation/volunteer destinations are empty in published Prismic content. One homepage Go Samrakshnam link references an unpublished document. Configure these CMS links when publishing the pillars; no arbitrary payment destinations were invented.
 
 HTML and JSON reports: reports/lighthouse/final/. Configuration and repeatable commands: [SEO.md](SEO.md).
+
+## Publication update
+
+On 23 September 2026 at 15:42 UTC, the three pillar slices, their images and complete homepage content were published in Prismic. The published homepage now has seven slices, including the three pillars immediately after the hero. Content API and local homepage rendering were verified. The Lighthouse scores above predate this content publication.

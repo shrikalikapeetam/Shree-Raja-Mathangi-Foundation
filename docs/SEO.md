@@ -19,7 +19,7 @@ Under **SEO & Metadata**:
 
 Empty fields use page-specific fallbacks. Social images fall back from og_image to meta_image to the 1200 × 630 foundation card. Canonicals, Open Graph URLs, Twitter cards and JSON-LD use the configured origin. Previewed documents are noindex.
 
-The local models have been updated using the Prismic CLI. Upload is pending authorization for the API fallback; the CLI could not access the repository and does not support asset/content migration.
+The local models have been updated using the Prismic CLI. The pillar model, images, and homepage content (including its SEO defaults) were uploaded using the API fallback and published on 23 September 2026. The CLI could not access the repository and does not support asset/content migration. About and Contact SEO payloads remain prepared locally.
 
 ## Crawler files and branding
 
