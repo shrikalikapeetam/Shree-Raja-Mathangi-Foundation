@@ -1,12 +1,7 @@
-import {
-  asLinkAttrs,
-  isFilled,
-  NotFoundError,
-  type Content,
-} from "@prismicio/client";
+import { asLinkAttrs, isFilled, type Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import Link from "next/link";
-import { createClient, linkResolver } from "@/prismicio";
+import { getLayout, linkResolver } from "@/prismicio";
 import HeaderShell from "@/components/HeaderShell";
 import HeaderNavigation, {
   type HeaderLink,
@@ -32,15 +27,8 @@ function resolveLinks(
 }
 
 export default async function Header() {
-  const client = await createClient();
-  let layout: Content.LayoutDocument;
-  try {
-    layout = await client.getSingle("layout");
-  } catch (error) {
-    // A new repository may not have a published Layout document yet.
-    if (error instanceof NotFoundError) return null;
-    throw error;
-  }
+  const layout = await getLayout();
+  if (!layout) return null;
 
   const { logo, trust_name, trust_name2, link, cta } = layout.data;
   const brandName = [trust_name, trust_name2].filter(Boolean).join(" ");
@@ -52,7 +40,7 @@ export default async function Header() {
           <Link
             href="/"
             aria-label={brandName ? `${brandName} — Home` : "Home"}
-            className="flex min-w-0 items-center gap-2 md:gap-3 rounded-md text-foundation-ink hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foundation-accent xl::gap-4"
+            className="flex min-w-0 items-center gap-2 md:gap-3 rounded-md text-foundation-ink hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foundation-accent xl:gap-4"
           >
             {isFilled.image(logo) && (
               <PrismicNextImage

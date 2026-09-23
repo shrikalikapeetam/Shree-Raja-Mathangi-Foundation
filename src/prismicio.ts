@@ -1,4 +1,5 @@
 import * as prismic from "@prismicio/client";
+import { cache } from "react";
 import { enableAutoPreviews } from "@prismicio/next";
 import sm from "../slicemachine.config.json";
 import prismicConfig from "../prismic.config.json";
@@ -54,3 +55,13 @@ export async function getPageByUID(uid: string) {
   const pages = await client.getAllByType("page");
   return pages.find((page) => page.uid === uid) ?? null;
 }
+
+export const getLayout = cache(async () => {
+  const client = await createClient();
+  try {
+    return await client.getSingle("layout");
+  } catch (error) {
+    if (error instanceof prismic.NotFoundError) return null;
+    throw error;
+  }
+});
