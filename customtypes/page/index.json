@@ -12,16 +12,10 @@
       "slices": {
         "config": {
           "choices": {
-            "text_section": {
-              "type": "SharedSlice"
-            },
             "hero": {
               "type": "SharedSlice"
             },
             "values_actions": {
-              "type": "SharedSlice"
-            },
-            "impact_stats": {
               "type": "SharedSlice"
             },
             "featured_profile": {
@@ -31,15 +25,6 @@
               "type": "SharedSlice"
             },
             "feature_grid": {
-              "type": "SharedSlice"
-            },
-            "cta_banner": {
-              "type": "SharedSlice"
-            },
-            "program_directory": {
-              "type": "SharedSlice"
-            },
-            "partnership_callout": {
               "type": "SharedSlice"
             },
             "impact_overview": {

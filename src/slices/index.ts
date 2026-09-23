@@ -4,17 +4,12 @@ import dynamic from "next/dynamic";
 
 export const components = {
   contact_inquiry: dynamic(() => import("./ContactInquiry")),
-  cta_banner: dynamic(() => import("./CallToActionBanner")),
   feature_grid: dynamic(() => import("./FeatureGrid")),
   featured_profile: dynamic(() => import("./FeaturedProfile")),
   foundation_overview: dynamic(() => import("./FoundationOverview")),
   hero: dynamic(() => import("./Hero")),
   impact_overview: dynamic(() => import("./ImpactOverview")),
-  impact_stats: dynamic(() => import("./ImpactStats")),
   initiative_feature: dynamic(() => import("./InitiativeFeature")),
-  partnership_callout: dynamic(() => import("./PartnershipCallout")),
-  program_directory: dynamic(() => import("./ProgramDirectory")),
-  text_section: dynamic(() => import("./TextSection")),
   values_actions: dynamic(() => import("./ValuesActions")),
   vision_mission: dynamic(() => import("./VisionMission")),
 };
