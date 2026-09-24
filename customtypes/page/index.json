@@ -38,6 +38,9 @@
             },
             "pillar_feature": {
               "type": "SharedSlice"
+            },
+            "trust_members": {
+              "type": "SharedSlice"
             }
           }
         },
@@ -105,7 +108,12 @@
       "schema_type": {
         "config": {
           "label": "Page schema type",
-          "options": ["WebPage", "AboutPage", "ContactPage", "CollectionPage"]
+          "options": [
+            "WebPage",
+            "AboutPage",
+            "ContactPage",
+            "CollectionPage"
+          ]
         },
         "type": "Select"
       }

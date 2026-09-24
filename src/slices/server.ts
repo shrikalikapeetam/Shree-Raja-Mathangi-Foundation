@@ -9,6 +9,7 @@ import ImpactOverview from "./ImpactOverview";
 import InitiativeFeature from "./InitiativeFeature";
 import PillarFeature from "./PillarFeature";
 import VisionMission from "./VisionMission";
+import TrustMembers from "./TrustMembers";
 
 // Public routes render content directly on the server. Keep Slice Machine's
 // generated dynamic registry for the simulator; it may regenerate index.ts.
@@ -23,4 +24,5 @@ export const components = {
   initiative_feature: InitiativeFeature,
   pillar_feature: PillarFeature,
   vision_mission: VisionMission,
+  trust_members: TrustMembers,
 } satisfies Record<keyof typeof import("./index").components, unknown>;

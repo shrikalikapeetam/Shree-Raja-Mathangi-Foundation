@@ -1,0 +1,118 @@
+[
+  {
+    "slice_type": "trust_members",
+    "slice_label": null,
+    "variation": "default",
+    "version": "initial",
+    "items": [],
+    "primary": {
+      "anchor_id": "trustees",
+      "pre_title": "Our trustees",
+      "title": [
+        {
+          "type": "heading2",
+          "text": "Members of the Trust",
+          "spans": []
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Dedicated to service. Guided by experience.",
+          "spans": []
+        }
+      ],
+      "image_caption": "Illustrative portraits — replace with actual trustee photographs.",
+      "members": [
+        {
+          "profile_image": {
+            "id": "suPcc_l2feMa7ghT",
+            "url": "https://images.prismic.io/shree-raja-mathangi-foundation/suPcc_l2feMa7ghT_narayanan-illustrative.png?auto=format,compress",
+            "dimensions": {
+              "width": 1254,
+              "height": 1254
+            },
+            "alt": "Illustrative portrait placeholder for Shri. S. Narayanan; not an actual trustee photograph",
+            "copyright": null
+          },
+          "name": "Shri. S. Narayanan",
+          "title": "Managing Trustee",
+          "description": [
+            {
+              "type": "paragraph",
+              "text": "Agribusiness professional",
+              "spans": []
+            }
+          ],
+          "place": "Chennai"
+        },
+        {
+          "profile_image": {
+            "id": "2jW0k-GkEn7kW_Kt",
+            "url": "https://images.prismic.io/shree-raja-mathangi-foundation/2jW0k-GkEn7kW_Kt_kannan-illustrative.png?auto=format,compress",
+            "dimensions": {
+              "width": 1254,
+              "height": 1254
+            },
+            "alt": "Illustrative portrait placeholder for Shri. R. Kannan; not an actual trustee photograph",
+            "copyright": null
+          },
+          "name": "Shri. R. Kannan",
+          "title": "Trustee",
+          "description": [
+            {
+              "type": "paragraph",
+              "text": "Entrepreneur in industrial solutions",
+              "spans": []
+            }
+          ],
+          "place": "Chennai"
+        },
+        {
+          "profile_image": {
+            "id": "ieouxIfk_jbr3c0N",
+            "url": "https://images.prismic.io/shree-raja-mathangi-foundation/ieouxIfk_jbr3c0N_srikirishnan-illustrative.png?auto=format,compress",
+            "dimensions": {
+              "width": 1254,
+              "height": 1254
+            },
+            "alt": "Illustrative portrait placeholder for Shri. Srikirishnan R; not an actual trustee photograph",
+            "copyright": null
+          },
+          "name": "Shri. Srikirishnan R",
+          "title": "Trustee",
+          "description": [
+            {
+              "type": "paragraph",
+              "text": "IT business development professional",
+              "spans": []
+            }
+          ],
+          "place": "Chennai"
+        },
+        {
+          "profile_image": {
+            "id": "URlQLKcOd07GGP51",
+            "url": "https://images.prismic.io/shree-raja-mathangi-foundation/URlQLKcOd07GGP51_sujatha-illustrative.png?auto=format,compress",
+            "dimensions": {
+              "width": 1254,
+              "height": 1254
+            },
+            "alt": "Illustrative portrait placeholder for Smt. K. Sujatha; not an actual trustee photograph",
+            "copyright": null
+          },
+          "name": "Smt. K. Sujatha",
+          "title": "Trustee",
+          "description": [
+            {
+              "type": "paragraph",
+              "text": "Finance professional",
+              "spans": []
+            }
+          ],
+          "place": "Chennai"
+        }
+      ]
+    }
+  }
+]

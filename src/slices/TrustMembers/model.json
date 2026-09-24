@@ -1,0 +1,89 @@
+{
+  "id": "trust_members",
+  "name": "Trust Members",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "items": {},
+      "name": "Default",
+      "primary": {
+        "anchor_id": {
+          "config": {
+            "label": "Anchor ID"
+          },
+          "type": "Text"
+        },
+        "pre_title": {
+          "config": {
+            "label": "Pre title"
+          },
+          "type": "Text"
+        },
+        "title": {
+          "config": {
+            "label": "Title",
+            "single": "heading2"
+          },
+          "type": "StructuredText"
+        },
+        "description": {
+          "config": {
+            "label": "Description",
+            "multi": "paragraph,strong,em"
+          },
+          "type": "StructuredText"
+        },
+        "image_caption": {
+          "config": {
+            "label": "Portrait caption"
+          },
+          "type": "Text"
+        },
+        "members": {
+          "config": {
+            "fields": {
+              "profile_image": {
+                "config": {
+                  "label": "Profile image"
+                },
+                "type": "Image"
+              },
+              "name": {
+                "config": {
+                  "label": "Name"
+                },
+                "type": "Text"
+              },
+              "title": {
+                "config": {
+                  "label": "Title / role"
+                },
+                "type": "Text"
+              },
+              "description": {
+                "config": {
+                  "label": "Description",
+                  "multi": "paragraph,strong,em"
+                },
+                "type": "StructuredText"
+              },
+              "place": {
+                "config": {
+                  "label": "Place"
+                },
+                "type": "Text"
+              }
+            },
+            "label": "Members"
+          },
+          "type": "Group"
+        }
+      },
+      "version": ""
+    }
+  ]
+}
