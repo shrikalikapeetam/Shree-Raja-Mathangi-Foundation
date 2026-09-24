@@ -1,3 +1,5 @@
+import AnimatedSection from "@/components/AnimatedSection";
+import SectionOrnament from "@/components/SectionOrnament";
 import { cn } from "@/lib/utils";
 import { isFilled, type Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
@@ -15,12 +17,13 @@ export default function FoundationOverview({
   );
 
   return (
-    <section
+    <AnimatedSection
       className="container section-my"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       id={slice.primary.anchor_id || ""}
     >
+      <SectionOrnament kind="rings" />
       <div className="flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10">
         {(hasImage || hasIntroduction) && (
           <div
@@ -30,7 +33,7 @@ export default function FoundationOverview({
             )}
           >
             {isFilled.image(slice.primary.featured_image) && (
-              <div className="relative aspect-4/3 min-w-0 overflow-hidden rounded-xl bg-legacy-surface md:rounded-2xl xl:rounded-3xl">
+              <div data-reveal="image" className="slice-image relative aspect-4/3 min-w-0 overflow-hidden rounded-xl bg-legacy-surface md:rounded-2xl xl:rounded-3xl">
                 <PrismicNextImage fallbackAlt=""
                   field={{
                     ...slice.primary.featured_image,
@@ -48,7 +51,7 @@ export default function FoundationOverview({
               </div>
             )}
             {hasIntroduction && (
-              <div className="flex min-w-0 flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10">
+              <div data-reveal="up" className="flex min-w-0 flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10">
                 {isFilled.richText(slice.primary.title_description) && (
                   <div className="wrap-anywhere text-foundation-ink [&_a]:text-foundation-accent [&_a]:underline [&_a]:underline-offset-4 [&_p]:leading-relaxed [&_strong]:text-foundation-accent">
                     <PrismicRichText
@@ -59,6 +62,7 @@ export default function FoundationOverview({
                             <h2>{children}</h2>
                             <span
                               aria-hidden="true"
+                              data-reveal="line"
                               className="block h-1 w-20 rounded-full bg-foundation-accent"
                             />
                           </>
@@ -78,7 +82,7 @@ export default function FoundationOverview({
         )}
 
         {items.length > 0 && (
-          <ul className="m-0 grid list-none gap-0 p-0 sm:grid-cols-2 lg:grid-cols-3">
+          <ul data-stagger className="m-0 grid list-none gap-0 p-0 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((item, index) => (
               <li
                 key={index}
@@ -101,13 +105,13 @@ export default function FoundationOverview({
         )}
 
         {isFilled.richText(slice.primary.highlights) && (
-          <div className="rounded-lg bg-legacy-surface p-4 md:rounded-xl md:p-5 xl:rounded-2xl xl:p-6">
+          <div data-reveal="up" className="slice-panel-detail rounded-lg bg-legacy-surface p-4 md:rounded-xl md:p-5 xl:rounded-2xl xl:p-6">
             <div className="space-y-3 wrap-anywhere border-l-4 border-foundation-accent pl-4 text-foundation-ink md:pl-5 xl:pl-6 [&_a]:text-foundation-accent [&_a]:underline [&_a]:underline-offset-4 [&_li]:text-base [&_li]:leading-relaxed [&_p]:leading-relaxed [&_ul]:list-none [&_ul]:pl-0">
               <PrismicRichText field={slice.primary.highlights} />
             </div>
           </div>
         )}
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

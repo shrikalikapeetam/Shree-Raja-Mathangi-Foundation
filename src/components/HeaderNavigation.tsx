@@ -79,7 +79,7 @@ export default function HeaderNavigation({
                     aria-current={active ? "page" : undefined}
                     onClick={() => setOpenPath(null)}
                     className={cn(
-                      "block text-md md:text-lg xl:text-xl font-medium text-foundation-ink transition-colors hover:text-foundation-accent hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foundation-accent",
+                      "foundation-nav-link block text-md md:text-lg xl:text-xl font-medium text-foundation-ink transition-colors hover:text-foundation-accent hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foundation-accent",
                       active && "text-foundation-accent",
                     )}
                   >

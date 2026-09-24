@@ -1,3 +1,5 @@
+import AnimatedSection from "@/components/AnimatedSection";
+import SectionOrnament from "@/components/SectionOrnament";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { asLink, isFilled, type Content } from "@prismicio/client";
@@ -11,7 +13,7 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
 export default function Hero({ slice }: HeroProps) {
   return (
-    <section
+    <AnimatedSection
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={cn(
@@ -22,6 +24,7 @@ export default function Hero({ slice }: HeroProps) {
       )}
       id={slice.primary.anchor_id || ""}
     >
+      <SectionOrnament kind="sun" />
       <div
         className={cn(
           "container",
@@ -38,6 +41,7 @@ export default function Hero({ slice }: HeroProps) {
         >
           {isFilled.keyText(slice.primary.pre_title) && (
             <span
+              data-reveal="settle"
               className={cn(
                 "text-base font-semibold text-foundation-ink",
                 slice.primary.pre_title_background_color === "Light" &&
@@ -92,8 +96,9 @@ export default function Hero({ slice }: HeroProps) {
               ),
             }}
           />
+          <span aria-hidden="true" data-reveal="line" className="slice-accent-rule" />
           {slice.primary.cta.length > 0 && (
-            <div className="mt-4 flex w-full flex-wrap justify-center gap-3">
+            <div data-reveal="settle" className="mt-4 flex w-full flex-wrap justify-center gap-3">
               {slice.primary.cta.map((cta, index) => {
                 const hasLink = Boolean(asLink(cta));
                 const className = cn(
@@ -131,6 +136,6 @@ export default function Hero({ slice }: HeroProps) {
           )}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

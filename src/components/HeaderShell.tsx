@@ -25,11 +25,12 @@ export default function HeaderShell({ children }: { children: ReactNode }) {
 
   return (
     <header
+      data-scrolled={scrolled}
       className={cn(
-        "fixed inset-x-0 top-0 z-50 py-4  transition-[background-color,box-shadow] duration-200 motion-reduce:transition-none",
+        "foundation-header fixed inset-x-0 top-0 z-50 border-b py-4 transition-[background-color,box-shadow,border-color] duration-500 motion-reduce:transition-none",
         scrolled
-          ? "bg-white shadow-sm border-b border-foundation-border/50"
-          : "bg-transparent shadow-none",
+          ? "bg-white shadow-sm border-foundation-border/50"
+          : "bg-transparent shadow-none border-transparent",
       )}
     >
       {children}

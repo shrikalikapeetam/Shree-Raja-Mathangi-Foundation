@@ -1,3 +1,5 @@
+import AnimatedSection from "@/components/AnimatedSection";
+import SectionOrnament from "@/components/SectionOrnament";
 import InquiryForm from "./InquiryForm";
 import { isFilled, type Content } from "@prismicio/client";
 import { PrismicLink, PrismicRichText, type SliceComponentProps } from "@prismicio/react";
@@ -6,22 +8,23 @@ export default function ContactInquiry({
   slice,
 }: SliceComponentProps<Content.ContactInquirySlice>) {
   return (
-    <section
+    <AnimatedSection
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="section-py bg-legacy-surface"
       id={slice.primary.anchor_id || ""}
     >
+      <SectionOrnament kind="arches" />
       <div className="container flex flex-col md:flex-row gap-10 sm:gap-12 md:gap-14 lg:gap-16 xl:gap-20">
         {(isFilled.keyText(slice.primary.office_title) ||
           slice.primary.contact_details.length > 0) && (
-          <aside className="rounded-xl md:rounded-2xl xl:rounded-3xl flex-1 border border-foundation-gold/70 bg-foundation-white p-6 shadow-sm sm:p-7 md:p-8 lg:p-9 xl:p-10 flex flex-col gap-4">
+          <aside data-reveal="left" className="rounded-xl md:rounded-2xl xl:rounded-3xl flex-1 border border-foundation-gold/70 bg-foundation-white p-6 shadow-sm sm:p-7 md:p-8 lg:p-9 xl:p-10 flex flex-col gap-4">
             {isFilled.keyText(slice.primary.office_title) && (
               <h2 className="flex items-center gap-3 text-foundation-ink">
                 {slice.primary.office_title}
               </h2>
             )}
-            <div className="flex flex-col gap-4">
+            <div data-stagger className="flex flex-col gap-4">
               {slice.primary.contact_details.map((detail, index) => {
                 if (
                   !isFilled.keyText(detail.title) &&
@@ -61,7 +64,7 @@ export default function ContactInquiry({
           </aside>
         )}
 
-        <div className="rounded-xl md:rounded-2xl xl:rounded-3xl flex-1 border border-foundation-gold/70 bg-foundation-white p-6 shadow-sm sm:p-7 md:p-8 lg:p-9 xl:p-10 flex flex-col gap-4">
+        <div className="slice-card-accent rounded-xl md:rounded-2xl xl:rounded-3xl flex-1 border border-foundation-gold/70 bg-foundation-white p-6 shadow-sm sm:p-7 md:p-8 lg:p-9 xl:p-10 flex flex-col gap-4">
           {isFilled.keyText(slice.primary.form_title) && (
             <h2 className="text-foundation-ink">{slice.primary.form_title}</h2>
           )}
@@ -82,6 +85,6 @@ export default function ContactInquiry({
           />
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

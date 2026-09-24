@@ -1,3 +1,5 @@
+import AnimatedSection from "@/components/AnimatedSection";
+import SectionOrnament from "@/components/SectionOrnament";
 import { asLinkAttrs, isFilled, type Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, type SliceComponentProps } from "@prismicio/react";
@@ -36,7 +38,7 @@ export default function PillarFeature({
       href={href || "/contact"}
       target={target}
       rel={rel}
-      className={buttonVariants({ variant: "accent" })}
+      className={cn("slice-action", buttonVariants({ variant: "accent" }))}
     >
       {primary.cta.text}
       <ArrowRight aria-hidden="true" className="size-4 shrink-0" />
@@ -44,19 +46,21 @@ export default function PillarFeature({
   );
 
   return (
-    <section
+    <AnimatedSection
       id={slice.primary.anchor_id || ""}
       className="container section-my"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
+      <SectionOrnament kind="arches" />
       <div className="flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10">
-        <header className="flex flex-col gap-4">
+        <header data-reveal="up" className="flex flex-col gap-4">
           {primary.pillar_name && (
             <p className="flex items-center gap-4 text-base font-semibold text-foundation-accent uppercase">
               {primary.pillar_name}
               <span
                 aria-hidden="true"
+                data-reveal="line"
                 className="h-px w-12 shrink-0 bg-foundation-accent"
               />
             </p>
@@ -75,11 +79,11 @@ export default function PillarFeature({
           )}
         >
           {images.length > 0 && (
-            <figure className={cn(primary.image_on_right && "md:order-2")}>
+            <figure data-reveal={primary.image_on_right ? "right" : "left"} className={cn(primary.image_on_right && "md:order-2")}>
               {images.map((field, index) => (
                 <div
                   key={index}
-                  className="relative aspect-[3/2] overflow-hidden rounded-xl bg-legacy-surface md:rounded-2xl"
+                  className="slice-image relative aspect-[3/2] overflow-hidden rounded-xl bg-legacy-surface md:rounded-2xl"
                 >
                   <PrismicNextImage
                     field={{
@@ -96,7 +100,7 @@ export default function PillarFeature({
               ))}
             </figure>
           )}
-          <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-7 xl:gap-8">
+          <div data-reveal={primary.image_on_right ? "left" : "right"} className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-7 xl:gap-8">
             {isFilled.richText(primary.introduction) && (
               <div className="text-foundation-body wrap-anywhere [&_p]:leading-relaxed [&_a]:text-foundation-accent [&_a]:underline">
                 <PrismicRichText field={primary.introduction} />
@@ -113,7 +117,7 @@ export default function PillarFeature({
                   field={primary.initiatives}
                   components={{
                     list: ({ children }) => (
-                      <ul className="m-0 grid list-none gap-x-4 gap-y-4 p-0 sm:grid-cols-2">
+                      <ul data-stagger className="m-0 grid list-none gap-x-4 gap-y-4 p-0 sm:grid-cols-2">
                         {children}
                       </ul>
                     ),
@@ -137,8 +141,9 @@ export default function PillarFeature({
 
         {(hasDetails || donations.length > 0 || action) && (
           <div
+            data-reveal="up"
             className={cn(
-              "grid gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10 rounded-xl border border-foundation-gold/70 bg-legacy-surface p-4 sm:p-5 md:p-6 lg:p-7 xl:p-8  md:rounded-2xl",
+              "slice-panel-detail grid gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10 rounded-xl border border-foundation-gold/70 bg-legacy-surface p-4 sm:p-5 md:p-6 lg:p-7 xl:p-8  md:rounded-2xl",
               hasDetails && donations.length > 0 && "lg:grid-cols-[1.1fr_1fr]",
             )}
           >
@@ -208,6 +213,6 @@ export default function PillarFeature({
           </div>
         )}
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

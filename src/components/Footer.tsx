@@ -3,6 +3,9 @@ import { PrismicNextImage } from "@prismicio/next";
 import { buttonVariants } from "@/components/ui/button";
 import { getLayout, linkResolver } from "@/prismicio";
 import Link from "next/link";
+import { ArrowUpRight, HandHeart, Sprout, UsersRound } from "lucide-react";
+import AnimatedSection from "@/components/AnimatedSection";
+import SectionOrnament from "@/components/SectionOrnament";
 
 export default async function Footer() {
   const layout = await getLayout();
@@ -13,7 +16,7 @@ export default async function Footer() {
 
   return (
     <footer>
-      <section
+      <AnimatedSection
         id="get-involved"
         aria-label={layout.data.involve_title ?? undefined}
         className="relative isolate overflow-hidden bg-legacy-surface"
@@ -27,9 +30,11 @@ export default async function Footer() {
             className="pointer-events-none -z-10 object-cover object-center"
           />
         )}
+        <SectionOrnament kind="leaves" />
+        <SectionOrnament kind="arches" />
         <div className="container section-py flex flex-col items-center gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10">
           {(layout.data.involve_title || layout.data.description) && (
-            <div className="flex max-w-4xl flex-col items-center gap-5 text-center md:gap-6">
+            <div data-reveal="up" className="flex max-w-4xl flex-col items-center gap-5 text-center md:gap-6">
               {layout.data.involve_title && (
                 <span className="bg-foundation-gold text-base font-semibold text-foundation-ink rounded-4xl px-4 py-1">
                   {layout.data.involve_title}
@@ -44,16 +49,21 @@ export default async function Footer() {
           )}
 
           {layout.data.involve_cta.length > 0 && (
-            <ul className="m-0 w-full grid list-none gap-4 md:gap-5 p-0 sm:grid-cols-2 md:grid-cols-3 xl:gap-6">
+            <ul data-stagger className="m-0 w-full grid list-none gap-4 md:gap-5 p-0 sm:grid-cols-2 md:grid-cols-3 xl:gap-6">
               {layout.data.involve_cta.map((item, index) => {
                 const { href, target, rel } = asLinkAttrs(item.cta, {
                   linkResolver,
                 });
+                const label = (item.cta.text || "").toLowerCase();
+                const Icon = label.includes("sponsor") ? Sprout : label.includes("volunteer") ? UsersRound : HandHeart;
                 return (
                   <li
                     key={index}
-                    className="flex gap-4 flex-col items-start rounded-lg md:rounded-xl xl:rounded-2xl border border-orange-300 bg-white p-4 sm:p-5 md:p-6 shadow-sm lg:p-7 xl:p-8"
+                    className="slice-card slice-panel-detail flex gap-4 flex-col items-start rounded-lg md:rounded-xl xl:rounded-2xl border border-orange-300 bg-white p-4 sm:p-5 md:p-6 shadow-sm lg:p-7 xl:p-8"
                   >
+                    <span aria-hidden="true" className="footer-seva-icon flex size-12 items-center justify-center rounded-full border border-orange-200 bg-orange-50 text-foundation-accent">
+                      <Icon className="size-6" strokeWidth={1.5} />
+                    </span>
                     {item.cta.text && (
                       <h3 className="text-foundation-ink uppercase wrap-anywhere">
                         {item.cta.text}
@@ -69,9 +79,10 @@ export default async function Footer() {
                         href={href || "/contact"}
                         target={target}
                         rel={rel}
-                        className={buttonVariants({ variant: "accent" })}
+                        className={buttonVariants({ variant: "accent", className: "slice-action mt-auto" })}
                       >
                         {item.cta.text}
+                        <ArrowUpRight aria-hidden="true" className="size-4" />
                       </Link>
                     )}
                   </li>
@@ -80,7 +91,7 @@ export default async function Footer() {
             </ul>
           )}
         </div>
-      </section>
+      </AnimatedSection>
 
       <div className="border-t border-foundation-border/60 bg-white">
         <div className="container flex flex-col items-center justify-between gap-4 py-4 text-center md:flex-row md:gap-5 xl:gap-6 md:text-left">
@@ -88,7 +99,7 @@ export default async function Footer() {
             <Link
               href="/"
               aria-label={brandName ? undefined : "Home"}
-              className="flex min-w-0 items-center gap-2 md:gap-3 rounded-md text-foundation-ink hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foundation-accent xl:gap-4"
+              className="foundation-brand flex min-w-0 items-center gap-2 md:gap-3 rounded-md text-foundation-ink hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foundation-accent xl:gap-4"
             >
               {isFilled.image(layout.data.logo) && (
                 <PrismicNextImage fallbackAlt=""

@@ -1,3 +1,5 @@
+import AnimatedSection from "@/components/AnimatedSection";
+import SectionOrnament from "@/components/SectionOrnament";
 import { cn } from "@/lib/utils";
 import { isFilled, type Content } from "@prismicio/client";
 import { PrismicRichText, type SliceComponentProps } from "@prismicio/react";
@@ -13,19 +15,20 @@ export default function ImpactOverview({
   );
 
   return (
-    <section
+    <AnimatedSection
       className="container section-my"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       id={slice.primary.anchor_id || ""}
     >
+      <SectionOrnament kind="rings" />
       <div
         className={cn(
           "flex flex-col md:flex-row gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10",
         )}
       >
         {hasIntroduction && (
-          <div className="relative flex-1 max-w-xl isolate flex justify-between flex-col gap-6 overflow-hidden rounded-xl border border-foundation-gold/40 bg-foundation-ink bg-(image:--banner-background) p-6 text-(--foundation-cream) shadow-sm sm:gap-7 sm:p-7 md:gap-8 md:rounded-2xl md:p-8 lg:gap-9 lg:p-9 xl:gap-10 xl:rounded-3xl xl:p-10">
+          <div data-reveal="left" className="relative flex-1 max-w-xl isolate flex justify-between flex-col gap-6 overflow-hidden rounded-xl border border-foundation-gold/40 bg-foundation-ink bg-(image:--banner-background) p-6 text-(--foundation-cream) shadow-sm sm:gap-7 sm:p-7 md:gap-8 md:rounded-2xl md:p-8 lg:gap-9 lg:p-9 xl:gap-10 xl:rounded-3xl xl:p-10">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -49,6 +52,7 @@ export default function ImpactOverview({
               )}
               <div
                 aria-hidden="true"
+                data-reveal="line"
                 className="h-1 w-20 bg-foundation-accent"
               />
 
@@ -72,7 +76,7 @@ export default function ImpactOverview({
         )}
 
         {statements.length > 0 && (
-          <ol className="m-0 flex flex-1 list-none flex-col divide-y divide-foundation-gold/70 p-0">
+          <ol data-stagger className="m-0 flex flex-1 list-none flex-col divide-y divide-foundation-gold/70 p-0">
             {statements.map((item, index) => (
               <li
                 key={index}
@@ -92,6 +96,6 @@ export default function ImpactOverview({
           </ol>
         )}
       </div>
-    </section>
+    </AnimatedSection>
   );
 }

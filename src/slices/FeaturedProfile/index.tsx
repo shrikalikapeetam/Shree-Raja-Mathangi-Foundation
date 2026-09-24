@@ -1,3 +1,5 @@
+import AnimatedSection from "@/components/AnimatedSection";
+import SectionOrnament from "@/components/SectionOrnament";
 import { cn } from "@/lib/utils";
 import { isFilled, type Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
@@ -8,19 +10,20 @@ export default function FeaturedProfile({
   index,
 }: SliceComponentProps<Content.FeaturedProfileSlice>) {
   return (
-    <section
+    <AnimatedSection
       className="bg-legacy-surface section-py"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       id={slice.primary.anchor_id || ""}
     >
+      <SectionOrnament kind="leaves" />
       <div className="container">
         <div
           className={cn(
             "grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10",
           )}
         >
-          <div className="relative isolate h-auto overflow-hidden rounded-xl bg-foundation-ink md:rounded-2xl xl:rounded-3xl">
+          <div data-reveal="image" className="slice-image relative isolate h-auto overflow-hidden rounded-xl bg-foundation-ink md:rounded-2xl xl:rounded-3xl">
             {isFilled.image(slice.primary.featured_image) && (
               <PrismicNextImage fallbackAlt=""
                 field={{
@@ -63,7 +66,7 @@ export default function FeaturedProfile({
 
           <div className="flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10">
             {isFilled.richText(slice.primary.content) && (
-              <div className="wrap-anywhere flex flex-col gap-4 text-foundation-body [&_a]:text-foundation-accent [&_a]:underline [&_a]:underline-offset-4 [&_h3]:text-foundation-ink [&_h4]:text-foundation-accent [&_li]:leading-relaxed [&_p]:leading-relaxed">
+              <div data-reveal="right" className="wrap-anywhere flex flex-col gap-4 text-foundation-body [&_a]:text-foundation-accent [&_a]:underline [&_a]:underline-offset-4 [&_h3]:text-foundation-ink [&_h4]:text-foundation-accent [&_li]:leading-relaxed [&_p]:leading-relaxed">
                 <PrismicRichText
                   field={slice.primary.content}
                   components={{
@@ -79,7 +82,7 @@ export default function FeaturedProfile({
 
             {(isFilled.keyText(slice.primary.callout_title) ||
               isFilled.richText(slice.primary.callout_content)) && (
-              <aside className="flex flex-col gap-4 rounded-lg border-l-4 border-foundation-accent bg-white p-4 md:rounded-xl md:p-5 xl:p-6">
+              <aside data-reveal="up" className="slice-panel-detail flex flex-col gap-4 rounded-lg border-l-4 border-foundation-accent bg-white p-4 md:rounded-xl md:p-5 xl:p-6">
                 {isFilled.keyText(slice.primary.callout_title) && (
                   <h4 className="text-foundation-ink wrap-anywhere">
                     {slice.primary.callout_title}
@@ -94,7 +97,7 @@ export default function FeaturedProfile({
             )}
 
             {isFilled.richText(slice.primary.quote) && (
-              <blockquote className="border-t border-foundation-gold/70 pt-6 text-foundation-ink italic sm:pt-7 md:pt-8 lg:pt-9 xl:pt-10">
+              <blockquote data-reveal="fade" className="border-t border-foundation-gold/70 pt-6 text-foundation-ink italic sm:pt-7 md:pt-8 lg:pt-9 xl:pt-10">
                 <div className="space-y-4 wrap-anywhere [&_p]:leading-relaxed">
                   <PrismicRichText field={slice.primary.quote} />
                 </div>
@@ -103,6 +106,6 @@ export default function FeaturedProfile({
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
