@@ -2,12 +2,11 @@ import type { Metadata, Viewport } from "next";
 import { Cinzel, Geist } from "next/font/google";
 import { PrismicPreview } from "@prismicio/next";
 import { getLayout, repositoryName } from "@/prismicio";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import "./globals.css";
 import { draftMode } from "next/headers";
 import { asImageSrc } from "@prismicio/client";
 import JsonLd from "@/components/JsonLd";
+import { Toaster } from "@/components/ui/toast";
 import {
   siteName,
   siteDescription,
@@ -85,9 +84,8 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
           Skip to main content
         </a>
         <JsonLd data={schema} />
-        <Header />
         {children}
-        <Footer />
+        <Toaster />
         {isEnabled && <PrismicPreview repositoryName={repositoryName} />}
       </body>
     </html>

@@ -107,7 +107,9 @@ export default function HeaderNavigation({
                 target={action.target}
                 rel={action.rel}
                 onClick={() => setOpenPath(null)}
-                className={buttonVariants({ variant: actionVariants[action.variant ?? "Primary"] })}
+                className={buttonVariants({
+                  variant: actionVariants[action.variant ?? "Primary"],
+                })}
               >
                 {action.text}
               </Link>
