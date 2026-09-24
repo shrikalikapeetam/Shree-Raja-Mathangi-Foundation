@@ -43,7 +43,7 @@ export default async function Header() {
             className="flex min-w-0 items-center gap-2 md:gap-3 rounded-md text-foundation-ink hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foundation-accent xl:gap-4"
           >
             {isFilled.image(logo) && (
-              <PrismicNextImage
+              <PrismicNextImage fallbackAlt=""
                 field={logo}
                 alt=""
                 width={72}

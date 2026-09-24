@@ -31,7 +31,7 @@ export default function FoundationOverview({
           >
             {isFilled.image(slice.primary.featured_image) && (
               <div className="relative aspect-4/3 min-w-0 overflow-hidden rounded-xl bg-legacy-surface md:rounded-2xl xl:rounded-3xl">
-                <PrismicNextImage
+                <PrismicNextImage fallbackAlt=""
                   field={{
                     ...slice.primary.featured_image,
                     alt: slice.primary.featured_image.alt ?? "",

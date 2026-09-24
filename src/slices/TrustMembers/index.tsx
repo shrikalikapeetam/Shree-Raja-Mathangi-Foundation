@@ -39,7 +39,7 @@ export default function TrustMembers({
             <li key={index} className="flex items-center">
               <div className="flex items-center flex-col sm:flex-row gap-4 flex-1">
                 {isFilled.image(member.profile_image) && (
-                  <PrismicNextImage
+                  <PrismicNextImage fallbackAlt=""
                     field={member.profile_image}
                     sizes="(min-width: 1280px) 150px, (min-width: 640px) 120px, 88px"
                     imgixParams={{ fit: "crop", ar: "1:1", q: 70 }}

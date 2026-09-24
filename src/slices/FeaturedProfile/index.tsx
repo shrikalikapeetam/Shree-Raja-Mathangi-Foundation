@@ -22,7 +22,7 @@ export default function FeaturedProfile({
         >
           <div className="relative isolate h-auto overflow-hidden rounded-xl bg-foundation-ink md:rounded-2xl xl:rounded-3xl">
             {isFilled.image(slice.primary.featured_image) && (
-              <PrismicNextImage
+              <PrismicNextImage fallbackAlt=""
                 field={{
                   ...slice.primary.featured_image,
                   alt:
