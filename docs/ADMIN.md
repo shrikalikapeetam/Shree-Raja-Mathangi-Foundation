@@ -21,6 +21,8 @@ Run `npm run db:migrate`, then restart the application. `npm run db:generate` is
 
 ## Admin flow
 
+Admin access is disabled by default. `/admin`, its subpages, `/sign-in`, and authentication endpoints are unavailable while `ADMIN_ENABLED` is unset or false. Server actions are also blocked. To re-enable after connecting services, set `ADMIN_ENABLED=true` in the environment and restart or redeploy. Public contact and pledge submission endpoints are independent of this switch.
+
 Visit `/sign-in`, enter an allowlisted email, then enter the emailed six-digit code. Codes expire after five minutes and allow three attempts. Authentication is database-rate-limited. Sessions last eight hours; authorization is checked again in every admin page and status action.
 
 - `/admin`: totals and awaiting-review counts.

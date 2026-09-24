@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { adminEnabled } from "@/lib/admin-enabled";
 import AdminLogin from "@/components/AdminLogin";
 import { adminConfigured } from "@/lib/auth";
 export const dynamic = "force-dynamic";
@@ -7,6 +9,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 export default function SignInPage() {
+  if (!adminEnabled()) notFound();
   return (
     <main
       id="main-content"
