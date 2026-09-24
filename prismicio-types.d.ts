@@ -92,6 +92,56 @@ export interface LayoutDocumentDataInvolveCtaItem {
 }
 
 /**
+ * Item in *Layout → Seva*
+ */
+export interface LayoutDocumentDataModalSevaItem {
+  /**
+   * Seva ID field in *Layout → Seva*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_seva[].seva_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  seva_id: prismic.KeyTextField;
+
+  /**
+   * Title field in *Layout → Seva*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_seva[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *Layout → Seva*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_seva[].subtitle
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  subtitle: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Layout → Amounts*
+ */
+export interface LayoutDocumentDataModalAmountsItem {
+  /**
+   * Amount field in *Layout → Amounts*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_amounts[].amount
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  amount: prismic.NumberField;
+}
+
+/**
  * Content for Layout documents
  */
 interface LayoutDocumentData {
@@ -209,7 +259,249 @@ interface LayoutDocumentData {
    * - **Tab**: Footer
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  copyright_text: prismic.KeyTextField;
+  copyright_text: prismic.KeyTextField; /**
+   * Title field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_title
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_subtitle
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_subtitle: prismic.KeyTextField;
+
+  /**
+   * Description field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_description
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_description: prismic.KeyTextField;
+
+  /**
+   * Seva field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_seva_title
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_seva_title: prismic.KeyTextField;
+
+  /**
+   * Seva field in *Layout*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_seva[]
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  modal_seva: prismic.GroupField<Simplify<LayoutDocumentDataModalSevaItem>>;
+
+  /**
+   * Donation Amount Title field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_donation_amount_title
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_donation_amount_title: prismic.KeyTextField;
+
+  /**
+   * Amounts field in *Layout*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_amounts[]
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  modal_amounts: prismic.GroupField<
+    Simplify<LayoutDocumentDataModalAmountsItem>
+  >;
+
+  /**
+   * Enter Amount Label field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_enter_amount_label
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_enter_amount_label: prismic.KeyTextField;
+
+  /**
+   * Donor Information Title field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_donor_information_title
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_donor_information_title: prismic.KeyTextField;
+
+  /**
+   * Full Name Label field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_full_name_label
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_full_name_label: prismic.KeyTextField;
+
+  /**
+   * Email Address Label field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_email_label
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_email_label: prismic.KeyTextField;
+
+  /**
+   * Phone Number Label field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_phone_label
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_phone_label: prismic.KeyTextField;
+
+  /**
+   * PAN Number Label field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_pan_label
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_pan_label: prismic.KeyTextField;
+
+  /**
+   * Info Title field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_info_title
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_info_title: prismic.KeyTextField;
+
+  /**
+   * Info field in *Layout*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_info
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  modal_info: prismic.RichTextField;
+
+  /**
+   * Highlight Text field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_highlight_text
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_highlight_text: prismic.KeyTextField;
+
+  /**
+   * Submit Text field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_submit_text
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_submit_text: prismic.KeyTextField;
+
+  /**
+   * Submitting Text field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_submitting_text
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_submitting_text: prismic.KeyTextField;
+
+  /**
+   * Success Title field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_success_title
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_success_title: prismic.KeyTextField;
+
+  /**
+   * Success Description field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_success_description
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_success_description: prismic.KeyTextField;
+
+  /**
+   * Done Label field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_done_label
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_done_label: prismic.KeyTextField;
+
+  /**
+   * Close Label field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.modal_close_label
+   * - **Tab**: Modal
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  modal_close_label: prismic.KeyTextField;
 }
 
 /**
@@ -1668,6 +1960,8 @@ declare module "@prismicio/client" {
       LayoutDocument,
       LayoutDocumentData,
       LayoutDocumentDataInvolveCtaItem,
+      LayoutDocumentDataModalSevaItem,
+      LayoutDocumentDataModalAmountsItem,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,

@@ -7,109 +7,275 @@
   "json": {
     "Main": {
       "logo": {
-        "type": "Image",
         "config": {
-          "label": "Logo",
           "constraint": {},
+          "label": "Logo",
           "thumbnails": []
-        }
+        },
+        "type": "Image"
       },
       "trust_name": {
-        "type": "Text",
         "config": {
           "label": "Trust Name",
           "placeholder": ""
-        }
+        },
+        "type": "Text"
       },
       "trust_name2": {
-        "type": "Text",
         "config": {
           "label": "Trust Name2",
           "placeholder": ""
-        }
+        },
+        "type": "Text"
       }
     },
     "Header": {
       "link": {
-        "type": "Link",
         "config": {
+          "allowTargetBlank": true,
+          "allowText": true,
           "label": "Link",
           "placeholder": "",
-          "select": null,
-          "allowTargetBlank": true,
-          "allowText": true,
-          "repeat": true
-        }
+          "repeat": true,
+          "select": null
+        },
+        "type": "Link"
       },
       "cta": {
-        "type": "Link",
         "config": {
-          "label": "CTA",
-          "placeholder": "",
-          "select": null,
           "allowTargetBlank": true,
           "allowText": true,
+          "label": "CTA",
+          "placeholder": "",
           "repeat": true,
+          "select": null,
           "variants": ["Primary", "Secondary", "Tertiary"]
-        }
+        },
+        "type": "Link"
       }
     },
     "Footer": {
       "featured_image": {
-        "type": "Image",
         "config": {
-          "label": "Featured Image",
           "constraint": {},
+          "label": "Featured Image",
           "thumbnails": []
-        }
+        },
+        "type": "Image"
       },
       "involve_title": {
-        "type": "Text",
         "config": {
           "label": "Involve Title",
           "placeholder": ""
-        }
+        },
+        "type": "Text"
       },
       "description": {
-        "type": "Text",
         "config": {
           "label": "Description",
           "placeholder": ""
-        }
+        },
+        "type": "Text"
       },
       "involve_cta": {
-        "type": "Group",
         "config": {
-          "label": "Involve CTA",
-          "repeat": true,
           "fields": {
             "cta": {
-              "type": "Link",
               "config": {
-                "label": "CTA",
-                "placeholder": "",
-                "select": null,
                 "allowTargetBlank": true,
                 "allowText": true,
-                "repeat": false
-              }
+                "label": "CTA",
+                "placeholder": "",
+                "repeat": false,
+                "select": null
+              },
+              "type": "Link"
             },
             "text": {
-              "type": "Text",
               "config": {
                 "label": "Text",
                 "placeholder": ""
-              }
+              },
+              "type": "Text"
             }
-          }
-        }
+          },
+          "label": "Involve CTA",
+          "repeat": true
+        },
+        "type": "Group"
       },
       "copyright_text": {
-        "type": "Text",
         "config": {
           "label": "Copyright Text",
           "placeholder": ""
-        }
+        },
+        "type": "Text"
+      }
+    },
+    "Modal": {
+      "modal_title": {
+        "config": {
+          "label": "Title"
+        },
+        "type": "Text"
+      },
+      "modal_subtitle": {
+        "config": {
+          "label": "Subtitle"
+        },
+        "type": "Text"
+      },
+      "modal_description": {
+        "config": {
+          "label": "Description"
+        },
+        "type": "Text"
+      },
+      "modal_seva_title": {
+        "config": {
+          "label": "Seva"
+        },
+        "type": "Text"
+      },
+      "modal_seva": {
+        "config": {
+          "fields": {
+            "seva_id": {
+              "config": {
+                "label": "Seva ID"
+              },
+              "type": "Text"
+            },
+            "title": {
+              "config": {
+                "label": "Title"
+              },
+              "type": "Text"
+            },
+            "subtitle": {
+              "config": {
+                "label": "Subtitle"
+              },
+              "type": "Text"
+            }
+          },
+          "label": "Seva"
+        },
+        "type": "Group"
+      },
+      "modal_donation_amount_title": {
+        "config": {
+          "label": "Donation Amount Title"
+        },
+        "type": "Text"
+      },
+      "modal_amounts": {
+        "config": {
+          "fields": {
+            "amount": {
+              "config": {
+                "label": "Amount",
+                "max": 1000000,
+                "min": 1,
+                "step": 0.01
+              },
+              "type": "Number"
+            }
+          },
+          "label": "Amounts"
+        },
+        "type": "Group"
+      },
+      "modal_enter_amount_label": {
+        "config": {
+          "label": "Enter Amount Label"
+        },
+        "type": "Text"
+      },
+      "modal_donor_information_title": {
+        "config": {
+          "label": "Donor Information Title"
+        },
+        "type": "Text"
+      },
+      "modal_full_name_label": {
+        "config": {
+          "label": "Full Name Label"
+        },
+        "type": "Text"
+      },
+      "modal_email_label": {
+        "config": {
+          "label": "Email Address Label"
+        },
+        "type": "Text"
+      },
+      "modal_phone_label": {
+        "config": {
+          "label": "Phone Number Label"
+        },
+        "type": "Text"
+      },
+      "modal_pan_label": {
+        "config": {
+          "label": "PAN Number Label"
+        },
+        "type": "Text"
+      },
+      "modal_info_title": {
+        "config": {
+          "label": "Info Title"
+        },
+        "type": "Text"
+      },
+      "modal_info": {
+        "config": {
+          "label": "Info",
+          "multi": "list-item,strong,em,hyperlink"
+        },
+        "type": "StructuredText"
+      },
+      "modal_highlight_text": {
+        "config": {
+          "label": "Highlight Text"
+        },
+        "type": "Text"
+      },
+      "modal_submit_text": {
+        "config": {
+          "label": "Submit Text"
+        },
+        "type": "Text"
+      },
+      "modal_submitting_text": {
+        "config": {
+          "label": "Submitting Text"
+        },
+        "type": "Text"
+      },
+      "modal_success_title": {
+        "config": {
+          "label": "Success Title"
+        },
+        "type": "Text"
+      },
+      "modal_success_description": {
+        "config": {
+          "label": "Success Description"
+        },
+        "type": "Text"
+      },
+      "modal_done_label": {
+        "config": {
+          "label": "Done Label"
+        },
+        "type": "Text"
+      },
+      "modal_close_label": {
+        "config": {
+          "label": "Close Label"
+        },
+        "type": "Text"
       }
     }
   }

@@ -130,9 +130,11 @@
         },
         "cta": {
           "config": {
-            "allowText": true,
             "label": "Call to action",
-            "select": null
+            "placeholder": "",
+            "allowText": true,
+            "select": null,
+            "allowTargetBlank": true
           },
           "type": "Link"
         },

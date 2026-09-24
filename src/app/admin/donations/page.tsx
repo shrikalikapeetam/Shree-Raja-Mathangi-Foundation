@@ -3,7 +3,8 @@ import Link from "next/link";
 import { getDb } from "@/db";
 import { donations } from "@/db/schema";
 import { requireAdmin } from "@/lib/admin";
-import { causes } from "@/lib/donations";
+import { getLayout } from "@/prismicio";
+import { getSevaOptions } from "@/lib/donation-content";
 import AdminStatusForm from "@/components/AdminStatusForm";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,6 +14,8 @@ export default async function DonationsPage({
   searchParams: Promise<{ q?: string; status?: string; page?: string }>;
 }) {
   await requireAdmin();
+  const layout = await getLayout();
+  const causes = layout ? getSevaOptions(layout.data) : [];
   const params = await searchParams;
   const q = (params.q || "").slice(0, 120);
   const status = ["new", "contacted", "closed"].includes(params.status || "")

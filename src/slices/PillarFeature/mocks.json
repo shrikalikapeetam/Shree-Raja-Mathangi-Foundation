@@ -182,12 +182,12 @@
 				]
 			},
 			"cta": {
-				"key": "ab0c9872-0e3c-4ef7-b1e1-f0c0eda1834b",
 				"__TYPE__": "LinkContent",
+				"key": "977a90cc-fb98-4767-8eab-0ead2831f831",
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "https://prismic.io",
-					"text": "whispered"
+					"text": "hardly"
 				}
 			},
 			"image_on_right": {

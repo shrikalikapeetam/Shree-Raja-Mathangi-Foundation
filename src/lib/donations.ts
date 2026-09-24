@@ -1,31 +1,16 @@
-export const causes = [
-  {
-    id: "go-samrakshnam",
-    name: "Go Samrakshnam",
-    description: "Fodder & Cow Care",
-  },
-  {
-    id: "vedic-education",
-    name: "Vedic Education",
-    description: "Gurukul & Scholars",
-  },
-  {
-    id: "temple-management",
-    name: "Temple Management",
-    description: "Pooja & Renovation",
-  },
-] as const;
-export type Cause = (typeof causes)[number]["id"];
 export type DonationInput = {
   requestId: string;
-  cause: Cause;
+  cause: string;
   amount: number;
   name: string;
   email: string;
   phone: string;
   pan: string;
 };
-export function validateDonation(body: unknown): DonationInput {
+export function validateDonation(
+  body: unknown,
+  allowedCauses: readonly string[],
+): DonationInput {
   if (!body || typeof body !== "object" || Array.isArray(body))
     throw new Error("Please complete the donation form.");
   const b = body as Record<string, unknown>;
@@ -37,7 +22,7 @@ export function validateDonation(body: unknown): DonationInput {
     )
   )
     throw new Error("Please reopen the form and try again.");
-  if (!causes.some((c) => c.id === b.cause))
+  if (!allowedCauses.includes(text("cause")))
     throw new Error("Select a seva cause.");
   if (
     typeof b.amount !== "number" ||
@@ -63,7 +48,7 @@ export function validateDonation(body: unknown): DonationInput {
     throw new Error("Enter a valid PAN or leave it blank.");
   return {
     requestId: text("requestId"),
-    cause: b.cause as Cause,
+    cause: text("cause"),
     amount: b.amount,
     name: text("name"),
     email: text("email").toLowerCase(),

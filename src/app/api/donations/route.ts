@@ -1,3 +1,5 @@
+import { getLayout } from "@/prismicio";
+import { getSevaOptions } from "@/lib/donation-content";
 import { getDb } from "@/db";
 import { donations, activityLogs } from "@/db/schema";
 import { validateDonation } from "@/lib/donations";
@@ -7,12 +9,28 @@ export const runtime = "nodejs";
 export async function POST(request: Request) {
   if (request.headers.get("origin") !== new URL(request.url).origin)
     return Response.json({ error: "Invalid request origin." }, { status: 403 });
+  let allowedCauses: string[];
+  try {
+    const layout = await getLayout();
+    allowedCauses = layout
+      ? getSevaOptions(layout.data).map((item) => item.id)
+      : [];
+    if (!allowedCauses.length) throw new Error("No configured causes");
+  } catch {
+    return Response.json(
+      {
+        error:
+          "Donation options are currently unavailable. Please try again later.",
+      },
+      { status: 503 },
+    );
+  }
   let data;
   try {
     const raw = await request.text();
     if (raw.length > 8000)
       return Response.json({ error: "Request too large." }, { status: 413 });
-    data = validateDonation(JSON.parse(raw));
+    data = validateDonation(JSON.parse(raw), allowedCauses);
   } catch (error) {
     return Response.json(
       {
@@ -59,13 +77,11 @@ export async function POST(request: Request) {
         .onConflictDoNothing({ target: donations.requestId })
         .returning({ id: donations.id });
       if (row)
-        await tx
-          .insert(activityLogs)
-          .values({
-            actor: "Website",
-            action: "Donation pledge received",
-            recordId: row.id,
-          });
+        await tx.insert(activityLogs).values({
+          actor: "Website",
+          action: "Donation pledge received",
+          recordId: row.id,
+        });
     });
     return Response.json({ ok: true });
   } catch {

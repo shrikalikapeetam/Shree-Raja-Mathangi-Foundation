@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { validateDonation } from '../src/lib/donations.ts';
+import { validateDonation as validate } from '../src/lib/donations.ts';
+const validateDonation = body => validate(body, ['go-samrakshnam', 'vedic-education', 'temple-management']);
 const valid = { requestId: '67ab25b3-f421-4548-af01-92bbbc9e441c', cause: 'vedic-education', amount: 110000, name: 'Test Donor', email: 'donor@example.com', phone: '+91 98765 43210', pan: '' };
 test('normalizes a valid pledge and preserves money in integer paise', () => {
  const result=validateDonation({...valid,email:' DONOR@example.com ',pan:'abcde1234f'});
@@ -13,3 +14,8 @@ test('rejects unsupported causes, malformed PAN and invalid donor data',()=>{
  for(const change of [{cause:'unknown'},{name:'x'},{email:'invalid'},{phone:'abc'},{pan:'123'},{requestId:'invalid'},{email:'x'.repeat(260)+'@example.com'}])assert.throws(()=>validateDonation({...valid,...change}));
 });
 test('rejects non-object request bodies',()=>{for(const input of [null,[],true,'text'])assert.throws(()=>validateDonation(input));});
+test('accepts CMS-defined seva IDs and rejects removed causes', () => {
+ assert.equal(validate({...valid,cause:'community-seva'},['community-seva']).cause,'community-seva');
+ assert.throws(()=>validate(valid,['community-seva']));
+ assert.throws(()=>validate(valid,[]));
+});

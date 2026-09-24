@@ -5,7 +5,8 @@ import { getDb } from "@/db";
 import { donations } from "@/db/schema";
 import { requireAdmin } from "@/lib/admin";
 import { decryptPan } from "@/lib/private-data";
-import { causes } from "@/lib/donations";
+import { getLayout } from "@/prismicio";
+import { getSevaOptions } from "@/lib/donation-content";
 import AdminStatusForm from "@/components/AdminStatusForm";
 export default async function DonationDetail({
   params,
@@ -13,6 +14,8 @@ export default async function DonationDetail({
   params: Promise<{ id: string }>;
 }) {
   await requireAdmin();
+  const layout = await getLayout();
+  const causes = layout ? getSevaOptions(layout.data) : [];
   const { id } = await params;
   if (!/^[0-9a-f-]{36}$/i.test(id)) notFound();
   const [row] = await getDb()
