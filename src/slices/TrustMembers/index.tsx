@@ -15,7 +15,7 @@ export default function TrustMembers({
       className="section-py overflow-hidden bg-legacy-surface text-foundation-ink"
     >
       <SectionOrnament kind="leaves" />
-      <div className="container text-center items-center sm:items-start sm:text-left gap-6 flex flex-col lg:flex-row sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10">
+      <div className="container text-center items-center sm:items-start sm:text-left gap-11 flex flex-col lg:flex-row sm:gap-12 md:gap-14 lg:gap-16 xl:gap-20">
         <header
           data-reveal="left"
           className="flex max-w-md items-center sm:items-start  flex-col gap-4"
