@@ -42,7 +42,7 @@ export default function TrustMembers({
 
         <ul
           data-stagger
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 m-0 p-0 gap-10"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 m-0 p-0 gap-6 sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10"
         >
           {slice.primary.members.map((member, index) => (
             <li key={index} className="slice-person flex items-center">
