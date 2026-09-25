@@ -16,7 +16,10 @@ export default function TrustMembers({
     >
       <SectionOrnament kind="leaves" />
       <div className="container text-center items-center sm:items-start sm:text-left gap-6 flex flex-col lg:flex-row sm:gap-7 md:gap-8 lg:gap-9 xl:gap-10">
-        <header data-reveal="left" className="flex max-w-xs items-center sm:items-start  flex-col gap-4">
+        <header
+          data-reveal="left"
+          className="flex max-w-md items-center sm:items-start  flex-col gap-4"
+        >
           {isFilled.keyText(slice.primary.pre_title) && (
             <span className="text-base w-fit font-semibold text-foundation-ink bg-yellow-100/60 shadow shadow-amber-50 border border-orange-200 rounded-4xl px-4 py-1">
               {slice.primary.pre_title}
@@ -37,12 +40,16 @@ export default function TrustMembers({
           )}
         </header>
 
-        <ul data-stagger className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 m-0 p-0 gap-10">
+        <ul
+          data-stagger
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 m-0 p-0 gap-10"
+        >
           {slice.primary.members.map((member, index) => (
             <li key={index} className="slice-person flex items-center">
               <div className="flex items-center flex-col sm:flex-row gap-4 flex-1">
                 {isFilled.image(member.profile_image) && (
-                  <PrismicNextImage fallbackAlt=""
+                  <PrismicNextImage
+                    fallbackAlt=""
                     field={member.profile_image}
                     sizes="(min-width: 1280px) 150px, (min-width: 640px) 120px, 88px"
                     imgixParams={{ fit: "crop", ar: "1:1", q: 70 }}
